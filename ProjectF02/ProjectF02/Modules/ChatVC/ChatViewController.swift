@@ -2,7 +2,7 @@
 //  ChatViewController.swift
 //  ProjectF02
 //
-//  Created by MinhGiang on 9/20/18.
+//  Created by MinhGiang95 on 9/20/18.
 //  Copyright © 2018 VTCA. All rights reserved.
 //
 
