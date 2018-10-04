@@ -24,7 +24,7 @@ class ViewController: BaseViewController, GIDSignInUIDelegate {
     var sendUID: ((_ uID: String) -> ())?
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad() 
         GIDSignIn.sharedInstance().delegate = self
         configureButtonLogin(button: buttonLogin)
         configureButtonLogin(button: buttonGoogleLogin)
