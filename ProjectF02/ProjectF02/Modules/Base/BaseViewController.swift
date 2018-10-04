@@ -11,7 +11,7 @@ import UIKit
 class BaseViewController: UIViewController {
     
     init() {
-        super.init(nibName: String(describing: type(of: self)), bundle: nil)
+        super.init(nibName: String(describing: type(of: self)), bundle: nil) 
     }
     
     required init?(coder aDecoder: NSCoder) {
