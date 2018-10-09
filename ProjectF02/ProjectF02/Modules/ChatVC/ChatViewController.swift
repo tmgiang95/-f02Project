@@ -24,8 +24,8 @@ class ChatViewController: BaseViewController {
     private var curUser : User?
     override func viewDidLoad() {
         super.viewDidLoad()
-        messTableView.registerCells(ChatTableViewCell1.className)
-        messTableView.registerCells(ChatTableViewCell2.className)
+        messTableView.registerCell(ChatTableViewCell1.className)
+        messTableView.registerCell(ChatTableViewCell2.className)
         messTableView.delegate = self
         messTableView.dataSource = self
         

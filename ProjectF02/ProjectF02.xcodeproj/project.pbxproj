@@ -32,16 +32,8 @@
 		9D17FC8021512E7A00070198 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D17FC6D21512E7A00070198 /* AppDelegate.swift */; };
 		9D17FC8121512E7A00070198 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D17FC6F21512E7A00070198 /* ViewController.swift */; };
 		A42CFD6721411A35007B7212 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42CFD6521411A35007B7212 /* BaseViewController.swift */; };
-
-		CE06671E21664EA3008BE0AC /* MyProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE06671C21664EA2008BE0AC /* MyProfileViewController.xib */; };
-		CE06671F21664EA3008BE0AC /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06671D21664EA3008BE0AC /* MyProfileViewController.swift */; };
-		CE06672521664ED4008BE0AC /* AvatarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06672121664ED3008BE0AC /* AvatarTableViewCell.swift */; };
-		CE06672621664ED4008BE0AC /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE06672221664ED3008BE0AC /* PostTableViewCell.swift */; };
-		CE06672721664ED4008BE0AC /* AvatarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE06672321664ED4008BE0AC /* AvatarTableViewCell.xib */; };
-		CE06672821664ED4008BE0AC /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE06672421664ED4008BE0AC /* PostTableViewCell.xib */; };
 		A489B280216B7C990085B9FB /* HomeScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A489B27E216B7C990085B9FB /* HomeScreenVC.swift */; };
 		A489B281216B7C990085B9FB /* HomeScreenVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A489B27F216B7C990085B9FB /* HomeScreenVC.xib */; };
-
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,12 +68,6 @@
 		A489B27E216B7C990085B9FB /* HomeScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenVC.swift; sourceTree = "<group>"; };
 		A489B27F216B7C990085B9FB /* HomeScreenVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeScreenVC.xib; sourceTree = "<group>"; };
 		ABEDD44C6AD4C5A82FBEEF82 /* Pods_ProjectF02.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProjectF02.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CE06671C21664EA2008BE0AC /* MyProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyProfileViewController.xib; sourceTree = "<group>"; };
-		CE06671D21664EA3008BE0AC /* MyProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
-		CE06672121664ED3008BE0AC /* AvatarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarTableViewCell.swift; sourceTree = "<group>"; };
-		CE06672221664ED3008BE0AC /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
-		CE06672321664ED4008BE0AC /* AvatarTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AvatarTableViewCell.xib; sourceTree = "<group>"; };
-		CE06672421664ED4008BE0AC /* PostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,7 +231,6 @@
 			children = (
 				A489B27D216B7C610085B9FB /* ChatHomeScreen */,
 				9D17FC8521512FBD00070198 /* Base */,
-				CE06671B21664E7C008BE0AC /* MyProfileVC */,
 				9D17FC6E21512E7A00070198 /* LoginScreen */,
 				9D17FC6221512E7A00070198 /* RegisterVC */,
 				84E5A769215132EF0096E819 /* ChatVC */,
@@ -261,26 +246,6 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
-
-		CE06671B21664E7C008BE0AC /* MyProfileVC */ = {
-			isa = PBXGroup;
-			children = (
-				CE06671D21664EA3008BE0AC /* MyProfileViewController.swift */,
-				CE06671C21664EA2008BE0AC /* MyProfileViewController.xib */,
-				CE06672021664EAC008BE0AC /* ProfileCell */,
-			);
-			path = MyProfileVC;
-			sourceTree = "<group>";
-		};
-		CE06672021664EAC008BE0AC /* ProfileCell */ = {
-			isa = PBXGroup;
-			children = (
-				CE06672121664ED3008BE0AC /* AvatarTableViewCell.swift */,
-				CE06672321664ED4008BE0AC /* AvatarTableViewCell.xib */,
-				CE06672221664ED3008BE0AC /* PostTableViewCell.swift */,
-				CE06672421664ED4008BE0AC /* PostTableViewCell.xib */,
-			);
-			path = ProfileCell;
 		A489B27D216B7C610085B9FB /* ChatHomeScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -288,7 +253,6 @@
 				A489B27F216B7C990085B9FB /* HomeScreenVC.xib */,
 			);
 			path = ChatHomeScreen;
-
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -358,13 +322,10 @@
 				9D17FC7621512E7A00070198 /* CountryListTableViewCell.xib in Resources */,
 				9D17FC7821512E7A00070198 /* Assets.xcassets in Resources */,
 				9D17FC7B21512E7A00070198 /* GoogleService-Info.plist in Resources */,
-				CE06671E21664EA3008BE0AC /* MyProfileViewController.xib in Resources */,
 				9D17FC7C21512E7A00070198 /* LaunchScreen.storyboard in Resources */,
 				A489B281216B7C990085B9FB /* HomeScreenVC.xib in Resources */,
 				84EE45012157AA5E00AA2716 /* ChatTableViewCell2.xib in Resources */,
-				CE06672721664ED4008BE0AC /* AvatarTableViewCell.xib in Resources */,
 				9D17FC7421512E7A00070198 /* CountryListViewController.xib in Resources */,
-				CE06672821664ED4008BE0AC /* PostTableViewCell.xib in Resources */,
 				84E5A7732153C34B0096E819 /* ChatViewController.xib in Resources */,
 				9D17FC7921512E7A00070198 /* RegisterViewController.xib in Resources */,
 			);
@@ -484,8 +445,6 @@
 			files = (
 				9D0583F8216646D2008B55E5 /* User.swift in Sources */,
 				A42CFD6721411A35007B7212 /* BaseViewController.swift in Sources */,
-				CE06671F21664EA3008BE0AC /* MyProfileViewController.swift in Sources */,
-				CE06672521664ED4008BE0AC /* AvatarTableViewCell.swift in Sources */,
 				84EE44FC2157AA4A00AA2716 /* ChatTableViewCell1.swift in Sources */,
 				9D17FC7721512E7A00070198 /* CountryListViewController.swift in Sources */,
 				9D17FC7A21512E7A00070198 /* RegisterViewController.swift in Sources */,
@@ -493,7 +452,6 @@
 				9D17FC7521512E7A00070198 /* CountryListTableViewCell.swift in Sources */,
 				84EE45042157E43F00AA2716 /* Message.swift in Sources */,
 				9D17FC7221512E7A00070198 /* Extension.swift in Sources */,
-				CE06672621664ED4008BE0AC /* PostTableViewCell.swift in Sources */,
 				84EE45002157AA5E00AA2716 /* ChatTableViewCell2.swift in Sources */,
 				9D17FC8021512E7A00070198 /* AppDelegate.swift in Sources */,
 				A489B280216B7C990085B9FB /* HomeScreenVC.swift in Sources */,

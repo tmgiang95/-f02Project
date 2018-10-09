@@ -19,17 +19,7 @@ class User {
     var description: String?
     var friendList = [String]()
     var isAvailable: Bool = false
-//    init(_ UID: String?,_ firstName: String?,_ lastName: String?,_ birthday: String?,_ gender:Bool,_ avatar: String?,_ cover: String?,_ description: String?,_ friendList: [String] ) {
-//        self.UID = UID
-//        self.firstName = firstName
-//        self.lastName = lastName
-//        self.birthday = birthday
-//        self.gender = gender
-//        self.avatar = avatar
-//        self.cover = cover
-//        self.description = description
-//        self.friendList = friendList
-//    }
+    
     init(_ dict: [String:Any]) {
         if let uid = dict["uid"] as? String{
             self.UID = uid
