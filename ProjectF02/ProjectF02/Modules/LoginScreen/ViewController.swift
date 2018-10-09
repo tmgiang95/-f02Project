@@ -49,8 +49,6 @@ class ViewController: BaseViewController, GIDSignInUIDelegate {
     }
     
     @IBAction func signInAction(_ sender: Any) {
-        let chatVC = ChatViewController()
-        self.navigationController?.pushViewController(chatVC, animated: true)
         guard let email = username.text, let pass = password.text else {
             return
         }
@@ -62,14 +60,8 @@ class ViewController: BaseViewController, GIDSignInUIDelegate {
             guard let dt = data else {
                 return
             }
-            
-            print("Sign In Successful with UID: ",dt.user.uid)
-//            let chatVC = ChatViewController()
-//            self.navigationController?.pushViewController(chatVC, animated: true)
-//            let chatViewController = ChatViewController(nibName: "ChatViewController", bundle: nil)
-//            chatViewController.uID = dt.user.uid
-////            self.sendUID?(dt.user.uid)
-//            self.present(chatViewController, animated: true, completion: nil)
+            let user = self.getUserFromFirebase(dt.user.uid)
+           
             
         }
     }
@@ -78,7 +70,18 @@ class ViewController: BaseViewController, GIDSignInUIDelegate {
         let registerVC = RegisterViewController()
         navigationController?.pushViewController(registerVC, animated: true)
     }
-    
+    func getUserFromFirebase(_ uID: String) -> User {
+        var user =  User()
+        let ref = Database.database().reference().child("User").queryOrdered(byChild: "uID").queryEqual(toValue : uID)
+        ref.observe(.value, with:{ (snapshot: DataSnapshot) in
+            for snap in snapshot.children {
+                let u = (snap as! DataSnapshot).value as! [String: Any]
+                user = User(u)
+                print(user.lastName! + " " + user.firstName!)
+            }
+        })
+        return user
+    }
 }
 extension ViewController: GIDSignInDelegate {
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
@@ -100,9 +103,7 @@ extension ViewController: GIDSignInDelegate {
             guard let dt = data else {
                 return
             }
-            
-          
-            
+
             print("Sign In Successful with UID: ",dt.user.uid)
         }
         // ...

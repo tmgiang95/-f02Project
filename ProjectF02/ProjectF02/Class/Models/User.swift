@@ -20,8 +20,12 @@ class User {
     var friendList = [String]()
     var isAvailable: Bool = false
     
+    init (){
+        
+    }
+    
     init(_ dict: [String:Any]) {
-        if let uid = dict["uid"] as? String{
+        if let uid = dict["uID"] as? String{
             self.UID = uid
         }
         if let firstName = dict["firstName"] as? String {
