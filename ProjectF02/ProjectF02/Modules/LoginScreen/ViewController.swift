@@ -15,7 +15,6 @@ import FirebaseAuth
 class ViewController: BaseViewController, GIDSignInUIDelegate {
     
     @IBOutlet weak var anotherSignInView: UIView!
-    
     @IBOutlet weak var buttonGoogleLogin: UIButton!
     @IBOutlet weak var buttonLogin: UIButton!
     @IBOutlet weak var username: UITextField!
@@ -44,13 +43,14 @@ class ViewController: BaseViewController, GIDSignInUIDelegate {
         button.layer.addSublayer(gradient)
     }
     
+    
     @IBAction func signInWithGoogleAction(_ sender: Any) {
         GIDSignIn.sharedInstance().signIn()
     }
     
     @IBAction func signInAction(_ sender: Any) {
-        let chatVC = ChatViewController()
-        self.navigationController?.pushViewController(chatVC, animated: true)
+//        let chatVC = ChatViewController()
+//        self.navigationController?.pushViewController(chatVC, animated: true)
         guard let email = username.text, let pass = password.text else {
             return
         }
@@ -70,8 +70,14 @@ class ViewController: BaseViewController, GIDSignInUIDelegate {
 //            chatViewController.uID = dt.user.uid
 ////            self.sendUID?(dt.user.uid)
 //            self.present(chatViewController, animated: true, completion: nil)
-            
+            let myprofile = MyProfileViewController(nibName: "MyProfileViewController", bundle:nil)
+            self.navigationController?.pushViewController(myprofile, animated: true)
         }
+    }
+    
+    func getUserFromFireBase() -> User {
+        var user: User
+        
     }
     
     @IBAction func signupBtnAction(_ sender: Any) {

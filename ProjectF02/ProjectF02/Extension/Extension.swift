@@ -16,7 +16,7 @@ extension NSObject {
 }
 extension UITableView {
     
-    func registerCell(_ cellIDs: String...) {
+    func registerCells(_ cellIDs: String...) {
         
         cellIDs.forEach { (cellID) in
             self.register(UINib(nibName: cellID, bundle: nil), forCellReuseIdentifier: cellID)
