@@ -67,6 +67,11 @@ class ViewController: BaseViewController, GIDSignInUIDelegate {
         }
     }
     
+    func getUserFromFireBase() -> User {
+        var user: User
+        
+    }
+    
     @IBAction func signupBtnAction(_ sender: Any) {
         let registerVC = RegisterViewController()
         navigationController?.pushViewController(registerVC, animated: true)
