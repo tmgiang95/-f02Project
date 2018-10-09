@@ -15,7 +15,6 @@ import FirebaseAuth
 class ViewController: BaseViewController, GIDSignInUIDelegate {
     
     @IBOutlet weak var anotherSignInView: UIView!
-    
     @IBOutlet weak var buttonGoogleLogin: UIButton!
     @IBOutlet weak var buttonLogin: UIButton!
     @IBOutlet weak var username: UITextField!
@@ -44,12 +43,12 @@ class ViewController: BaseViewController, GIDSignInUIDelegate {
         button.layer.addSublayer(gradient)
     }
     
+    
     @IBAction func signInWithGoogleAction(_ sender: Any) {
         GIDSignIn.sharedInstance().signIn()
     }
     
     @IBAction func signInAction(_ sender: Any) {
-        
         guard let email = username.text, let pass = password.text else {
             return
         }
@@ -61,9 +60,16 @@ class ViewController: BaseViewController, GIDSignInUIDelegate {
             guard let dt = data else {
                 return
             }
+
             let user = self.getUserFromFireBase(dt.user.uid)
             print("Sign In Successful with Name: ",user.firstName! + user.lastName!)            
+
         }
+    }
+    
+    func getUserFromFireBase() -> User {
+        var user: User
+        
     }
     
     @IBAction func signupBtnAction(_ sender: Any) {
