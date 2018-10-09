@@ -153,6 +153,7 @@ PODS:
 DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
+  - Firebase/Storage
   - FirebaseUI
   - FirebaseUI/Auth
   - FirebaseUI/Google
@@ -220,6 +221,6 @@ SPEC CHECKSUMS:
   TwitterCore: 644d59e75abccb26cf0a9050d2c4dea0e5412241
   TwitterKit: a2e60ddcedbf54091eac6f27685ca7a87681e1d7
 
-PODFILE CHECKSUM: 413bc3574e4f44a356af77618cfbc8d9ae8bdc25
+PODFILE CHECKSUM: e7d51ff6fa31ed871fc0d53386f7362d7c6f0f48
 
 COCOAPODS: 1.5.3
