@@ -21,7 +21,8 @@ class ChatViewController: BaseViewController {
     
     private var ref: DatabaseReference!
     private var refChat : DatabaseHandle!
-    private var curUser : User?
+    private var curUser = Auth.auth().currentUser
+    private var uID : String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         messTableView.registerCell(ChatTableViewCell1.className)
@@ -29,22 +30,46 @@ class ChatViewController: BaseViewController {
         messTableView.delegate = self
         messTableView.dataSource = self
         
-       //  navigationController?.popViewController(animated: true)
-//        guard let curUser = Auth.auth().currentUser else {
-//            return ""
-//        }
-        
-        //ref.observeSingleEvent(of: .childAdded, with: { (snapshot) in
-        //        let id = snapshot.value as? String
-        //        let uIDs = snapshot.value as? [String : Any]
+      
+       // let curUser = Auth.auth().currentUser
+        if curUser != nil {
+            uID = (curUser?.uid)!
+        }
+       
+//        ref.observeSingleEvent(of: .childAdded, with: { (snapshot) in
+//                let id = snapshot.value as? String
+//                let uIDs = snapshot.value as? [String : Any]
         //
        getMessagesData ()
         
     }
     @IBAction func sendMessAction(_ sender: Any) {
-    //    let message = Message(content: messTF.text, isNew: 0, status: 0, time: NSDate(), uID: <#T##String#>)
-            
+//        let content = messTF.text
+//        let isNew = "0"
+//        let status = "0"
+//        let time = "12345"
+//        let uID = self.uID
+        messages.removeAll()
+        guard let content = messTF.text ,
+              let date = Date().toMillis()
+        else {
+            return
+        }
         
+    
+        let message = [
+            "content" : content ,
+            "isNew" : 0,
+            "status" : 0,
+            "time" : date,
+            "uID" : uID
+            ] as [String : Any]
+//        let artist = ["id":key,
+//                      "artistName": textFieldName.text! as String,
+//                      "artistGenre": textFieldGenre.text! as String
+//        ]
+       // let message = Message(content: messTF.text!, isNew: 0, status: 0, time: 1234567, uID: uID)
+        sendMessagesData(message: message, date: date)
     }
     func getMessagesData (){
         self.ref = Database.database().reference()
@@ -55,9 +80,9 @@ class ChatViewController: BaseViewController {
                 return
             }
             dict.keys.forEach({ (key: String) in
-                if let messageDict = dict[key] as? [String: Any] {
+                    if let messageDict = dict[key] as? [String: Any] {
                     let message = Message(dict: messageDict)
-                    print(message)
+                   // print(message)
                     self.messages.append(message)
                     self.messTableView.reloadData()
                 }
@@ -65,12 +90,12 @@ class ChatViewController: BaseViewController {
         })
     }
     
-    func sendMessagesData() {
-        self.ref = Database.database().reference()
-        let a =  ref.child("Chat").child("0").child("messages")
-//        messages.forEach { (<#Message#>) in
-//            <#code#>
-//        }
+    func sendMessagesData(message : [String : Any] , date : Int64) {
+     self.ref = Database.database().reference()
+       
+        let messagesFB =  ref.child("Chat").child("0").child("messages")
+         let key = String(date)
+        messagesFB.child(key).setValue(message)
         
     }
     
@@ -113,6 +138,12 @@ extension ChatViewController: UITableViewDataSource {
             cell.fillData(message)
             return cell
         }
+    }
+}
+
+extension Date {
+    func toMillis() -> Int64! {
+        return Int64(self.timeIntervalSince1970 * 1000)
     }
 }
 
