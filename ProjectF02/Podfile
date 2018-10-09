@@ -8,10 +8,11 @@ pod 'FirebaseUI'
 pod 'FirebaseUI/Auth'
 pod 'FirebaseUI/Google'
 pod 'FirebaseUI/Phone'
-pod 'IQKeyboardManagerSwift'
-pod 'Firebase/Storage'
 pod 'Firebase/Core'
 pod 'Firebase/Database'
+pod 'IQKeyboardManagerSwift'
+pod 'Firebase/Storage'
+pod 'JSQMessagesViewController'
   # Pods for ProjectF02
 
 end

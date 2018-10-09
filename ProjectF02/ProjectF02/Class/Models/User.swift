@@ -59,6 +59,4 @@ class User {
             self.isAvailable = isAvailable == 1 ? false : true
         }
     }
-    init() {
-    }
 }
