@@ -38,6 +38,7 @@
 		A43A2745216CD85600308BCA /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A43A273F216CD85600308BCA /* PostTableViewCell.xib */; };
 		A43A2746216CD85600308BCA /* AvatarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43A2740216CD85600308BCA /* AvatarTableViewCell.swift */; };
 		A43A2747216CD85600308BCA /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43A2741216CD85600308BCA /* MyProfileViewController.swift */; };
+		A43A2749216F75F300308BCA /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43A2748216F75F300308BCA /* Post.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +76,7 @@
 		A43A273F216CD85600308BCA /* PostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
 		A43A2740216CD85600308BCA /* AvatarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarTableViewCell.swift; sourceTree = "<group>"; };
 		A43A2741216CD85600308BCA /* MyProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
+		A43A2748216F75F300308BCA /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		ABEDD44C6AD4C5A82FBEEF82 /* Pods_ProjectF02.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProjectF02.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				9D0583F7216646D2008B55E5 /* User.swift */,
+				A43A2748216F75F300308BCA /* Post.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -469,6 +472,7 @@
 				A42CFD6721411A35007B7212 /* BaseViewController.swift in Sources */,
 				84EE44FC2157AA4A00AA2716 /* ChatTableViewCell1.swift in Sources */,
 				A43A2746216CD85600308BCA /* AvatarTableViewCell.swift in Sources */,
+				A43A2749216F75F300308BCA /* Post.swift in Sources */,
 				9D17FC7721512E7A00070198 /* CountryListViewController.swift in Sources */,
 				9D17FC7A21512E7A00070198 /* RegisterViewController.swift in Sources */,
 				9D17FC8121512E7A00070198 /* ViewController.swift in Sources */,
