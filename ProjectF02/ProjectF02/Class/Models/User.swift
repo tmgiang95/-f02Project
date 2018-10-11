@@ -9,7 +9,7 @@
 import Foundation
 
 class User {
-    var UID: String?
+    var uID: String?
     var firstName: String?
     var lastName: String?
     var birthday: String?
@@ -26,7 +26,7 @@ class User {
     
     init(_ dict: [String:Any]) {
         if let uid = dict["uID"] as? String{
-            self.UID = uid
+            self.uID = uid
         }
         if let firstName = dict["firstName"] as? String {
             self.firstName = firstName
