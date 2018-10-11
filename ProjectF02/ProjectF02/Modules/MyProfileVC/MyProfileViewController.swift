@@ -24,7 +24,7 @@ class MyProfileViewController: UIViewController {
     func configureTableview() {
         ProfileTableview.dataSource = self
         ProfileTableview.delegate = self
-        ProfileTableview.registerCells(AvatarTableViewCell.className,PostTableViewCell.className)
+        ProfileTableview.registerCell(AvatarTableViewCell.className,PostTableViewCell.className)
     }
     
 }
@@ -40,7 +40,7 @@ extension MyProfileViewController: UITableViewDataSource {
 //    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1.0
+        return 1
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

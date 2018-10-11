@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00020951216E51AA0097275C /* UploadImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0002094F216E51AA0097275C /* UploadImageViewController.swift */; };
+		00020952216E51AA0097275C /* UploadImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00020950216E51AA0097275C /* UploadImageViewController.xib */; };
 		82B0D0371C8B9197202C74CF /* Pods_ProjectF02.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABEDD44C6AD4C5A82FBEEF82 /* Pods_ProjectF02.framework */; };
 		84E5A7722153C34B0096E819 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E5A7702153C34B0096E819 /* ChatViewController.swift */; };
 		84E5A7732153C34B0096E819 /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E5A7712153C34B0096E819 /* ChatViewController.xib */; };
@@ -41,6 +43,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0002094F216E51AA0097275C /* UploadImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageViewController.swift; sourceTree = "<group>"; };
+		00020950216E51AA0097275C /* UploadImageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UploadImageViewController.xib; sourceTree = "<group>"; };
 		18616D9E2135789700024C02 /* ProjectF02.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectF02.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A885879FF53B3AD1F76B063 /* Pods-ProjectF02.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectF02.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ProjectF02/Pods-ProjectF02.debug.xcconfig"; sourceTree = "<group>"; };
 		84E5A7702153C34B0096E819 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +94,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0002094E216E514B0097275C /* Modun */ = {
+			isa = PBXGroup;
+			children = (
+				0002094F216E51AA0097275C /* UploadImageViewController.swift */,
+				00020950216E51AA0097275C /* UploadImageViewController.xib */,
+			);
+			path = Modun;
+			sourceTree = "<group>";
+		};
 		18616D952135789700024C02 = {
 			isa = PBXGroup;
 			children = (
@@ -237,6 +250,7 @@
 		9D17FC8421512FB000070198 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				0002094E216E514B0097275C /* Modun */,
 				A43A273A216CD85600308BCA /* MyProfileVC */,
 				9D17FC8521512FBD00070198 /* Base */,
 				9D17FC6E21512E7A00070198 /* LoginScreen */,
@@ -340,6 +354,7 @@
 				9D17FC7E21512E7A00070198 /* CountryList.json in Resources */,
 				9D17FC7D21512E7A00070198 /* Main.storyboard in Resources */,
 				9D17FC7621512E7A00070198 /* CountryListTableViewCell.xib in Resources */,
+				00020952216E51AA0097275C /* UploadImageViewController.xib in Resources */,
 				9D17FC7821512E7A00070198 /* Assets.xcassets in Resources */,
 				9D17FC7B21512E7A00070198 /* GoogleService-Info.plist in Resources */,
 				A43A2742216CD85600308BCA /* MyProfileViewController.xib in Resources */,
@@ -475,6 +490,7 @@
 				9D17FC7521512E7A00070198 /* CountryListTableViewCell.swift in Sources */,
 				A43A2744216CD85600308BCA /* PostTableViewCell.swift in Sources */,
 				84EE45042157E43F00AA2716 /* Message.swift in Sources */,
+				00020951216E51AA0097275C /* UploadImageViewController.swift in Sources */,
 				9D17FC7221512E7A00070198 /* Extension.swift in Sources */,
 				84EE45002157AA5E00AA2716 /* ChatTableViewCell2.swift in Sources */,
 				9D17FC8021512E7A00070198 /* AppDelegate.swift in Sources */,

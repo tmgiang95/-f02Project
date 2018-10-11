@@ -20,7 +20,7 @@ class ViewController: BaseViewController, GIDSignInUIDelegate {
     @IBOutlet weak var buttonLogin: UIButton!
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
-    
+
     var sendUID: ((_ uID: String) -> ())?
     
     override func viewDidLoad() {
@@ -49,7 +49,7 @@ class ViewController: BaseViewController, GIDSignInUIDelegate {
     }
     
     @IBAction func signInAction(_ sender: Any) {
-        let chatVC = ChatViewController()
+        let chatVC = MyProfileViewController()
         self.navigationController?.pushViewController(chatVC, animated: true)
         guard let email = username.text, let pass = password.text else {
             return
