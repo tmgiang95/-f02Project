@@ -137,7 +137,7 @@ final class RegisterViewController: BaseViewController {
             userInfo.cover = ""
             userInfo.description = ""
             userInfo.friendList = [String: Any]()
-            self.dataRef.child("User").setValue(userInfo.toDict())
+        self.dataRef.child("User").child(user.uid).setValue(userInfo.toDict())
         }
     }
     
@@ -165,10 +165,6 @@ final class RegisterViewController: BaseViewController {
 }
 
 extension Date {
-    func getDateAfter(_ value : Int, _ component : Calendar.Component) -> Date? {
-        return Calendar.current.date(byAdding: component, value: value, to: self)
-    }
-    
     func getDateString() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMM dd, YYYY"
