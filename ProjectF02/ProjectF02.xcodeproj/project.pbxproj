@@ -31,6 +31,8 @@
 		9D17FC7E21512E7A00070198 /* CountryList.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D17FC6A21512E7A00070198 /* CountryList.json */; };
 		9D17FC8021512E7A00070198 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D17FC6D21512E7A00070198 /* AppDelegate.swift */; };
 		9D17FC8121512E7A00070198 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D17FC6F21512E7A00070198 /* ViewController.swift */; };
+		9D948C24216F80C9008D63B5 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D948C22216F80C9008D63B5 /* DatePickerViewController.swift */; };
+		9D948C25216F80C9008D63B5 /* DatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D948C23216F80C9008D63B5 /* DatePickerViewController.xib */; };
 		A42CFD6721411A35007B7212 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42CFD6521411A35007B7212 /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +64,8 @@
 		9D17FC6D21512E7A00070198 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D17FC6F21512E7A00070198 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9D17FC7021512E7A00070198 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9D948C22216F80C9008D63B5 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		9D948C23216F80C9008D63B5 /* DatePickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatePickerViewController.xib; sourceTree = "<group>"; };
 		A42CFD6521411A35007B7212 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		ABEDD44C6AD4C5A82FBEEF82 /* Pods_ProjectF02.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProjectF02.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -191,6 +195,8 @@
 				9D17FC6321512E7A00070198 /* RegisterViewController.xib */,
 				9D17FC6421512E7A00070198 /* RegisterViewController.swift */,
 				9D17FC5B21512E7A00070198 /* CountryList VC */,
+				9D948C22216F80C9008D63B5 /* DatePickerViewController.swift */,
+				9D948C23216F80C9008D63B5 /* DatePickerViewController.xib */,
 			);
 			path = RegisterVC;
 			sourceTree = "<group>";
@@ -302,6 +308,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D948C25216F80C9008D63B5 /* DatePickerViewController.xib in Resources */,
 				84EE44FD2157AA4A00AA2716 /* ChatTableViewCell1.xib in Resources */,
 				9D17FC7E21512E7A00070198 /* CountryList.json in Resources */,
 				9D17FC7D21512E7A00070198 /* Main.storyboard in Resources */,
@@ -430,6 +437,7 @@
 			files = (
 				9D0583F8216646D2008B55E5 /* User.swift in Sources */,
 				A42CFD6721411A35007B7212 /* BaseViewController.swift in Sources */,
+				9D948C24216F80C9008D63B5 /* DatePickerViewController.swift in Sources */,
 				84EE44FC2157AA4A00AA2716 /* ChatTableViewCell1.swift in Sources */,
 				9D17FC7721512E7A00070198 /* CountryListViewController.swift in Sources */,
 				9D17FC7A21512E7A00070198 /* RegisterViewController.swift in Sources */,
