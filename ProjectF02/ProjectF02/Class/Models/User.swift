@@ -21,6 +21,9 @@ class User {
     var isAvailable: Bool = false
     var phone: String = ""
     
+    init() {
+    }
+    
     init(_ dict: [String:Any]) {
         if let uid = dict["uid"] as? String{
             self.uID = uid
