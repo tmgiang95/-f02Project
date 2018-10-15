@@ -9,7 +9,7 @@
 import Foundation
 
 class User {
-    var uID: String? = ""
+    var uid: String? = ""
     var firstName: String? = ""
     var lastName: String? = ""
     var birthday: Double? = 0.0
@@ -26,7 +26,7 @@ class User {
     
     init(_ dict: [String:Any]) {
         if let uid = dict["uid"] as? String{
-            self.uID = uid
+            self.uid = uid
         }
         if let firstName = dict["firstName"] as? String {
             self.firstName = firstName
@@ -59,7 +59,7 @@ class User {
     
     func toDict() -> [String: Any]{
         var userDict = [String: Any]()
-        userDict["uid"] = self.uID
+        userDict["uid"] = self.uid
         userDict["firstName"] = self.firstName
         userDict["lastName"] = self.lastName
         userDict["gender"] = self.gender ? 0 : 1

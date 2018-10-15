@@ -121,7 +121,7 @@ final class RegisterViewController: BaseViewController {
             }
             print("\(user.uid) success")
             let userInfo = User([String: Any]())
-            userInfo.uID = user.uid
+            userInfo.uid = user.uid
             if let firstName = self.firstNameTextfield.text {
                 userInfo.firstName = firstName
             }

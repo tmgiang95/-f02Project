@@ -9,21 +9,31 @@
 import Foundation
 
 class Post {
-    var uID: String?
-    var postID: String?
+    var uid: String?
+    var postid: String?
     var imageLink: String?
     var contentText: String?
     var like = [String]()
-    var comment = [String]()
+    var comment = [Comment]()
     var time: Double?
     
+    init() {
+//        self.uid = "NKuA2ohRSRN7CmCl0RQ1DIQagpE2"
+//        self.postid = "postID2"
+//        self.contentText = "day la cai stt thu 2"
+//        self.like.append("NKuA2ohRSRN7CmCl0RQ1DIQagpE2")
+//        self.like.append("dNZVhNcTHaS8jhbRDt6UZBtOQ443")
+//        self.comment.append(Comment(uID: "dNZVhNcTHaS8jhbRDt6UZBtOQ443", content: "xam lz qua ban oi"))
+//        self.comment.append(Comment(uID: "NKuA2ohRSRN7CmCl0RQ1DIQagpE2", content: "cut me may ngay"))
+//        self.time = 1539612079
+    }
     
     init(_ dict: [String:Any]) {
         if let uid = dict["uID"] as? String{
-            self.uID = uid
+            self.uid = uid
         }
-        if let postID = dict["postID"] as? String {
-            self.postID = postID
+        if let postid = dict["postID"] as? String {
+            self.postid = postid
         }
         if let imageLink = dict["imageLink"] as? String {
             self.imageLink = imageLink
@@ -37,12 +47,34 @@ class Post {
             }).compactMap({$0})
         }
         if let comment = dict["comment"] as? [String:Any] {
-            self.comment = comment.values.map({ (value: Any) -> String? in
-                return value as? String
+            self.comment = comment.values.map({ (value: Any) -> Comment? in
+                return value as? Comment
             }).compactMap({$0})
         }
         if let time = dict["time"] as? Double {
             self.time = time
         }
+    }
+    
+    func toDict() -> [String: Any]{
+        var postDict = [String: Any]()
+        postDict["uid"] = self.uid
+        postDict["postid"] = self.postid
+        postDict["imageLink"] = self.imageLink
+        postDict["contentText"] = self.contentText
+        
+        var commentListToDict = [[String: Any]]()
+        comment.forEach { (value) in
+            commentListToDict.append(value.toDict())
+        }
+        var likeListToDict = [[String: Any]]()
+        like.forEach { (value) in
+            likeListToDict.append(["uid":value])
+        }
+        postDict["like"] = likeListToDict
+        postDict["comment"] = commentListToDict
+        postDict["time"] = self.time
+        
+        return postDict
     }
 }
