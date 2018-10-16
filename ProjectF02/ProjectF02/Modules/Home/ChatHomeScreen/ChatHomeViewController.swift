@@ -17,6 +17,8 @@ class ChatHomeViewController: BaseViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.navigationItem.title = "Message"
+        let chatVC = ChatViewController()
+        self.navigationController?.pushViewController(chatVC, animated: true)
     }
 
     /*

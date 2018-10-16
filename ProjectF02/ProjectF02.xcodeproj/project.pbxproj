@@ -146,7 +146,6 @@
 		84E5A769215132EF0096E819 /* ChatVC */ = {
 			isa = PBXGroup;
 			children = (
-				84EE45022157E42700AA2716 /* Model */,
 				84EE44F92157AA2400AA2716 /* Cell */,
 				84E5A7702153C34B0096E819 /* ChatViewController.swift */,
 				84E5A7712153C34B0096E819 /* ChatViewController.xib */,
@@ -165,17 +164,10 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		84EE45022157E42700AA2716 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				84EE45032157E43F00AA2716 /* Message.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		9D0583F6216646C0008B55E5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				84EE45032157E43F00AA2716 /* Message.swift */,
 				9D0583F7216646D2008B55E5 /* User.swift */,
 				A43A2748216F75F300308BCA /* Post.swift */,
 				A43A274A2174D4FA00308BCA /* Comment.swift */,

@@ -13,7 +13,7 @@ class Comment {
     var content: String
     
     init(uID: String, content: String) {
-        self.commentID = NSDate().timeIntervalSince1970
+        self.commentID = Date().toMillis()
         self.uid = uID
         self.content = content
     }
