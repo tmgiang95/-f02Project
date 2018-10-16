@@ -52,7 +52,6 @@ class ViewController: BaseViewController, GIDSignInUIDelegate {
         guard let email = username.text, let pass = password.text else {
             return
         }
-        Auth.auth().signIn(withEmail: email, password: pass) { (data, error) in
         Auth.auth().signIn(withEmail: email, password: pass) { [weak self] (data, error) in
             if let err = error {
                 print("Fail to Sign In with Google Account: ",err)
