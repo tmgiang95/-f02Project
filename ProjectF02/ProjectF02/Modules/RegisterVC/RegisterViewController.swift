@@ -29,9 +29,13 @@ final class RegisterViewController: BaseViewController {
     @IBOutlet weak var maleText: UILabel!
     @IBOutlet weak var countryView: UIView!
     @IBOutlet weak var dialCodeLabel: UILabel!
+    @IBOutlet weak var birthdayTextfield: UILabel!
     
     //MARK:- properties
     private var dataRef : DatabaseReference!
+    private var isFemale: Bool = true
+    private var birthday: Date = Date()
+    private var dialCode = ""
     
     //MARK:- lifecycle
     override func viewDidLoad() {
@@ -41,7 +45,11 @@ final class RegisterViewController: BaseViewController {
         let countryViewTap = UITapGestureRecognizer(target: self, action: #selector(handleCountryViewTap(sender:)))
         countryView.addGestureRecognizer(countryViewTap)
         
+        let birthdayViewTap = UITapGestureRecognizer(target: self, action: #selector(handleBirthdayViewTap(sender:)))
+        birthdayView.addGestureRecognizer(birthdayViewTap)
         dataRef = Database.database().reference()
+        
+        birthdayTextfield.text = Date().getDateString()
     }
     
     //MARK:- functions
@@ -50,9 +58,19 @@ final class RegisterViewController: BaseViewController {
         countryVC.codeSelected = { [weak self] (code: CountryDialCode) in
             self?.countryText.text = code.name_code
             self?.dialCodeLabel.text = code.dial_code
-            print(code.dial_code)
+            self?.dialCode = code.dial_code
         }
         navigationController?.pushViewController(countryVC, animated: true)
+    }
+    
+    @objc func handleBirthdayViewTap(sender: UITapGestureRecognizer? = nil){
+        let birthdayVC = DatePickerViewController()
+        birthdayVC.modalPresentationStyle = .overFullScreen
+        present(birthdayVC, animated: true, completion: nil)
+        birthdayVC.doneCallBack = { [weak self] (date) in
+            self?.birthdayTextfield.text = date.getDateString()
+        }
+        
     }
     
     private func configGenderView(){
@@ -102,15 +120,24 @@ final class RegisterViewController: BaseViewController {
                 return
             }
             print("\(user.uid) success")
-//            let userInfo = UserInfo()
-//            userInfo.UID = user.uid
-//            if let firstName = self.firstNameTextfield.text {
-//                userInfo.firstName = firstName
-//            }
-//            if let lastName = self.lastnameTextfield.text {
-//                userInfo.lastName = lastName
-//            }
-//            self.dataRef.child("users").setValue(userInfo)
+            let userInfo = User([String: Any]())
+            userInfo.uid = user.uid
+            if let firstName = self.firstNameTextfield.text {
+                userInfo.firstName = firstName
+            }
+            if let lastName = self.lastnameTextfield.text {
+                userInfo.lastName = lastName
+            }
+            if let phone = self.phoneTextfield.text {
+                userInfo.phone = "\(self.dialCode)\(phone)"
+            }
+            userInfo.birthday = self.birthday.timeIntervalSince1970
+            userInfo.gender = self.isFemale
+            userInfo.avatar = ""
+            userInfo.cover = ""
+            userInfo.description = ""
+            userInfo.friendList = [String: Any]()
+        self.dataRef.child("User").child(user.uid).setValue(userInfo.toDict())
         }
     }
     
@@ -134,5 +161,13 @@ final class RegisterViewController: BaseViewController {
             blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
             alpha: CGFloat(1.0)
         )
+    }
+}
+
+extension Date {
+    func getDateString() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM dd, YYYY"
+        return dateFormatter.string(from: self)
     }
 }

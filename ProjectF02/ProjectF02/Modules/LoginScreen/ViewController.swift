@@ -53,6 +53,7 @@ class ViewController: BaseViewController, GIDSignInUIDelegate {
             return
         }
         Auth.auth().signIn(withEmail: email, password: pass) { (data, error) in
+        Auth.auth().signIn(withEmail: email, password: pass) { [weak self] (data, error) in
             if let err = error {
                 print("Fail to Sign In with Google Account: ",err)
                 return
@@ -60,9 +61,16 @@ class ViewController: BaseViewController, GIDSignInUIDelegate {
             guard let dt = data else {
                 return
             }
-            let user = self.getUserFromFirebase(dt.user.uid)
-            let chatVC = ChatViewController()
-            self.navigationController?.pushViewController(chatVC, animated: true)
+
+//            let user = self.getUserFromFirebase(dt.user.uid)
+//            let chatVC = ChatViewController()
+//            self.navigationController?.pushViewController(chatVC, animated: true)
+
+            let user = self?.getUserFromFirebase(dt.user.uid)
+//            let p = Post()
+//            Database.database().reference().child("Post").child(String(Int(NSDate().timeIntervalSince1970))).setValue(p.toDict())
+            self?.navigationController?.pushViewController(HomeTabBarViewController(), animated: true)
+
             
         }
     }
@@ -96,7 +104,7 @@ extension ViewController: GIDSignInDelegate {
         guard let accessToken = user.authentication.accessToken else { return }
         let credential = GoogleAuthProvider.credential(withIDToken: idToken,
                                                        accessToken: accessToken)
-        Auth.auth().signInAndRetrieveData(with: credential) { (data, error) in
+        Auth.auth().signInAndRetrieveData(with: credential) {[weak self]  (data, error) in
             if let err = error {
                 print("Fail to Sign In with Google Account: ",err)
                 return
@@ -104,8 +112,10 @@ extension ViewController: GIDSignInDelegate {
             guard let dt = data else {
                 return
             }
-
-            print("Sign In Successful with UID: ",dt.user.uid)
+            let user = self?.getUserFromFirebase(dt.user.uid)
+            //            let p = Post()
+            //            Database.database().reference().child("Post").child(String(Int(NSDate().timeIntervalSince1970))).setValue(p.toDict())
+            self?.navigationController?.pushViewController(HomeTabBarViewController(), animated: true)
         }
         // ...
     }

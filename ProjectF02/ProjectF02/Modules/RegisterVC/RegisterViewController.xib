@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterViewController" customModule="ProjectF02" customModuleProvider="target">
             <connections>
+                <outlet property="birthdayTextfield" destination="huW-Ca-qF9" id="p2y-Ts-2eq"/>
                 <outlet property="birthdayView" destination="0hv-02-NQh" id="hxe-5I-5ay"/>
                 <outlet property="btnAlreadyAccount" destination="MyW-2d-qq7" id="WNR-Pc-fW5"/>
                 <outlet property="btnSignUp" destination="Y8x-ga-HZG" id="Ceh-8l-z5t"/>
@@ -358,7 +359,7 @@
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
             <constraints>
                 <constraint firstItem="MyW-2d-qq7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="1nR-Us-oFj"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Y8x-ga-HZG" secondAttribute="trailing" constant="16" id="2UA-oK-ibL"/>
