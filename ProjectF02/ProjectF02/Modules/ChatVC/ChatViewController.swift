@@ -15,8 +15,7 @@ class ChatViewController: BaseViewController {
     @IBOutlet weak var messTableView: UITableView!
     @IBOutlet weak var messTF: UITextField!
     
-    //    private var messSendArray = [Messages(content: "Hello")]
-    //    private var messReceiveArray = [Messages(content: "Hi")]
+   
     private var messages = [Message]()
     
     private var ref: DatabaseReference!
@@ -29,27 +28,16 @@ class ChatViewController: BaseViewController {
         messTableView.registerCell(ChatTableViewCell2.className)
         messTableView.delegate = self
         messTableView.dataSource = self
-        
-      
-       // let curUser = Auth.auth().currentUser
+     
         if curUser != nil {
             uID = (curUser?.uid)!
         }
        
-//        ref.observeSingleEvent(of: .childAdded, with: { (snapshot) in
-//                let id = snapshot.value as? String
-//                let uIDs = snapshot.value as? [String : Any]
-        //
        getMessagesData ()
         
     }
     @IBAction func sendMessAction(_ sender: Any) {
-//        let content = messTF.text
-//        let isNew = "0"
-//        let status = "0"
-//        let time = "12345"
-//        let uID = self.uID
-        messages.removeAll()
+
         guard let content = messTF.text ,
               let date = Date().toMillis()
         else {
@@ -64,30 +52,35 @@ class ChatViewController: BaseViewController {
             "time" : date,
             "uID" : uID
             ] as [String : Any]
-//        let artist = ["id":key,
-//                      "artistName": textFieldName.text! as String,
-//                      "artistGenre": textFieldGenre.text! as String
-//        ]
-       // let message = Message(content: messTF.text!, isNew: 0, status: 0, time: 1234567, uID: uID)
+        
         sendMessagesData(message: message, date: date)
     }
     func getMessagesData (){
         self.ref = Database.database().reference()
         let a =  ref.child("Chat").child("0").child("messages")
         
-        refChat = a.observe(.value, with: { (snapshot) in
-            guard let dict = snapshot.value as? [String: Any] else {
+        
+        refChat = a.observe(.value, with: { [weak self] (snapshot) in
+            guard let wSelf = self, let dict = snapshot.value as? [String: Any] else {
                 return
             }
-            dict.keys.forEach({ (key: String) in
-                    if let messageDict = dict[key] as? [String: Any] {
-                    let message = Message(dict: messageDict)
-                   // print(message)
-                    self.messages.append(message)
-                    self.messTableView.reloadData()
+            wSelf.messages = dict.keys.map({ (key: String) -> Message? in
+                guard let messageDict = dict[key] as? [String: Any] else {
+                    return nil
                 }
-            })
+                return Message(dict: messageDict)
+            }).compactMap({$0}).sorted(by: {$0.time < $1.time})
+            wSelf.messTableView.reloadData()
+            wSelf.messTF.text = nil
+            wSelf.messTF.resignFirstResponder()
+            guard !wSelf.messages.isEmpty else {
+                return
+            }
+            wSelf.messTableView.scrollToRow(at: IndexPath(row: wSelf.messages.count - 1, section: 0),
+                                            at: .bottom,
+                                            animated: true)
         })
+      
     }
     
     func sendMessagesData(message : [String : Any] , date : Int64) {
@@ -103,10 +96,10 @@ class ChatViewController: BaseViewController {
 // MARK: - UITableViewDelegate
 extension ChatViewController: UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        return UITableViewAutomaticDimension
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        
+//        return UITableViewAutomaticDimension
+//    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -119,6 +112,7 @@ extension ChatViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages.count
     }
+
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let message = messages[indexPath.row]

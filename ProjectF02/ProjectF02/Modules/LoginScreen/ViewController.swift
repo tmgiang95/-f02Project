@@ -61,7 +61,8 @@ class ViewController: BaseViewController, GIDSignInUIDelegate {
                 return
             }
             let user = self.getUserFromFirebase(dt.user.uid)
-           
+            let chatVC = ChatViewController()
+            self.navigationController?.pushViewController(chatVC, animated: true)
             
         }
     }
