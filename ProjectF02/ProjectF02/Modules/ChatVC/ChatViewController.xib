@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,10 +23,9 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ILJ-Vg-tIc">
-                    <rect key="frame" x="16" y="616" width="300" height="35"/>
+                    <rect key="frame" x="16" y="616" width="291" height="35"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="UQt-iD-HKi"/>
-                        <constraint firstAttribute="width" constant="300" id="aUh-8t-YHv"/>
                     </constraints>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -30,6 +33,10 @@
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rsl-ls-nSy">
                     <rect key="frame" x="323" y="621" width="36" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="1Kv-0y-X7N"/>
+                        <constraint firstAttribute="width" constant="36" id="484-d5-TJR"/>
+                    </constraints>
                     <state key="normal" title="Send"/>
                     <connections>
                         <action selector="sendMessAction:" destination="-1" eventType="touchUpInside" id="wDY-mW-FTj"/>
@@ -44,6 +51,7 @@
             <constraints>
                 <constraint firstItem="cH1-n1-6lP" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Jka-Sq-WnP"/>
                 <constraint firstItem="cH1-n1-6lP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="LAC-8P-5kO"/>
+                <constraint firstItem="Rsl-ls-nSy" firstAttribute="leading" secondItem="ILJ-Vg-tIc" secondAttribute="trailing" constant="16" id="Mhk-Ck-Iah"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ILJ-Vg-tIc" secondAttribute="bottom" constant="16" id="OXS-0k-asP"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Rsl-ls-nSy" secondAttribute="bottom" constant="16" id="TQq-jK-eYR"/>
                 <constraint firstItem="ILJ-Vg-tIc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="bNA-G1-YrM"/>

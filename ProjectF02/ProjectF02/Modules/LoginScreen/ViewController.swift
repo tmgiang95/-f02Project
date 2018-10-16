@@ -60,10 +60,14 @@ class ViewController: BaseViewController, GIDSignInUIDelegate {
             guard let dt = data else {
                 return
             }
+
+
+
             let user = self?.getUserFromFirebase(dt.user.uid)
 //            let p = Post()
 //            Database.database().reference().child("Post").child(String(Int(NSDate().timeIntervalSince1970))).setValue(p.toDict())
             self?.navigationController?.pushViewController(HomeTabBarViewController(), animated: true)
+
             
         }
     }

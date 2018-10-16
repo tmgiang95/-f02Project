@@ -13,10 +13,10 @@ final class Message {
     var content: String = ""
     var isNew : Int = 0
     var status : Int = 0
-    var time : Int = 0
+    var time : Int64 = 0
     var uID : String = ""
     
-    init(content: String , isNew : Int , status : Int , time : Int , uID : String) {
+    init(content: String , isNew : Int , status : Int , time : Int64 , uID : String) {
         self.content = content
         self.isNew = isNew
         self.status = status
@@ -34,7 +34,7 @@ final class Message {
         if let status = dict["status"] as? Int {
             self.status = status
         }
-        if let time = dict["time"] as? Int {
+        if let time = dict["time"] as? Int64 {
             self.time = time
         }
         if let uID = dict["uID"] as? String {
