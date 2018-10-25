@@ -23,16 +23,17 @@
 		9D17FC7621512E7A00070198 /* CountryListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D17FC5F21512E7A00070198 /* CountryListTableViewCell.xib */; };
 		9D17FC7721512E7A00070198 /* CountryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D17FC6021512E7A00070198 /* CountryListViewController.swift */; };
 		9D17FC7821512E7A00070198 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D17FC6121512E7A00070198 /* Assets.xcassets */; };
-		9D17FC7921512E7A00070198 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D17FC6321512E7A00070198 /* RegisterViewController.xib */; };
-		9D17FC7A21512E7A00070198 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D17FC6421512E7A00070198 /* RegisterViewController.swift */; };
 		9D17FC7B21512E7A00070198 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D17FC6521512E7A00070198 /* GoogleService-Info.plist */; };
 		9D17FC7C21512E7A00070198 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D17FC6621512E7A00070198 /* LaunchScreen.storyboard */; };
 		9D17FC7D21512E7A00070198 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D17FC6821512E7A00070198 /* Main.storyboard */; };
 		9D17FC7E21512E7A00070198 /* CountryList.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D17FC6A21512E7A00070198 /* CountryList.json */; };
 		9D17FC8021512E7A00070198 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D17FC6D21512E7A00070198 /* AppDelegate.swift */; };
 		9D17FC8121512E7A00070198 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D17FC6F21512E7A00070198 /* ViewController.swift */; };
-		9D948C24216F80C9008D63B5 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D948C22216F80C9008D63B5 /* DatePickerViewController.swift */; };
-		9D948C25216F80C9008D63B5 /* DatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D948C23216F80C9008D63B5 /* DatePickerViewController.xib */; };
+		9DFDA0992181F48700C3B5AA /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFDA0932181F48600C3B5AA /* RegisterViewController.swift */; };
+		9DFDA09B2181F48700C3B5AA /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = 9DFDA0952181F48600C3B5AA /* Contents.json */; };
+		9DFDA09C2181F48700C3B5AA /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DFDA0962181F48700C3B5AA /* RegisterViewController.xib */; };
+		9DFDA09F2181F5CE00C3B5AA /* DatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DFDA09D2181F5CD00C3B5AA /* DatePickerViewController.xib */; };
+		9DFDA0A02181F5CE00C3B5AA /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFDA09E2181F5CE00C3B5AA /* DatePickerViewController.swift */; };
 		A42CFD6721411A35007B7212 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42CFD6521411A35007B7212 /* BaseViewController.swift */; };
 		A4354343217F508600665276 /* HomeChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4354341217F508600665276 /* HomeChatCell.swift */; };
 		A4354344217F508600665276 /* HomeChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4354342217F508600665276 /* HomeChatCell.xib */; };
@@ -71,8 +72,6 @@
 		9D17FC5F21512E7A00070198 /* CountryListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountryListTableViewCell.xib; sourceTree = "<group>"; };
 		9D17FC6021512E7A00070198 /* CountryListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryListViewController.swift; sourceTree = "<group>"; };
 		9D17FC6121512E7A00070198 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		9D17FC6321512E7A00070198 /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
-		9D17FC6421512E7A00070198 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		9D17FC6521512E7A00070198 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9D17FC6721512E7A00070198 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9D17FC6921512E7A00070198 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -80,8 +79,11 @@
 		9D17FC6D21512E7A00070198 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D17FC6F21512E7A00070198 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9D17FC7021512E7A00070198 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9D948C22216F80C9008D63B5 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
-		9D948C23216F80C9008D63B5 /* DatePickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatePickerViewController.xib; sourceTree = "<group>"; };
+		9DFDA0932181F48600C3B5AA /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		9DFDA0952181F48600C3B5AA /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
+		9DFDA0962181F48700C3B5AA /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		9DFDA09D2181F5CD00C3B5AA /* DatePickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerViewController.xib; sourceTree = "<group>"; };
+		9DFDA09E2181F5CE00C3B5AA /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		A42CFD6521411A35007B7212 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		A4354341217F508600665276 /* HomeChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeChatCell.swift; path = ProjectF02/Modules/Home/ChatHomeScreen/cells/HomeChatCell.swift; sourceTree = "<group>"; };
 		A4354342217F508600665276 /* HomeChatCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = HomeChatCell.xib; path = ProjectF02/Modules/Home/ChatHomeScreen/cells/HomeChatCell.xib; sourceTree = "<group>"; };
@@ -219,11 +221,12 @@
 		9D17FC6221512E7A00070198 /* RegisterVC */ = {
 			isa = PBXGroup;
 			children = (
-				9D17FC6321512E7A00070198 /* RegisterViewController.xib */,
-				9D17FC6421512E7A00070198 /* RegisterViewController.swift */,
+				9DFDA09E2181F5CE00C3B5AA /* DatePickerViewController.swift */,
+				9DFDA09D2181F5CD00C3B5AA /* DatePickerViewController.xib */,
+				9DFDA0952181F48600C3B5AA /* Contents.json */,
+				9DFDA0932181F48600C3B5AA /* RegisterViewController.swift */,
+				9DFDA0962181F48700C3B5AA /* RegisterViewController.xib */,
 				9D17FC5B21512E7A00070198 /* CountryList VC */,
-				9D948C22216F80C9008D63B5 /* DatePickerViewController.swift */,
-				9D948C23216F80C9008D63B5 /* DatePickerViewController.xib */,
 			);
 			path = RegisterVC;
 			sourceTree = "<group>";
@@ -397,7 +400,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D948C25216F80C9008D63B5 /* DatePickerViewController.xib in Resources */,
+				9DFDA09C2181F48700C3B5AA /* RegisterViewController.xib in Resources */,
 				84EE44FD2157AA4A00AA2716 /* ChatTableViewCell1.xib in Resources */,
 				9D17FC7E21512E7A00070198 /* CountryList.json in Resources */,
 				A48A64D921760B8B009FCAB5 /* ChatHomeViewController.xib in Resources */,
@@ -409,12 +412,13 @@
 				A43A2742216CD85600308BCA /* MyProfileViewController.xib in Resources */,
 				9D17FC7C21512E7A00070198 /* LaunchScreen.storyboard in Resources */,
 				84EE45012157AA5E00AA2716 /* ChatTableViewCell2.xib in Resources */,
+				9DFDA09F2181F5CE00C3B5AA /* DatePickerViewController.xib in Resources */,
 				A43A2743216CD85600308BCA /* AvatarTableViewCell.xib in Resources */,
 				9D17FC7421512E7A00070198 /* CountryListViewController.xib in Resources */,
+				9DFDA09B2181F48700C3B5AA /* Contents.json in Resources */,
 				A43A2745216CD85600308BCA /* PostTableViewCell.xib in Resources */,
 				84E5A7732153C34B0096E819 /* ChatViewController.xib in Resources */,
 				A4354344217F508600665276 /* HomeChatCell.xib in Resources */,
-				9D17FC7921512E7A00070198 /* RegisterViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,6 +440,8 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${PODS_ROOT}/TwitterCore/iOS/TwitterCore.framework",
@@ -457,6 +463,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQMessagesViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQSystemSoundPlayer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterCore.framework",
@@ -533,13 +541,12 @@
 				9D0583F8216646D2008B55E5 /* User.swift in Sources */,
 				A42CFD6721411A35007B7212 /* BaseViewController.swift in Sources */,
 				A4354343217F508600665276 /* HomeChatCell.swift in Sources */,
-				9D948C24216F80C9008D63B5 /* DatePickerViewController.swift in Sources */,
 				84EE44FC2157AA4A00AA2716 /* ChatTableViewCell1.swift in Sources */,
 				A48A64D821760B8B009FCAB5 /* ChatHomeViewController.swift in Sources */,
 				A43A2746216CD85600308BCA /* AvatarTableViewCell.swift in Sources */,
 				A43A2749216F75F300308BCA /* Post.swift in Sources */,
+				9DFDA0992181F48700C3B5AA /* RegisterViewController.swift in Sources */,
 				9D17FC7721512E7A00070198 /* CountryListViewController.swift in Sources */,
-				9D17FC7A21512E7A00070198 /* RegisterViewController.swift in Sources */,
 				A48A64DC21760B9E009FCAB5 /* NewFeedsViewController.swift in Sources */,
 				9D17FC8121512E7A00070198 /* ViewController.swift in Sources */,
 				A48A64D521760B3B009FCAB5 /* HomeTabBarViewController.swift in Sources */,
@@ -551,6 +558,7 @@
 				84EE45002157AA5E00AA2716 /* ChatTableViewCell2.swift in Sources */,
 				9D17FC8021512E7A00070198 /* AppDelegate.swift in Sources */,
 				84E5A7722153C34B0096E819 /* ChatViewController.swift in Sources */,
+				9DFDA0A02181F5CE00C3B5AA /* DatePickerViewController.swift in Sources */,
 				A43A274B2174D4FA00308BCA /* Comment.swift in Sources */,
 				A43A2747216CD85600308BCA /* MyProfileViewController.swift in Sources */,
 				9D17FC7321512E7A00070198 /* CountryDialCode.swift in Sources */,
