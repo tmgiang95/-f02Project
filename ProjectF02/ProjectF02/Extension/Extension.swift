@@ -29,12 +29,3 @@ extension Date {
         return self.timeIntervalSince1970 * 1000
     }
 }
-
-extension UIImageView {
-    
-    func setRounded() {
-        let radius = CGRectGetWidth(self.frame) / 2
-        self.layer.cornerRadius = radius
-        self.layer.masksToBounds = true
-    }
-}
