@@ -299,10 +299,10 @@
 		A43A273C216CD85600308BCA /* ProfileCell */ = {
 			isa = PBXGroup;
 			children = (
+				A43A2740216CD85600308BCA /* AvatarTableViewCell.swift */,
 				A43A273D216CD85600308BCA /* AvatarTableViewCell.xib */,
 				A43A273E216CD85600308BCA /* PostTableViewCell.swift */,
 				A43A273F216CD85600308BCA /* PostTableViewCell.xib */,
-				A43A2740216CD85600308BCA /* AvatarTableViewCell.swift */,
 			);
 			path = ProfileCell;
 			sourceTree = "<group>";
