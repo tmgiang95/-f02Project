@@ -137,7 +137,7 @@ final class RegisterViewController: BaseViewController {
             userInfo.cover = ""
             userInfo.description = ""
             userInfo.friendList = [String: Any]()
-        self.dataRef.child("User").child(user.uid).setValue(userInfo.toDict())
+                self.dataRef.child("User").child(user.uid).setValue(userInfo.toDict()) as! [[String : Any]]
         }
     }
     
