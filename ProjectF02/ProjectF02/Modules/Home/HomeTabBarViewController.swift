@@ -9,14 +9,23 @@
 import UIKit
 
 final class HomeTabBarViewController: UITabBarController {
-
+    var user: User?
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    }
+    
+    func passHomeData(_ user: User){
+        self.user = user
         configureSubView()
     }
  
-    func configureSubView() {
+    fileprivate func configureSubView() {
+        guard let u = self.user else {
+            return
+        }
         let chatHomeVC = ChatHomeViewController()
+        chatHomeVC.passData(u)
         chatHomeVC.tabBarItem = UITabBarItem(title: "Message", image: nil, selectedImage: nil)
         let newFeedsVC = NewFeedsViewController()
         newFeedsVC.tabBarItem = UITabBarItem(title: "NewsFeed", image: nil, selectedImage: nil)

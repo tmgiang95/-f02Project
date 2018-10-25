@@ -7,28 +7,60 @@
 //
 
 import UIKit
+import Firebase
 
-class ChatHomeViewController: BaseViewController {
+final class ChatHomeViewController: BaseViewController {
 
+    @IBOutlet weak var homeChattableView: UITableView!
+    var user: User?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+//        configureTableView()
     }
-
+   
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.navigationItem.title = "Message"
-        let chatVC = ChatViewController()
-        self.navigationController?.pushViewController(chatVC, animated: true)
+        getChats()
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+//    fileprivate func configureTableView() {
+//        homeChattableView.delegate = self
+//        homeChattableView.dataSource = self
+//    }
+    
+    func passData (_ user: User){
+        self.user = user
+        
     }
-    */
-
+    
+    fileprivate func getChats() {
+        let ref = Database.database().reference().child("Chat")
+        ref.observe(.value, with:{ (snapshot: DataSnapshot) in
+            for snap in snapshot.children {
+                let chat = (snap as! DataSnapshot).value as! [String: Any]
+                let c = Chat(chat)
+                print(c)
+            }
+        })
+    }
 }
+
+//extension ChatHomeViewController: UITableViewDelegate {
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 44
+//    }
+//}
+//
+//extension ChatHomeViewController: UITableViewDataSource{
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        <#code#>
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        <#code#>
+//    }
+//
+//
+//}

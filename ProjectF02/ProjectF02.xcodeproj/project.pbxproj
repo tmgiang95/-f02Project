@@ -34,6 +34,9 @@
 		9D948C24216F80C9008D63B5 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D948C22216F80C9008D63B5 /* DatePickerViewController.swift */; };
 		9D948C25216F80C9008D63B5 /* DatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D948C23216F80C9008D63B5 /* DatePickerViewController.xib */; };
 		A42CFD6721411A35007B7212 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42CFD6521411A35007B7212 /* BaseViewController.swift */; };
+		A4354343217F508600665276 /* HomeChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4354341217F508600665276 /* HomeChatCell.swift */; };
+		A4354344217F508600665276 /* HomeChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4354342217F508600665276 /* HomeChatCell.xib */; };
+		A4354346217F5AB400665276 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4354345217F5AB400665276 /* Chat.swift */; };
 		A43A2742216CD85600308BCA /* MyProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A43A273B216CD85600308BCA /* MyProfileViewController.xib */; };
 		A43A2743216CD85600308BCA /* AvatarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A43A273D216CD85600308BCA /* AvatarTableViewCell.xib */; };
 		A43A2744216CD85600308BCA /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43A273E216CD85600308BCA /* PostTableViewCell.swift */; };
@@ -80,6 +83,9 @@
 		9D948C22216F80C9008D63B5 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		9D948C23216F80C9008D63B5 /* DatePickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatePickerViewController.xib; sourceTree = "<group>"; };
 		A42CFD6521411A35007B7212 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		A4354341217F508600665276 /* HomeChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeChatCell.swift; path = ProjectF02/Modules/Home/ChatHomeScreen/cells/HomeChatCell.swift; sourceTree = "<group>"; };
+		A4354342217F508600665276 /* HomeChatCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = HomeChatCell.xib; path = ProjectF02/Modules/Home/ChatHomeScreen/cells/HomeChatCell.xib; sourceTree = "<group>"; };
+		A4354345217F5AB400665276 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		A43A273B216CD85600308BCA /* MyProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyProfileViewController.xib; sourceTree = "<group>"; };
 		A43A273D216CD85600308BCA /* AvatarTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AvatarTableViewCell.xib; sourceTree = "<group>"; };
 		A43A273E216CD85600308BCA /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
@@ -171,6 +177,7 @@
 				9D0583F7216646D2008B55E5 /* User.swift */,
 				A43A2748216F75F300308BCA /* Post.swift */,
 				A43A274A2174D4FA00308BCA /* Comment.swift */,
+				A4354345217F5AB400665276 /* Chat.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -269,6 +276,16 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		A4354340217F506E00665276 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A4354341217F508600665276 /* HomeChatCell.swift */,
+				A4354342217F508600665276 /* HomeChatCell.xib */,
+			);
+			name = Cells;
+			path = ../../../..;
+			sourceTree = "<group>";
+		};
 		A43A273A216CD85600308BCA /* MyProfileVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -293,6 +310,7 @@
 		A48A64CD21760991009FCAB5 /* ChatHomeScreen */ = {
 			isa = PBXGroup;
 			children = (
+				A4354340217F506E00665276 /* Cells */,
 				A48A64D621760B8B009FCAB5 /* ChatHomeViewController.swift */,
 				A48A64D721760B8B009FCAB5 /* ChatHomeViewController.xib */,
 			);
@@ -395,6 +413,7 @@
 				9D17FC7421512E7A00070198 /* CountryListViewController.xib in Resources */,
 				A43A2745216CD85600308BCA /* PostTableViewCell.xib in Resources */,
 				84E5A7732153C34B0096E819 /* ChatViewController.xib in Resources */,
+				A4354344217F508600665276 /* HomeChatCell.xib in Resources */,
 				9D17FC7921512E7A00070198 /* RegisterViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -513,6 +532,7 @@
 			files = (
 				9D0583F8216646D2008B55E5 /* User.swift in Sources */,
 				A42CFD6721411A35007B7212 /* BaseViewController.swift in Sources */,
+				A4354343217F508600665276 /* HomeChatCell.swift in Sources */,
 				9D948C24216F80C9008D63B5 /* DatePickerViewController.swift in Sources */,
 				84EE44FC2157AA4A00AA2716 /* ChatTableViewCell1.swift in Sources */,
 				A48A64D821760B8B009FCAB5 /* ChatHomeViewController.swift in Sources */,
@@ -523,6 +543,7 @@
 				A48A64DC21760B9E009FCAB5 /* NewFeedsViewController.swift in Sources */,
 				9D17FC8121512E7A00070198 /* ViewController.swift in Sources */,
 				A48A64D521760B3B009FCAB5 /* HomeTabBarViewController.swift in Sources */,
+				A4354346217F5AB400665276 /* Chat.swift in Sources */,
 				9D17FC7521512E7A00070198 /* CountryListTableViewCell.swift in Sources */,
 				A43A2744216CD85600308BCA /* PostTableViewCell.swift in Sources */,
 				84EE45042157E43F00AA2716 /* Message.swift in Sources */,

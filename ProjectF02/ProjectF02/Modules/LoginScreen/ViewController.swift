@@ -63,11 +63,14 @@ class ViewController: BaseViewController, GIDSignInUIDelegate {
 
 
 
-            let user = self?.getUserFromFirebase(dt.user.uid)
-//            let p = Post()
-//            Database.database().reference().child("Post").child(String(Int(NSDate().timeIntervalSince1970))).setValue(p.toDict())
-            self?.navigationController?.pushViewController(HomeTabBarViewController(), animated: true)
-
+            self?.getUserFromFirebase(dt.user.uid, callback: { (user: User) in
+                let homevc = HomeTabBarViewController()
+                homevc.passHomeData(user)
+                self?.navigationController?.pushViewController(homevc, animated: true)
+            })
+//                        let p = Post()
+//                        Database.database().reference().child("Post").child(String(Int(NSDate().timeIntervalSince1970))).setValue(p.toDict())
+           
             
         }
     }
@@ -76,17 +79,17 @@ class ViewController: BaseViewController, GIDSignInUIDelegate {
         let registerVC = RegisterViewController()
         navigationController?.pushViewController(registerVC, animated: true)
     }
-    func getUserFromFirebase(_ uID: String) -> User {
+    func getUserFromFirebase(_ uID: String,callback: @escaping ((User) -> Void)){
         var user =  User()
-        let ref = Database.database().reference().child("User").queryOrdered(byChild: "uID").queryEqual(toValue : uID)
+        let ref = Database.database().reference().child("User").queryOrdered(byChild: "uid").queryEqual(toValue : uID)
         ref.observe(.value, with:{ (snapshot: DataSnapshot) in
             for snap in snapshot.children {
                 let u = (snap as! DataSnapshot).value as! [String: Any]
                 user = User(u)
+                callback(user)
                 print(user.lastName! + " " + user.firstName!)
             }
         })
-        return user
     }
 }
 extension ViewController: GIDSignInDelegate {
@@ -109,10 +112,14 @@ extension ViewController: GIDSignInDelegate {
             guard let dt = data else {
                 return
             }
-            let user = self?.getUserFromFirebase(dt.user.uid)
+            self?.getUserFromFirebase(dt.user.uid, callback: { (user: User) in
+                let homevc = HomeTabBarViewController()
+                homevc.passHomeData(user)
+                self?.navigationController?.pushViewController(homevc, animated: true)
+            })
             //            let p = Post()
             //            Database.database().reference().child("Post").child(String(Int(NSDate().timeIntervalSince1970))).setValue(p.toDict())
-            self?.navigationController?.pushViewController(HomeTabBarViewController(), animated: true)
+            
         }
         // ...
     }

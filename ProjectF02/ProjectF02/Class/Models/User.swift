@@ -17,7 +17,7 @@ class User {
     var avatar: String? = ""
     var cover: String? = ""
     var description: String? = ""
-    var friendList = [String: Any]()
+    var friendList = [String:Any]()
     var isAvailable: Bool = false
     var phone: String = ""
     
@@ -46,7 +46,7 @@ class User {
         if let description = dict["description"] as? String {
             self.description = description
         }
-        if let friendlist = dict["friendlist"] as? [String: Any] {
+        if let friendlist = dict["friendlist"] as? [String:Any] {
             self.friendList = friendlist
         }
         if let isAvailable = dict["isAvailable"] as? Int {
