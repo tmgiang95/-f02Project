@@ -9,24 +9,30 @@
 import UIKit
 import FirebaseDatabase
 
-class MyProfileViewController: UIViewController {
+final class MyProfileViewController: UIViewController {
     
-    var ref : DatabaseReference?
-    var databaseHandle: DatabaseHandle?
+    var userinfo: User?
+    var posts = [Post]()
+    private var ref : DatabaseReference?
+    private var databaseHandle: DatabaseHandle?
     @IBOutlet weak var ProfileTableview: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableview()
-    
+        
     }
     
     func configureTableview() {
         ProfileTableview.dataSource = self
         ProfileTableview.delegate = self
-//        ProfileTableview.registerCells(AvatarTableViewCell.className,PostTableViewCell.className)
+        ProfileTableview.registerCell(PostTableViewCell.className, AvatarTableViewCell.className)
     }
     
+    func fillData(_ user: User?) {
+            userinfo = user
+    }
+
 }
 
 extension MyProfileViewController: UITableViewDelegate {
@@ -35,20 +41,25 @@ extension MyProfileViewController: UITableViewDelegate {
     }
 }
 extension MyProfileViewController: UITableViewDataSource {
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        return userinfo.count
-//    }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        if section == 0 {
+            return 1
+        }
+        else {
+            return posts.count
+        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0 {
+        if indexPath.section == 0 {
             guard let cell = ProfileTableview.dequeueReusableCell(withIdentifier: AvatarTableViewCell.className, for: indexPath) as? AvatarTableViewCell else {
                 return UITableViewCell()
             }
-            
+            cell.fillData( , nil, userinfo?.firstName! + " " + userinfo?.lastName!, nil)
             return cell
         }
         else {
