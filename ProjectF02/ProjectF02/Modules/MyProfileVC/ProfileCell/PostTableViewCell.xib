@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -48,7 +48,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aci-UQ-17C">
-                                <rect key="frame" x="157" y="50" width="16" height="16"/>
+                                <rect key="frame" x="157.66666666666666" y="50" width="16" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="16" id="BjW-ex-opJ"/>
                                     <constraint firstAttribute="height" constant="16" id="dT0-Ii-0hd"/>
@@ -86,7 +86,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Krz-i3-abX">
-                                        <rect key="frame" x="254" y="4.3333333333333144" width="70" height="30"/>
+                                        <rect key="frame" x="254" y="5" width="70" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="nV0-b7-nIS"/>
                                         </constraints>
@@ -116,14 +116,14 @@
                                         <rect key="frame" x="0.0" y="0.0" width="170" height="40"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8l7-CM-spd">
-                                                <rect key="frame" x="16" y="7.3333333333333144" width="24" height="24"/>
+                                                <rect key="frame" x="16" y="8" width="24" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="24" id="TOb-Ri-Z9h"/>
                                                     <constraint firstAttribute="width" constant="24" id="cnd-0F-eLB"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lượt thích" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D1r-3t-Xec">
-                                                <rect key="frame" x="48" y="10.666666666666629" width="61.666666666666657" height="20"/>
+                                                <rect key="frame" x="48" y="10" width="61.666666666666657" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="voc-mJ-SPG"/>
                                                 </constraints>
@@ -146,7 +146,7 @@
                                         <rect key="frame" x="214" y="0.0" width="150" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bình luận" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zWc-UF-t7t">
-                                                <rect key="frame" x="45.666666666666686" y="11.666666666666629" width="59.333333333333343" height="17"/>
+                                                <rect key="frame" x="45.333333333333314" y="11.666666666666629" width="59.333333333333343" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -224,11 +224,13 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="CommentLabel" destination="zWc-UF-t7t" id="19P-cb-n6V"/>
+                <outlet property="CommentButton" destination="Krz-i3-abX" id="P40-5C-KGD"/>
+                <outlet property="CommentLabel" destination="zWc-UF-t7t" id="lTd-NF-OWj"/>
                 <outlet property="ImageAvatar" destination="aDM-3N-68S" id="cof-Yq-qqn"/>
                 <outlet property="ImageViewPost" destination="wWN-b0-b6Z" id="zgT-Su-puK"/>
                 <outlet property="LabelUserName" destination="IDK-mh-i1x" id="NNa-H0-Wck"/>
-                <outlet property="LikeNumberLabel" destination="D1r-3t-Xec" id="Gz6-ct-2xL"/>
+                <outlet property="LikeButton" destination="VeP-fX-N3J" id="PiE-Zb-yvB"/>
+                <outlet property="LikeNumberLabel" destination="D1r-3t-Xec" id="yjY-Ao-m1L"/>
                 <outlet property="TextfieldPost" destination="svE-He-Lyh" id="chD-sr-PYE"/>
                 <outlet property="TimePost" destination="jad-68-1Yw" id="Uga-gI-NZl"/>
             </connections>
@@ -236,6 +238,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="female_user" width="32" height="32"/>
+        <image name="female_user" width="51.200000762939453" height="51.200000762939453"/>
     </resources>
 </document>
