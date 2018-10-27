@@ -22,9 +22,15 @@ class MyProfileViewController: UIViewController {
     
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        getPost(userinfo.uid!) { (post) in
+            self.posts.count
+        }
+    }
+    
     func fillData(_ user: User)
     {
-     userinfo = user
+     self.userinfo = user
     }
     
     func configureTableview() {
@@ -33,10 +39,40 @@ class MyProfileViewController: UIViewController {
         ProfileTableview.registerCell(AvatarTableViewCell.className,PostTableViewCell.className)
     }
     
+    func getPost(_ uID: String, callback: @escaping ((Post) -> Void)) {
+            var post = Post()
+            let ref = Database.database().reference().child("Post").queryOrdered(byChild: "uid").queryEqual(toValue: uID)
+            
+            ref.observe(.value) { (snapshot) in
+                for snap in snapshot.children {
+                    let u = (snap as! DataSnapshot).value as! [String: Any]
+                    post = Post(u)
+                    callback(post)
+                    self.posts.append(post)
+//                    print(post.postid! + post.contentText! + post.uid!)
+                }
+            }
+    }
+    
+//    func getUserFromFirebase(_ uID: String,callback: @escaping ((User) -> Void)){
+//        var user =  User()
+//        let ref = Database.database().reference().child("User").queryOrdered(byChild: "uid").queryEqual(toValue : uID)
+//        ref.observe(.value, with:{ (snapshot: DataSnapshot) in
+//            for snap in snapshot.children {
+//                let u = (snap as! DataSnapshot).value as! [String: Any]
+//                user = User(u)
+//                callback(user)
+//                print(user.lastName! + " " + user.firstName!)
+//            }
+//        })
+//    }
+    
+    
 }
 
 extension MyProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        // cell động, fix tên tableview
         return ProfileTableview.frame.height
     }
 }

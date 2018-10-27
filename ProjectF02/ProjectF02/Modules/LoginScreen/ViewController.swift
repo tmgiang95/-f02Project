@@ -64,13 +64,11 @@ class ViewController: BaseViewController, GIDSignInUIDelegate {
 
 
             self?.getUserFromFirebase(dt.user.uid, callback: { (user: User) in
-                // send data into myprofilevc
-                let profilevc = MyProfileViewController()
-                profilevc.fillData(user)
-                
+                    let vc = MyProfileViewController()
+                    vc.fillData(user)
 //                let homevc = HomeTabBarViewController()
 //                homevc.passHomeData(user)
-                self?.navigationController?.pushViewController(profilevc, animated: true)
+                self?.navigationController?.pushViewController(vc, animated: true)
             })
 //                        let p = Post()
 //                        Database.database().reference().child("Post").child(String(Int(NSDate().timeIntervalSince1970))).setValue(p.toDict())
@@ -85,11 +83,7 @@ class ViewController: BaseViewController, GIDSignInUIDelegate {
         navigationController?.pushViewController(registerVC, animated: true)
     }
     
-    func getPost(_ uID: String, callback: ((Post) -> Void)) {
-        var posts = [Post]()
-        let ref = Database.database().reference().child("Post").queryOrdered(byChild: "uid").queryEqual(toValue: uID)
-        ref.observe(.value, with: { ()})
-    }
+
     
     func getUserFromFirebase(_ uID: String,callback: @escaping ((User) -> Void)){
         var user =  User()

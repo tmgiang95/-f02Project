@@ -50,11 +50,12 @@
                                     <constraint firstItem="y4f-O6-iTh" firstAttribute="leading" secondItem="3nj-nP-o8n" secondAttribute="leading" constant="4" id="yzq-q3-lvQ"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VaO-aX-Rxl">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VaO-aX-Rxl">
                                 <rect key="frame" x="144" y="150" width="120" height="120"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="female_user" translatesAutoresizingMaskIntoConstraints="NO" id="iGF-Fd-xjY">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="female_user" translatesAutoresizingMaskIntoConstraints="NO" id="iGF-Fd-xjY">
                                         <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gGa-43-aMN">
                                         <rect key="frame" x="50" y="95" width="70" height="25"/>

@@ -29,10 +29,10 @@ class Post {
     }
     
     init(_ dict: [String:Any]) {
-        if let uid = dict["uID"] as? String{
+        if let uid = dict["uid"] as? String{
             self.uid = uid
         }
-        if let postid = dict["postID"] as? String {
+        if let postid = dict["postid"] as? String {
             self.postid = postid
         }
         if let imageLink = dict["imageLink"] as? String {

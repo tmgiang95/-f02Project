@@ -25,26 +25,13 @@ class PostTableViewCell: UITableViewCell {
         super.awakeFromNib()
         ImageAvatar.setRounded()
         ImageViewPost.setRounded()
-            configureButtonLogin(button: LikeButton)
-        configureButtonLogin(button: CommentButton)
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
     
-    func configureButtonLogin(button : UIButton) {
-        let gradient = CAGradientLayer()
-        gradient.frame =  CGRect(origin: CGPoint.zero, size: button.frame.size)
-        gradient.colors = [UIColor.black.cgColor, UIColor.black.cgColor]
-        let shape = CAShapeLayer()
-        shape.lineWidth = 2
-        shape.path = UIBezierPath(rect: button.bounds).cgPath
-        shape.strokeColor = UIColor.black.cgColor
-        shape.fillColor = UIColor.clear.cgColor
-        gradient.mask = shape
-        button.layer.addSublayer(gradient)
-    }
     
     func fillData(_ imageAvt: UIImage,_ username: String)
     {
