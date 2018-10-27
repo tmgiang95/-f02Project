@@ -8,23 +8,22 @@
 
 import UIKit
 
-class PostTableViewCell: UITableViewCell {
+final class PostTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var TextfieldPost: UITextField!
-    @IBOutlet weak var TimePost: UILabel!
-    @IBOutlet weak var ImageViewPost: UIImageView!
-    @IBOutlet weak var CommentLabel: UILabel!
-    @IBOutlet weak var ImageAvatar: UIImageView!
-    @IBOutlet weak var LikeNumberLabel: UILabel!
-    @IBOutlet weak var LabelUserName: UILabel!
-    @IBOutlet weak var LikeButton: UIButton!
-    @IBOutlet weak var CommentButton: UIButton!
-    
+   
+    @IBOutlet weak var timePosted: UILabel!
+    @IBOutlet weak var imageviewPost: UIImageView!
+    @IBOutlet weak var commentLabel: UILabel!
+    @IBOutlet weak var imageAvatar: UIImageView!
+    @IBOutlet weak var likenumberLabel: UILabel!
+    @IBOutlet weak var labeluserName: UILabel!
+    @IBOutlet weak var likeButton: UIButton!
+    @IBOutlet weak var commentButton: UIButton!
+    @IBOutlet weak var labelContentpost: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        ImageAvatar.setRounded()
-        ImageViewPost.setRounded()
+        imageAvatar.setRounded()
         
     }
 
@@ -33,10 +32,11 @@ class PostTableViewCell: UITableViewCell {
     }
     
     
-    func fillData(_ imageAvt: UIImage,_ username: String)
+    func fillData(_ imageAvt: UIImage, _ username: String, _ post: Post)
     {
-        ImageAvatar.image = imageAvt
-        LabelUserName.text = username
+        imageAvatar.image = imageAvt
+        labeluserName.text = username
+        labelContentpost.text = post.contentText
     }
     
     @IBAction func LikeButtonAction(_ sender: Any) {

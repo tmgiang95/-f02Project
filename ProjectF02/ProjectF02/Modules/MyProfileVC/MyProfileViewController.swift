@@ -14,7 +14,7 @@ class MyProfileViewController: UIViewController {
     var posts = [Post]()
     var ref : DatabaseReference?
     var databaseHandle: DatabaseHandle?
-    @IBOutlet weak var ProfileTableview: UITableView!
+    @IBOutlet weak var profileTableview: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,9 +23,7 @@ class MyProfileViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        getPost(userinfo.uid!) { (post) in
-            self.posts.count
-        }
+    
     }
     
     func fillData(_ user: User)
@@ -34,21 +32,20 @@ class MyProfileViewController: UIViewController {
     }
     
     func configureTableview() {
-        ProfileTableview.dataSource = self
-        ProfileTableview.delegate = self
-        ProfileTableview.registerCell(AvatarTableViewCell.className,PostTableViewCell.className)
+        profileTableview.dataSource = self
+        profileTableview.delegate = self
+        profileTableview.registerCell(AvatarTableViewCell.className,PostTableViewCell.className)
     }
     
     func getPost(_ uID: String, callback: @escaping ((Post) -> Void)) {
             var post = Post()
             let ref = Database.database().reference().child("Post").queryOrdered(byChild: "uid").queryEqual(toValue: uID)
             
-            ref.observe(.value) { (snapshot) in
+        ref.observe(.childAdded) { (snapshot) in
                 for snap in snapshot.children {
                     let u = (snap as! DataSnapshot).value as! [String: Any]
                     post = Post(u)
                     callback(post)
-                    self.posts.append(post)
 //                    print(post.postid! + post.contentText! + post.uid!)
                 }
             }
@@ -72,8 +69,7 @@ class MyProfileViewController: UIViewController {
 
 extension MyProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        // cell động, fix tên tableview
-        return ProfileTableview.frame.height
+        return profileTableview.frame.height
     }
 }
 extension MyProfileViewController: UITableViewDataSource {
@@ -91,22 +87,24 @@ extension MyProfileViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
-            guard let cell = ProfileTableview.dequeueReusableCell(withIdentifier: AvatarTableViewCell.className, for: indexPath) as? AvatarTableViewCell else {
+        
+            if indexPath.section == 0 {
+            guard let cell = profileTableview.dequeueReusableCell(withIdentifier: AvatarTableViewCell.className, for: indexPath) as? AvatarTableViewCell else {
                 return UITableViewCell()
             }
-            let username = userinfo.lastName! + " " + userinfo.firstName!
+            let username = self.userinfo.lastName! + " " + self.userinfo.firstName!
             let coverimage: UIImage = #imageLiteral(resourceName: "cover")
             let avatarimage: UIImage = #imageLiteral(resourceName: "avatar")
             cell.fillData(coverimage , avatarimage, username , avatarimage)
             return cell
-        }
-        else {
-            guard let cell = ProfileTableview.dequeueReusableCell(withIdentifier: PostTableViewCell.className, for: indexPath ) as? PostTableViewCell else {
+            }
+            else {
+            guard let cell = profileTableview.dequeueReusableCell(withIdentifier: PostTableViewCell.className, for: indexPath ) as? PostTableViewCell else {
                 return UITableViewCell()
             }
             return cell
-
+            }
         }
     }
-}
+
+

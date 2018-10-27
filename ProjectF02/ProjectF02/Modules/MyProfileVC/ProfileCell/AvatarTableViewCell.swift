@@ -8,21 +8,22 @@
 
 import UIKit
 
-class AvatarTableViewCell: UITableViewCell {
+final class AvatarTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var CoverImage: UIImageView!
-    @IBOutlet weak var UserNameProfile: UILabel!
-    @IBOutlet weak var AvatarImage: UIImageView!
-    @IBOutlet weak var PostAvatar: UIImageView!
-    @IBOutlet weak var DescriptionButton: UIButton!
-    @IBOutlet weak var ImageLibraryButton: UIButton!
-    @IBOutlet weak var FriendButton: UIButton!
+    @IBOutlet weak var coverImage: UIImageView!
+    @IBOutlet weak var usernameProfile: UILabel!
+    @IBOutlet weak var avatarImage: UIImageView!
+    @IBOutlet weak var postAvatar: UIImageView!
+    @IBOutlet weak var descriptionButton: UIButton!
+    @IBOutlet weak var imagelibraryButton: UIButton!
+    @IBOutlet weak var friendButton: UIButton!
+    @IBOutlet weak var viewAvatar: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        AvatarImage.setRounded()
-        PostAvatar.setRounded()
-       
+        avatarImage.setRounded()
+        postAvatar.setRounded()
+        viewAvatar.setViewrounded()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -31,10 +32,10 @@ class AvatarTableViewCell: UITableViewCell {
     
     
     func fillData(_ imagecover: UIImage, _ avatarimage: UIImage,_ profilename: String,_ postavatar: UIImage) {
-        CoverImage.image = imagecover
-        AvatarImage.image = avatarimage
-        UserNameProfile.text = profilename
-        PostAvatar.image = postavatar
+        coverImage.image = imagecover
+        avatarImage.image = avatarimage
+        usernameProfile.text = profilename
+        postAvatar.image = postavatar
     }
     @IBAction func DescriptionButtonAction(_ sender: Any) {
     }

@@ -30,6 +30,7 @@ final class HomeTabBarViewController: UITabBarController {
         let newFeedsVC = NewFeedsViewController()
         newFeedsVC.tabBarItem = UITabBarItem(title: "NewsFeed", image: nil, selectedImage: nil)
         let myProfileVC = MyProfileViewController()
+        myProfileVC.fillData(u)
         myProfileVC.tabBarItem = UITabBarItem(title: "Profile", image: nil, selectedImage: nil)
         viewControllers = [newFeedsVC, chatHomeVC, myProfileVC]
         navigationItem.setHidesBackButton(true, animated: false)
