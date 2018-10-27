@@ -230,6 +230,7 @@
                     <constraint firstAttribute="trailing" secondItem="urr-zW-tBh" secondAttribute="trailing" id="T5r-EP-dky"/>
                     <constraint firstAttribute="trailing" secondItem="7YZ-PJ-NFW" secondAttribute="trailing" id="h6q-gt-Z5C"/>
                     <constraint firstItem="urr-zW-tBh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="hnR-fc-gAS"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="7YZ-PJ-NFW" secondAttribute="bottom" id="jGa-Cx-buU"/>
                     <constraint firstItem="7YZ-PJ-NFW" firstAttribute="top" secondItem="urr-zW-tBh" secondAttribute="bottom" id="usV-OZ-hwZ"/>
                 </constraints>
             </tableViewCellContentView>

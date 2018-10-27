@@ -28,7 +28,7 @@ class Post {
 //        self.time = 1539612082
     }
     
-    init(_ dict: [String:Any]) {
+    init(_ dict: [String: Any]) {
         if let uid = dict["uid"] as? String{
             self.uid = uid
         }
