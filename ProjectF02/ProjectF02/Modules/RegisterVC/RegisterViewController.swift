@@ -97,6 +97,8 @@ final class RegisterViewController: BaseViewController {
         maleImg.tintColor = hexStringToUIColor(hex: "#4267B2")
         maleText.textColor = hexStringToUIColor(hex: "#4267B2")
         maleView.backgroundColor = UIColor.white
+        
+        self.isFemale = true
     }
     
     @objc func handleMaleViewTap(sender: UITapGestureRecognizer? = nil) {
@@ -108,6 +110,8 @@ final class RegisterViewController: BaseViewController {
         femaleImg.backgroundColor = UIColor.white
         femaleImg.tintColor = hexStringToUIColor(hex: "#4267B2")
         femaleText.textColor = hexStringToUIColor(hex: "#4267B2")
+        
+        self.isFemale = false
     }
     
     @IBAction func btnSignUpAction(_ sender: UIButton) {
@@ -142,7 +146,7 @@ final class RegisterViewController: BaseViewController {
             userInfo.cover = ""
             userInfo.description = ""
             userInfo.friendList = [String: Any]()
-                self.dataRef.child("User").child(user.uid).setValue(userInfo.toDict()) as! [[String : Any]]
+        self.dataRef.child("User").child(user.uid).setValue(userInfo.toDict())
         }
     }
     
