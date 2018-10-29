@@ -85,12 +85,6 @@ class ViewController: BaseViewController, GIDSignInUIDelegate {
         navigationController?.pushViewController(registerVC, animated: true)
     }
     
-    func getPost(_ uID: String, callback: ((Post) -> Void)) {
-        var posts = [Post]()
-        let ref = Database.database().reference().child("Post").queryOrdered(byChild: "uid").queryEqual(toValue: uID)
-        ref.observe(.value, with: { ()})
-    }
-    
     func getUserFromFirebase(_ uID: String,callback: @escaping ((User) -> Void)){
         var user =  User()
         let ref = Database.database().reference().child("User").queryOrdered(byChild: "uid").queryEqual(toValue : uID)

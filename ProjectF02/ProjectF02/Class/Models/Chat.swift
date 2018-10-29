@@ -22,10 +22,20 @@ final class Chat {
             self.id = id
         }
         if let messages = dict["messages"] as? [String: Any] {
-            
+            messages.forEach { (arg0) in
+                
+                let (key, value) = arg0
+                self.messages.append(Message(dict: [key:value]))
+            }
         }
         if let uIDs = dict["uIDs"] as? [String: Any] {
-            
+            uIDs.forEach { (arg0) in
+                
+                let (_, value) = arg0
+                self.uIDs.append(value as! String)
+            }
         }
     }
+    
+
 }
