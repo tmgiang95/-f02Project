@@ -64,13 +64,9 @@ class ViewController: BaseViewController, GIDSignInUIDelegate {
 
 
             self?.getUserFromFirebase(dt.user.uid, callback: { (user: User) in
-                // send data into myprofilevc
-                let profilevc = MyProfileViewController()
-                profilevc.fillData(user)
-                
-//                let homevc = HomeTabBarViewController()
-//                homevc.passHomeData(user)
-                self?.navigationController?.pushViewController(profilevc, animated: true)
+                let homevc = HomeTabBarViewController()
+                homevc.passHomeData(user)
+                self?.navigationController?.pushViewController(homevc, animated: true)
             })
 //                        let p = Post()
 //                        Database.database().reference().child("Post").child(String(Int(NSDate().timeIntervalSince1970))).setValue(p.toDict())
