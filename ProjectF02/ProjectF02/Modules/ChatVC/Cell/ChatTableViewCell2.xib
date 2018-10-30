@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,15 +22,14 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="efd-IW-eh4">
                         <rect key="frame" x="16" y="0.0" width="288" height="152.5"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="quj-ky-yq7">
-                                <rect key="frame" x="248" y="0.0" width="40" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="quj-ky-yq7" secondAttribute="height" multiplier="1:1" id="5Sh-G2-LSb"/>
-                                    <constraint firstAttribute="height" constant="40" id="n5y-C7-dDe"/>
-                                </constraints>
-                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sk9-0I-g4P" userLabel="Time">
+                                <rect key="frame" x="123" y="16" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bpS-0t-hsv">
-                                <rect key="frame" x="166" y="0.0" width="74" height="52.5"/>
+                                <rect key="frame" x="198" y="48" width="74" height="52.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gT1-DP-L1n">
                                         <rect key="frame" x="16" y="16" width="42" height="20.5"/>
@@ -40,7 +38,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.58039215690000001" green="0.7725490196" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.94117647058823528" green="0.92941176470588238" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="gT1-DP-L1n" secondAttribute="bottom" constant="16" id="3MC-U4-51a"/>
                                     <constraint firstItem="gT1-DP-L1n" firstAttribute="leading" secondItem="bpS-0t-hsv" secondAttribute="leading" constant="16" id="dQb-Wo-asP"/>
@@ -52,12 +50,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="bpS-0t-hsv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="efd-IW-eh4" secondAttribute="leading" constant="16" id="3V1-6C-1nR"/>
-                            <constraint firstItem="quj-ky-yq7" firstAttribute="top" secondItem="efd-IW-eh4" secondAttribute="top" id="8jV-1L-w0R"/>
-                            <constraint firstItem="bpS-0t-hsv" firstAttribute="top" secondItem="efd-IW-eh4" secondAttribute="top" id="Cbf-Cj-UEK"/>
-                            <constraint firstItem="quj-ky-yq7" firstAttribute="leading" secondItem="bpS-0t-hsv" secondAttribute="trailing" constant="8" id="VGI-fo-EXB"/>
+                            <constraint firstItem="bpS-0t-hsv" firstAttribute="top" secondItem="efd-IW-eh4" secondAttribute="top" constant="48" id="Cbf-Cj-UEK"/>
+                            <constraint firstItem="Sk9-0I-g4P" firstAttribute="centerX" secondItem="efd-IW-eh4" secondAttribute="centerX" id="H2u-gd-4Yk"/>
+                            <constraint firstAttribute="trailing" secondItem="bpS-0t-hsv" secondAttribute="trailing" constant="16" id="SLo-U1-MRq"/>
+                            <constraint firstItem="Sk9-0I-g4P" firstAttribute="top" secondItem="efd-IW-eh4" secondAttribute="top" constant="16" id="XRg-Mo-pyY"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="bpS-0t-hsv" secondAttribute="bottom" id="acN-hB-9aX"/>
-                            <constraint firstAttribute="bottom" secondItem="quj-ky-yq7" secondAttribute="bottom" priority="500" id="jFx-gM-Yjh"/>
-                            <constraint firstAttribute="trailing" secondItem="quj-ky-yq7" secondAttribute="trailing" id="mHH-lm-0Zz"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -71,12 +68,11 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="messLabel" destination="gT1-DP-L1n" id="aQD-XX-oAH"/>
+                <outlet property="messTime" destination="Sk9-0I-g4P" id="9aR-BH-GOe"/>
                 <outlet property="messView" destination="bpS-0t-hsv" id="lI0-E7-xr1"/>
+                <outlet property="messViewTop" destination="Cbf-Cj-UEK" id="srX-sg-nRa"/>
             </connections>
             <point key="canvasLocation" x="34" y="157.5"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="user" width="128" height="128"/>
-    </resources>
 </document>

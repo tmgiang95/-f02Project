@@ -28,6 +28,7 @@ extension Date {
     func toMillis() -> Double! {
         return self.timeIntervalSince1970 * 1000
     }
+   
 }
 
 extension UIImageView {

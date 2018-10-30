@@ -22,7 +22,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ILJ-Vg-tIc">
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ILJ-Vg-tIc">
                     <rect key="frame" x="16" y="616" width="291" height="35"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="UQt-iD-HKi"/>
@@ -37,7 +37,9 @@
                         <constraint firstAttribute="height" constant="30" id="1Kv-0y-X7N"/>
                         <constraint firstAttribute="width" constant="36" id="484-d5-TJR"/>
                     </constraints>
-                    <state key="normal" title="Send"/>
+                    <state key="normal" title="Send">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
                     <connections>
                         <action selector="sendMessAction:" destination="-1" eventType="touchUpInside" id="wDY-mW-FTj"/>
                     </connections>
