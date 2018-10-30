@@ -74,35 +74,40 @@ final class RegisterViewController: BaseViewController {
     }
     
     private func configGenderView(){
-        femaleView.layer.cornerRadius = 10
+        femaleView.layer.cornerRadius = 4
+        femaleImg.backgroundColor = UIColor.white
+        femaleView.backgroundColor = hexStringToUIColor(hex: "#4267B2")
+        femaleText.textColor = UIColor.white
+        
         let femaleTapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleFemaleViewTap(sender:)))
         femaleView.addGestureRecognizer(femaleTapGesture)
         
         maleView.layer.cornerRadius = 4
+        maleImg.backgroundColor = UIColor.white
         let maleTapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleMaleViewTap(sender:)))
         maleView.addGestureRecognizer(maleTapGesture)
     }
     
     @objc func handleFemaleViewTap(sender: UITapGestureRecognizer? = nil) {
-        femaleImg.tintColor = hexStringToUIColor(hex: "#FFFF")
-        femaleText.tintColor = hexStringToUIColor(hex: "#FFFF")
-        maleView.backgroundColor = hexStringToUIColor(hex: "#FFFF")
+        femaleImg.backgroundColor =  UIColor.white
+        femaleText.textColor = UIColor.white
+        femaleView.backgroundColor = hexStringToUIColor(hex: "#4267B2")
+        
+        maleImg.backgroundColor = UIColor.white
         maleImg.tintColor = hexStringToUIColor(hex: "#4267B2")
-        maleText.tintColor = hexStringToUIColor(hex: "#4267B2")
-        if #available(iOS 11.0, *) {
-            femaleView.backgroundColor = UIColor.init(named: "accent color")
-        } else {
-            femaleView.backgroundColor = hexStringToUIColor(hex: "#4267B2")
-        }
+        maleText.textColor = hexStringToUIColor(hex: "#4267B2")
+        maleView.backgroundColor = UIColor.white
     }
     
     @objc func handleMaleViewTap(sender: UITapGestureRecognizer? = nil) {
         maleView.backgroundColor = hexStringToUIColor(hex: "#4267B2")
         maleImg.backgroundColor = UIColor.white
         maleText.textColor = UIColor.white
+        
         femaleView.backgroundColor = UIColor.white
+        femaleImg.backgroundColor = UIColor.white
         femaleImg.tintColor = hexStringToUIColor(hex: "#4267B2")
-        femaleText.tintColor = hexStringToUIColor(hex: "#4267B2")
+        femaleText.textColor = hexStringToUIColor(hex: "#4267B2")
     }
     
     @IBAction func btnSignUpAction(_ sender: UIButton) {
@@ -137,7 +142,7 @@ final class RegisterViewController: BaseViewController {
             userInfo.cover = ""
             userInfo.description = ""
             userInfo.friendList = [String: Any]()
-        self.dataRef.child("User").child(user.uid).setValue(userInfo.toDict())
+                self.dataRef.child("User").child(user.uid).setValue(userInfo.toDict()) as! [[String : Any]]
         }
     }
     

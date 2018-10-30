@@ -18,14 +18,14 @@ class Post {
     var time: Double?
     
     init() {
-//        self.uid = "NKuA2ohRSRN7CmCl0RQ1DIQagpE2"
+//        self.uid = "dNZVhNcTHaS8jhbRDt6UZBtOQ443"
 //        self.postid = "postID2"
-//        self.contentText = "day la cai stt thu 2"
+//        self.contentText = "day la cai stt thu 1"
 //        self.like.append("NKuA2ohRSRN7CmCl0RQ1DIQagpE2")
 //        self.like.append("dNZVhNcTHaS8jhbRDt6UZBtOQ443")
 //        self.comment.append(Comment(uID: "dNZVhNcTHaS8jhbRDt6UZBtOQ443", content: "xam lz qua ban oi"))
 //        self.comment.append(Comment(uID: "NKuA2ohRSRN7CmCl0RQ1DIQagpE2", content: "cut me may ngay"))
-//        self.time = 1539612079
+//        self.time = 1539612082
     }
     
     init(_ dict: [String:Any]) {
@@ -67,9 +67,11 @@ class Post {
         comment.forEach { (value) in
             commentListToDict.append(value.toDict())
         }
-        var likeListToDict = [[String: Any]]()
+        var likeListToDict = [String: Any]()
+        var id = 0
         like.forEach { (value) in
-            likeListToDict.append(["uid":value])
+            likeListToDict["\(id)"] = value
+            id += 1
         }
         postDict["like"] = likeListToDict
         postDict["comment"] = commentListToDict
