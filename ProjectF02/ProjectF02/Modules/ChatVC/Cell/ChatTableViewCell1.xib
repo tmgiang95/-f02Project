@@ -23,15 +23,21 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Um2-9a-EWe">
                         <rect key="frame" x="16" y="0.0" width="288" height="125.5"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ek3-Mb-wg7" userLabel="Time">
+                                <rect key="frame" x="123" y="16" width="42" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="cAB-e7-ofb">
-                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                <rect key="frame" x="0.0" y="48" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="2oj-y8-Znz"/>
                                     <constraint firstAttribute="width" secondItem="cAB-e7-ofb" secondAttribute="height" multiplier="1:1" id="yIn-Hp-6vl"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dEt-JV-3tj">
-                                <rect key="frame" x="48" y="0.0" width="74" height="52.5"/>
+                                <rect key="frame" x="48" y="48" width="74" height="52.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="adb-Fe-vt0">
                                         <rect key="frame" x="16" y="16" width="42" height="20.5"/>
@@ -40,7 +46,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="adb-Fe-vt0" firstAttribute="leading" secondItem="dEt-JV-3tj" secondAttribute="leading" constant="16" id="Da7-H8-8ap"/>
                                     <constraint firstItem="adb-Fe-vt0" firstAttribute="top" secondItem="dEt-JV-3tj" secondAttribute="top" constant="16" id="LGs-ry-3YT"/>
@@ -51,13 +57,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="cAB-e7-ofb" firstAttribute="top" secondItem="Um2-9a-EWe" secondAttribute="top" constant="48" id="1Zf-mU-6LK"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="dEt-JV-3tj" secondAttribute="trailing" constant="16" id="1vp-FD-I2O"/>
-                            <constraint firstItem="dEt-JV-3tj" firstAttribute="top" secondItem="Um2-9a-EWe" secondAttribute="top" id="GwL-g6-XqZ"/>
+                            <constraint firstItem="ek3-Mb-wg7" firstAttribute="centerX" secondItem="Um2-9a-EWe" secondAttribute="centerX" id="Eh5-Ci-syb"/>
                             <constraint firstItem="dEt-JV-3tj" firstAttribute="leading" secondItem="cAB-e7-ofb" secondAttribute="trailing" constant="8" id="UZc-we-Si5"/>
                             <constraint firstAttribute="bottom" secondItem="cAB-e7-ofb" secondAttribute="bottom" priority="500" id="cFb-pB-EPe"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="dEt-JV-3tj" secondAttribute="bottom" id="gYR-Q6-VIp"/>
                             <constraint firstItem="cAB-e7-ofb" firstAttribute="leading" secondItem="Um2-9a-EWe" secondAttribute="leading" id="lJQ-hl-u7b"/>
-                            <constraint firstItem="cAB-e7-ofb" firstAttribute="top" secondItem="Um2-9a-EWe" secondAttribute="top" id="oqk-rU-4Sq"/>
+                            <constraint firstItem="dEt-JV-3tj" firstAttribute="top" secondItem="Um2-9a-EWe" secondAttribute="top" constant="48" id="scs-Yo-vz6"/>
+                            <constraint firstItem="ek3-Mb-wg7" firstAttribute="top" secondItem="Um2-9a-EWe" secondAttribute="top" constant="16" id="yJF-UW-8Dw"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -70,8 +78,11 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="avatarTop" destination="1Zf-mU-6LK" id="Y2Z-mN-8dt"/>
                 <outlet property="messLabel" destination="adb-Fe-vt0" id="Ehz-jy-8pJ"/>
+                <outlet property="messTime" destination="ek3-Mb-wg7" id="qtF-Sa-4qW"/>
                 <outlet property="messView" destination="dEt-JV-3tj" id="d2u-IB-TMF"/>
+                <outlet property="messViewTop" destination="scs-Yo-vz6" id="DHI-pc-vKi"/>
             </connections>
             <point key="canvasLocation" x="34" y="144"/>
         </tableViewCell>

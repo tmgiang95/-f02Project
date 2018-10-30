@@ -24,8 +24,7 @@ class ChatViewController: BaseViewController {
     private var uID : String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-        messTableView.registerCell(ChatTableViewCell1.className)
-        messTableView.registerCell(ChatTableViewCell2.className)
+        messTableView.registerCell(ChatTableViewCell1.className,ChatTableViewCell2.className)
         messTableView.delegate = self
         messTableView.dataSource = self
         messTableView.contentInset = UIEdgeInsetsMake(16, 0, 0, 0)
@@ -48,7 +47,7 @@ class ChatViewController: BaseViewController {
         let message = [
             "content" : content ,
             "isNew" : 1,
-            "time" : date,
+            "time" : Int64(date),
             "uID" : uID
             ] as [String : Any]
         
@@ -56,7 +55,7 @@ class ChatViewController: BaseViewController {
     }
     func getMessagesData (){
         self.ref = Database.database().reference()
-        let a =  ref.child("Chat").child("0").child("messages")
+        let a =  ref.child("Chat").child("NKuA2ohRSRN7CmCl0RQ1DIQagpE2 - KuvPoMH5T9YIIwPHxRqayAbgjNV2").child("messages")
         
         
         refChat = a.observe(.value, with: { [weak self] (snapshot) in
@@ -85,7 +84,7 @@ class ChatViewController: BaseViewController {
     func sendMessagesData(message : [String : Any] , date : Int64) {
         self.ref = Database.database().reference()
         
-        let messagesFB =  ref.child("Chat").child("0").child("messages")
+        let messagesFB =  ref.child("Chat").child("NKuA2ohRSRN7CmCl0RQ1DIQagpE2 - KuvPoMH5T9YIIwPHxRqayAbgjNV2").child("messages")
         let key = String(date)
         messagesFB.child(key).setValue(message)
         
@@ -113,22 +112,41 @@ extension ChatViewController: UITableViewDataSource {
     }
     
     
+    
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let dateFormat = DateFormatter()
+        dateFormat.dateFormat = "dd/MM/YYYY , hh:mm:ss"
+        let messagePre : Message
+        if indexPath.row != 0 {
+           messagePre = messages[indexPath.row - 1]
+        } else {
+            messagePre = messages[0]
+        }
         let message = messages[indexPath.row]
+        var time = ""
         guard let curUser = Auth.auth().currentUser else {
             return UITableViewCell()
+        }
+        let distance = message.time - messagePre.time
+        if  distance > 86400 * 1000 {
+            
+            time = dateFormat.string(from: Date(timeIntervalSince1970: Double(message.time) / 1000))
+        } else {
+            time = ""
         }
         if message.uID == curUser.uid {
             guard let cell = messTableView.dequeueReusableCell(withIdentifier: ChatTableViewCell2.className, for: indexPath) as? ChatTableViewCell2 else {
                 return UITableViewCell()
             }
-            cell.fillData(message)
+            cell.fillData(message, time)
             return cell
         } else {
             guard let cell = messTableView.dequeueReusableCell(withIdentifier: ChatTableViewCell1.className, for: indexPath) as? ChatTableViewCell1 else {
                 return UITableViewCell()
             }
-            cell.fillData(message)
+            cell.fillData(message, time)
             return cell
         }
     }
