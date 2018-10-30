@@ -12,6 +12,7 @@ final class HomeChatCell: UITableViewCell {
 
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var newestMessageContent: UILabel!
+    var chat: Chat?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,10 +21,10 @@ final class HomeChatCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
     }
     func fillData(_ chat: Chat) {
         newestMessageContent.text = chat.messages.last?.content
+        self.chat = chat
     }
     
 }

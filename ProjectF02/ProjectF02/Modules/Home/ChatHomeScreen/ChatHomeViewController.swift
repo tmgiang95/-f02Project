@@ -64,6 +64,13 @@ extension ChatHomeViewController: UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let chatvc = ChatViewController()
+        let chatContent = self.chatList[indexPath.row]
+        chatvc.passChatData(chatContent)
+        self.navigationController?.pushViewController(chatvc, animated: true)
+    }
 }
 
 extension ChatHomeViewController: UITableViewDataSource{
