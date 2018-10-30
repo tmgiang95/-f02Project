@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -29,10 +29,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bpS-0t-hsv">
-                                <rect key="frame" x="198" y="48" width="74" height="52.5"/>
+                                <rect key="frame" x="214" y="48" width="58" height="36.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gT1-DP-L1n">
-                                        <rect key="frame" x="16" y="16" width="42" height="20.5"/>
+                                        <rect key="frame" x="8" y="8" width="42" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -40,10 +40,10 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.94117647058823528" green="0.92941176470588238" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="gT1-DP-L1n" secondAttribute="bottom" constant="16" id="3MC-U4-51a"/>
-                                    <constraint firstItem="gT1-DP-L1n" firstAttribute="leading" secondItem="bpS-0t-hsv" secondAttribute="leading" constant="16" id="dQb-Wo-asP"/>
-                                    <constraint firstItem="gT1-DP-L1n" firstAttribute="top" secondItem="bpS-0t-hsv" secondAttribute="top" constant="16" id="jub-3a-twt"/>
-                                    <constraint firstAttribute="trailing" secondItem="gT1-DP-L1n" secondAttribute="trailing" constant="16" id="rHO-AP-Ajk"/>
+                                    <constraint firstAttribute="bottom" secondItem="gT1-DP-L1n" secondAttribute="bottom" constant="8" id="3MC-U4-51a"/>
+                                    <constraint firstItem="gT1-DP-L1n" firstAttribute="leading" secondItem="bpS-0t-hsv" secondAttribute="leading" constant="8" id="dQb-Wo-asP"/>
+                                    <constraint firstItem="gT1-DP-L1n" firstAttribute="top" secondItem="bpS-0t-hsv" secondAttribute="top" constant="8" id="jub-3a-twt"/>
+                                    <constraint firstAttribute="trailing" secondItem="gT1-DP-L1n" secondAttribute="trailing" constant="8" id="rHO-AP-Ajk"/>
                                 </constraints>
                             </view>
                         </subviews>
