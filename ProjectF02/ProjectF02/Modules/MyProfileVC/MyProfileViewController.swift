@@ -32,20 +32,27 @@ final class MyProfileViewController: UIViewController {
     }
     
     func configureTableview() {
+//        profileTableview.layer.borderWidth = 1
+//        profileTableview.layer.borderColor = UIColor.black.cgColor
         profileTableview.dataSource = self
         profileTableview.delegate = self
         profileTableview.registerCell(AvatarTableViewCell.className,PostTableViewCell.className)
     }
     
+    func gotoDescriptionvc() {
+        let desvc = DescriptionViewController.init(nibName: "DescriptionViewController", bundle: nil)
+        desvc.fillData(userinfo)
+        navigationController?.pushViewController(desvc, animated: true)
+    }
+    
     func getPost(_ uID: String, callback: @escaping (([Post]) -> Void)) {
-        var pos = Post()
         let ref = Database.database().reference().child("Post").queryOrdered(byChild: "uid").queryEqual(toValue: uID)
         
         ref.observe(.value) { (snapshot) in
             for snap in snapshot.children {
-                let po  = (snap as! DataSnapshot).value as! [String: Any]
-                pos = Post(po)
-                self.posts.append(pos)
+                let data  = (snap as! DataSnapshot).value as! [String: Any]
+                let newPos = Post(data)
+                self.posts.append(newPos)
                 callback(self.posts)
                 
                 //                    print(post.postid! + post.contentText! + post.uid!)
@@ -83,21 +90,24 @@ extension MyProfileViewController: UITableViewDataSource {
             guard let cell = profileTableview.dequeueReusableCell(withIdentifier: AvatarTableViewCell.className, for: indexPath) as? AvatarTableViewCell else {
                 return UITableViewCell()
             }
-            let username = self.userinfo.lastName! + " " + self.userinfo.firstName!
-            let coverimage: UIImage = #imageLiteral(resourceName: "cover")
-            let avatarimage: UIImage = #imageLiteral(resourceName: "avatar")
-            cell.fillData(coverimage , avatarimage, username , avatarimage)
+//            let username = self.userinfo.lastName! + " " + self.userinfo.firstName!
+//            let coverimage: UIImage = #imageLiteral(resourceName: "cover")
+//            let avatarimage: UIImage = #imageLiteral(resourceName: "avatar")
+            cell.fillData(userinfo)
+            cell.descriptionHandler = { [weak self] in
+             self?.gotoDescriptionvc()
+            }
             return cell
-        } else if indexPath.section == 1 {
+        } else {
             guard let cell = profileTableview.dequeueReusableCell(withIdentifier: PostTableViewCell.className, for: indexPath ) as? PostTableViewCell else {
                 return UITableViewCell()
             }
-            cell.fillData(#imageLiteral(resourceName: "cover"),self.userinfo.firstName! + " " + self.userinfo.lastName!, posts[indexPath.row])
+           cell.fillData(posts[indexPath.row])
+           
+            
             return cell
-        } else {
-            return UITableViewCell()
         }
+        
     }
-    
-    
+
 }

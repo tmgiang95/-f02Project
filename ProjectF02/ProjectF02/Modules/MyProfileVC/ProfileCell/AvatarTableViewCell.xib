@@ -58,25 +58,22 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gGa-43-aMN">
-                                        <rect key="frame" x="50" y="95" width="70" height="25"/>
+                                        <rect key="frame" x="60" y="95" width="40" height="25"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="USM-fr-o6D">
-                                                <rect key="frame" x="4" y="2.5" width="62" height="20"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cameraicon" translatesAutoresizingMaskIntoConstraints="NO" id="eLw-Bs-7gT">
+                                                <rect key="frame" x="7.5" y="0.0" width="25" height="25"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="20" id="sM4-FE-tQy"/>
+                                                    <constraint firstAttribute="width" constant="25" id="La2-Rz-T9b"/>
+                                                    <constraint firstAttribute="height" constant="25" id="hBM-mp-w8C"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                <state key="normal" title="chỉnh sửa"/>
-                                            </button>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="USM-fr-o6D" secondAttribute="trailing" constant="4" id="2ww-lz-vBp"/>
-                                            <constraint firstAttribute="bottom" secondItem="USM-fr-o6D" secondAttribute="bottom" constant="2.5" id="Cx4-Cf-Tg6"/>
-                                            <constraint firstItem="USM-fr-o6D" firstAttribute="top" secondItem="gGa-43-aMN" secondAttribute="top" constant="2.5" id="IjD-Zb-u8L"/>
+                                            <constraint firstItem="eLw-Bs-7gT" firstAttribute="centerY" secondItem="gGa-43-aMN" secondAttribute="centerY" id="igO-Qv-HG1"/>
                                             <constraint firstAttribute="height" constant="25" id="l9R-nU-zaq"/>
-                                            <constraint firstItem="USM-fr-o6D" firstAttribute="leading" secondItem="gGa-43-aMN" secondAttribute="leading" constant="4" id="oLG-e0-6Az"/>
-                                            <constraint firstAttribute="width" constant="70" id="zZA-rM-yXz"/>
+                                            <constraint firstItem="eLw-Bs-7gT" firstAttribute="centerX" secondItem="gGa-43-aMN" secondAttribute="centerX" id="rfY-fM-yoe"/>
+                                            <constraint firstAttribute="width" constant="40" id="zZA-rM-yXz"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -84,9 +81,9 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="iGF-Fd-xjY" secondAttribute="bottom" id="3OA-2A-fNH"/>
                                     <constraint firstItem="iGF-Fd-xjY" firstAttribute="leading" secondItem="VaO-aX-Rxl" secondAttribute="leading" id="4aM-Ng-AI1"/>
+                                    <constraint firstAttribute="trailing" secondItem="gGa-43-aMN" secondAttribute="trailing" constant="20" id="NzQ-93-jYn"/>
                                     <constraint firstItem="iGF-Fd-xjY" firstAttribute="top" secondItem="VaO-aX-Rxl" secondAttribute="top" id="TtJ-WV-u77"/>
                                     <constraint firstAttribute="width" constant="120" id="dH6-bA-wLS"/>
-                                    <constraint firstAttribute="trailing" secondItem="gGa-43-aMN" secondAttribute="trailing" id="nKZ-1e-ne6"/>
                                     <constraint firstAttribute="bottom" secondItem="gGa-43-aMN" secondAttribute="bottom" id="ngJ-8p-LZG"/>
                                     <constraint firstAttribute="height" constant="120" id="pdw-Ec-i3C"/>
                                     <constraint firstAttribute="trailing" secondItem="iGF-Fd-xjY" secondAttribute="trailing" id="wdV-Se-reC"/>
@@ -125,12 +122,12 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btv-qh-0Ga">
-                                <rect key="frame" x="179" y="344" width="50" height="40"/>
+                                <rect key="frame" x="167.5" y="344" width="73" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="UN7-gT-r6y"/>
-                                    <constraint firstAttribute="width" constant="50" id="YdR-36-wHV"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="90" id="YdR-36-wHV"/>
                                 </constraints>
-                                <state key="normal" title="bạn bè">
+                                <state key="normal" title=" Thêm bạn">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
@@ -155,7 +152,7 @@
                             <constraint firstAttribute="bottom" secondItem="3nj-nP-o8n" secondAttribute="bottom" constant="175" id="r68-ak-FO8"/>
                         </constraints>
                     </view>
-                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7YZ-PJ-NFW">
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7YZ-PJ-NFW" userLabel="view think">
                         <rect key="frame" x="0.0" y="400" width="408" height="120"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zw2-gT-FF0">
@@ -195,19 +192,13 @@
                                         <rect key="frame" x="189" y="5" width="30" height="30"/>
                                         <state key="normal" title="Ảnh"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x87-AL-UEF">
-                                        <rect key="frame" x="341" y="5" width="51" height="30"/>
-                                        <state key="normal" title="Sự kiện"/>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="qYn-cs-RAr" firstAttribute="centerY" secondItem="Ryy-aN-DvO" secondAttribute="centerY" id="4mN-SQ-S9o"/>
-                                    <constraint firstAttribute="trailing" secondItem="x87-AL-UEF" secondAttribute="trailing" constant="16" id="5G1-H4-TqT"/>
                                     <constraint firstItem="cOJ-fN-jXC" firstAttribute="leading" secondItem="Ryy-aN-DvO" secondAttribute="leading" constant="16" id="chI-XX-nVk"/>
                                     <constraint firstItem="qYn-cs-RAr" firstAttribute="centerX" secondItem="Ryy-aN-DvO" secondAttribute="centerX" id="efR-Zq-CCf"/>
                                     <constraint firstAttribute="height" constant="40" id="fDO-ev-JoZ"/>
-                                    <constraint firstItem="x87-AL-UEF" firstAttribute="centerY" secondItem="Ryy-aN-DvO" secondAttribute="centerY" id="jzh-ZE-EDc"/>
                                     <constraint firstItem="cOJ-fN-jXC" firstAttribute="centerY" secondItem="Ryy-aN-DvO" secondAttribute="centerY" id="pFh-9w-cdq"/>
                                 </constraints>
                             </view>
@@ -243,12 +234,15 @@
                 <outlet property="imagelibraryButton" destination="Xhu-NC-lQI" id="2T9-dg-ydR"/>
                 <outlet property="postAvatar" destination="xqX-Ii-THq" id="rfw-Yn-72x"/>
                 <outlet property="usernameProfile" destination="Nt7-aV-tFS" id="HJf-O3-Xfe"/>
-                <outlet property="viewAvatar" destination="VaO-aX-Rxl" id="ipO-g8-Pvd"/>
+                <outlet property="viewAddcontent" destination="Ryy-aN-DvO" id="1o1-0a-ede"/>
+                <outlet property="viewAvatar" destination="VaO-aX-Rxl" id="CNL-Ss-cec"/>
+                <outlet property="viewWhatyouthink" destination="Zw2-gT-FF0" id="EZl-al-WkH"/>
             </connections>
-            <point key="canvasLocation" x="57" y="63"/>
+            <point key="canvasLocation" x="56.25" y="62.323943661971832"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="cameraicon" width="12" height="12"/>
         <image name="female_user" width="51.200000762939453" height="51.200000762939453"/>
     </resources>
 </document>

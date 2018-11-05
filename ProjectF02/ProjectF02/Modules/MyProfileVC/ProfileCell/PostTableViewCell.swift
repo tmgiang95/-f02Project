@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class PostTableViewCell: UITableViewCell {
     
    
+    @IBOutlet weak var viewButtonlikecomment: UIView!
+    @IBOutlet weak var viewLikecomment: UIView!
     @IBOutlet weak var timePosted: UILabel!
     @IBOutlet weak var imageviewPost: UIImageView!
     @IBOutlet weak var commentLabel: UILabel!
@@ -23,19 +26,33 @@ final class PostTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        imageAvatar.setRounded()
-        
+        configureView()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
     
+    func configureView() {
+        viewLikecomment.layer.borderColor = UIColor.black.cgColor
+        viewLikecomment.layer.borderWidth = 0.5
+        viewLikecomment.layer.cornerRadius = 5
+         imageAvatar.setRounded()
+        viewButtonlikecomment.layer.borderColor = UIColor.black.cgColor
+        viewButtonlikecomment.layer.borderWidth = 0.1
+        viewButtonlikecomment.layer.cornerRadius = 5
+    }
     
-    func fillData(_ imageAvt: UIImage, _ username: String, _ post: Post)
+    func fillData(_ post: Post)
     {
-        imageAvatar.image = imageAvt
-        labeluserName.text = username
+        if post.imageLink == nil {
+//            imageviewPost.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
+            imageviewPost.removeFromSuperview()
+        } else {
+            imageviewPost.kf.setImage(with: URL(string: post.imageLink ?? ""))
+        }
+        imageAvatar.kf.setImage(with: URL(string: post.avatar ?? ""))
+        labeluserName.text = post.fullName
         labelContentpost.text = post.contentText
     }
     

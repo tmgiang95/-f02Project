@@ -179,7 +179,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PYU-53-ItO" userLabel="view content status">
                         <rect key="frame" x="0.0" y="91" width="364" height="60.666666666666657"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kQh-W4-4dq">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sad asd ahsdjh ahdahdkahsk hdajs kdah skha kahdj aks djashd ash dkhakj hdajk hdah dkah k" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kQh-W4-4dq">
                                 <rect key="frame" x="16" y="16" width="332" height="28.666666666666671"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -228,6 +228,8 @@
                 <outlet property="likeButton" destination="qCC-lR-Yk0" id="WlG-Yu-jrf"/>
                 <outlet property="likenumberLabel" destination="D1r-3t-Xec" id="Wdy-o1-xzz"/>
                 <outlet property="timePosted" destination="jad-68-1Yw" id="hzj-Lj-crR"/>
+                <outlet property="viewButtonlikecomment" destination="tV2-gR-hZP" id="BM1-7M-Nkt"/>
+                <outlet property="viewLikecomment" destination="bDk-gj-lOc" id="FV7-uB-Z91"/>
             </connections>
             <point key="canvasLocation" x="92.753623188405811" y="154.89130434782609"/>
         </tableViewCell>

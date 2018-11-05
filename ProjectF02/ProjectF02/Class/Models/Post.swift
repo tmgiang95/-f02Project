@@ -9,7 +9,9 @@
 import Foundation
 
 class Post {
-    var uid: String?
+
+    var fullName: String?
+    var avatar: String?
     var postid: String?
     var imageLink: String?
     var contentText: String?
@@ -17,22 +19,14 @@ class Post {
     var comment = [Comment]()
     var time: Double?
     
-    init() {
-//        self.uid = "dNZVhNcTHaS8jhbRDt6UZBtOQ443"
-//        self.postid = "postID2"
-//        self.contentText = "day la cai stt thu 1"
-//        self.like.append("NKuA2ohRSRN7CmCl0RQ1DIQagpE2")
-//        self.like.append("dNZVhNcTHaS8jhbRDt6UZBtOQ443")
-//        self.comment.append(Comment(uID: "dNZVhNcTHaS8jhbRDt6UZBtOQ443", content: "xam lz qua ban oi"))
-//        self.comment.append(Comment(uID: "NKuA2ohRSRN7CmCl0RQ1DIQagpE2", content: "cut me may ngay"))
-//        self.time = 1539612082
-    }
-    
-    init(_ dict: [String: Any]) {
-        if let uid = dict["uid"] as? String{
-            self.uid = uid
+    init(_ dict: [String:Any]) {
+        if let fullName = dict["fullName"] as? String{
+            self.fullName = fullName
         }
-        if let postid = dict["postid"] as? String {
+        if let avatar = dict["avatar"] as? String {
+            self.avatar = avatar
+        }
+        if let postid = dict["postID"] as? String {
             self.postid = postid
         }
         if let imageLink = dict["imageLink"] as? String {
@@ -58,7 +52,8 @@ class Post {
     
     func toDict() -> [String: Any]{
         var postDict = [String: Any]()
-        postDict["uid"] = self.uid
+        postDict["fullName"] = self.fullName
+        postDict["avatar"] = self.avatar
         postDict["postid"] = self.postid
         postDict["imageLink"] = self.imageLink
         postDict["contentText"] = self.contentText
@@ -79,4 +74,5 @@ class Post {
         
         return postDict
     }
+    
 }
