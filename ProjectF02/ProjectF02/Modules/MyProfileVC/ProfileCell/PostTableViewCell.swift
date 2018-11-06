@@ -11,12 +11,11 @@ import Kingfisher
 
 final class PostTableViewCell: UITableViewCell {
     
-   
+    @IBOutlet weak var heighImageview: NSLayoutConstraint!
     @IBOutlet weak var viewButtonlikecomment: UIView!
     @IBOutlet weak var viewLikecomment: UIView!
     @IBOutlet weak var timePosted: UILabel!
     @IBOutlet weak var imageviewPost: UIImageView!
-    @IBOutlet weak var commentLabel: UILabel!
     @IBOutlet weak var imageAvatar: UIImageView!
     @IBOutlet weak var likenumberLabel: UILabel!
     @IBOutlet weak var labeluserName: UILabel!
@@ -36,18 +35,15 @@ final class PostTableViewCell: UITableViewCell {
     func configureView() {
         viewLikecomment.layer.borderColor = UIColor.black.cgColor
         viewLikecomment.layer.borderWidth = 0.5
-        viewLikecomment.layer.cornerRadius = 5
          imageAvatar.setRounded()
-        viewButtonlikecomment.layer.borderColor = UIColor.black.cgColor
-        viewButtonlikecomment.layer.borderWidth = 0.1
-        viewButtonlikecomment.layer.cornerRadius = 5
     }
     
     func fillData(_ post: Post)
     {
         if post.imageLink == nil {
 //            imageviewPost.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
-            imageviewPost.removeFromSuperview()
+            heighImageview.constant = 1
+            imageviewPost.alpha = 0
         } else {
             imageviewPost.kf.setImage(with: URL(string: post.imageLink ?? ""))
         }

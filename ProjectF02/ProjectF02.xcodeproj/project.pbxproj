@@ -55,6 +55,8 @@
 		DB693784218878BF00902C14 /* DescriptionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB693782218878BF00902C14 /* DescriptionViewController.xib */; };
 		DBA4DF5A2190A7C600B27E2B /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA4DF582190A7C600B27E2B /* DescriptionTableViewCell.swift */; };
 		DBA4DF5B2190A7C600B27E2B /* DescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBA4DF592190A7C600B27E2B /* DescriptionTableViewCell.xib */; };
+		DBDAB9732191B57500E523C0 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDAB9712191B57500E523C0 /* PostViewController.swift */; };
+		DBDAB9742191B57500E523C0 /* PostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBDAB9722191B57500E523C0 /* PostViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,6 +112,8 @@
 		DB693782218878BF00902C14 /* DescriptionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DescriptionViewController.xib; sourceTree = "<group>"; };
 		DBA4DF582190A7C600B27E2B /* DescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		DBA4DF592190A7C600B27E2B /* DescriptionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DescriptionTableViewCell.xib; sourceTree = "<group>"; };
+		DBDAB9712191B57500E523C0 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		DBDAB9722191B57500E523C0 /* PostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -302,6 +306,7 @@
 			children = (
 				A43A2741216CD85600308BCA /* MyProfileViewController.swift */,
 				A43A273B216CD85600308BCA /* MyProfileViewController.xib */,
+				DBDAB9702191B52D00E523C0 /* PostViewcontroller */,
 				DB6937802188787800902C14 /* DescriptionVc */,
 				A43A273C216CD85600308BCA /* ProfileCell */,
 			);
@@ -357,6 +362,15 @@
 				DBA4DF592190A7C600B27E2B /* DescriptionTableViewCell.xib */,
 			);
 			path = DescriptionVc;
+			sourceTree = "<group>";
+		};
+		DBDAB9702191B52D00E523C0 /* PostViewcontroller */ = {
+			isa = PBXGroup;
+			children = (
+				DBDAB9712191B57500E523C0 /* PostViewController.swift */,
+				DBDAB9722191B57500E523C0 /* PostViewController.xib */,
+			);
+			path = PostViewcontroller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -438,6 +452,7 @@
 				A43A2743216CD85600308BCA /* AvatarTableViewCell.xib in Resources */,
 				9D17FC7421512E7A00070198 /* CountryListViewController.xib in Resources */,
 				9DFDA09B2181F48700C3B5AA /* Contents.json in Resources */,
+				DBDAB9742191B57500E523C0 /* PostViewController.xib in Resources */,
 				A43A2745216CD85600308BCA /* PostTableViewCell.xib in Resources */,
 				84E5A7732153C34B0096E819 /* ChatViewController.xib in Resources */,
 				A4354344217F508600665276 /* HomeChatCell.xib in Resources */,
@@ -580,6 +595,7 @@
 				A43A2744216CD85600308BCA /* PostTableViewCell.swift in Sources */,
 				84EE45042157E43F00AA2716 /* Message.swift in Sources */,
 				9D17FC7221512E7A00070198 /* Extension.swift in Sources */,
+				DBDAB9732191B57500E523C0 /* PostViewController.swift in Sources */,
 				84EE45002157AA5E00AA2716 /* ChatTableViewCell2.swift in Sources */,
 				9D17FC8021512E7A00070198 /* AppDelegate.swift in Sources */,
 				DBA4DF5A2190A7C600B27E2B /* DescriptionTableViewCell.swift in Sources */,

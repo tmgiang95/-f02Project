@@ -9,10 +9,11 @@
 import UIKit
 
 final class HomeTabBarViewController: UITabBarController {
+    
     var user: User?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     func passHomeData(_ user: User){

@@ -19,7 +19,7 @@ final class AvatarTableViewCell: UITableViewCell {
     @IBOutlet weak var friendButton: UIButton!
     @IBOutlet weak var viewAvatar: UIView!
     @IBOutlet weak var viewWhatyouthink: UIView!
-    @IBOutlet weak var viewAddcontent: UIView!
+   
 
     var descriptionHandler: (() -> Void)?
     
@@ -39,20 +39,19 @@ final class AvatarTableViewCell: UITableViewCell {
         viewAvatar.setViewrounded()
         viewWhatyouthink.layer.borderColor = UIColor.black.cgColor
         viewWhatyouthink.layer.borderWidth = 0.5
-        viewWhatyouthink.layer.cornerRadius = 5
-        viewAddcontent.layer.borderColor = UIColor.black.cgColor
-        viewAddcontent.layer.borderWidth = 0.5
-        viewAddcontent.layer.cornerRadius = 5
+        postAvatar.layer.borderColor = UIColor.black.cgColor
+        postAvatar.layer.borderWidth = 0.5
         
+       
     }
     
     
     func fillData(_ user: User ) {
         coverImage.kf.setImage(with: URL(string: user.cover ?? ""))
         avatarImage.kf.setImage(with: URL(string: user.avatar ?? ""))
-        let firstname = user.firstName ?? ""
-        let lastname = user.lastName ?? ""
-        usernameProfile.text = firstname + " " + lastname
+//        let firstname = user.firstName ?? ""
+//        let lastname = user.lastName ?? ""
+        usernameProfile.text = (user.firstName ?? "") + " " + (user.lastName ?? "")
         postAvatar.kf.setImage(with: URL(string: user.avatar ?? ""))
     }
     

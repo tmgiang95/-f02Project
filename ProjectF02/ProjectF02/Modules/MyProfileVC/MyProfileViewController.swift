@@ -27,6 +27,11 @@ final class MyProfileViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+//       tabBarController?.hidesBottomBarWhenPushed = true
+        tabBarController?.navigationItem.title = "My Profile"
+    }
+    
     func fillData(_ user: User) {
         self.userinfo = user
     }
@@ -40,9 +45,9 @@ final class MyProfileViewController: UIViewController {
     }
     
     func gotoDescriptionvc() {
-        let desvc = DescriptionViewController.init(nibName: "DescriptionViewController", bundle: nil)
-        desvc.fillData(userinfo)
-        navigationController?.pushViewController(desvc, animated: true)
+        let desVC = DescriptionViewController()
+        desVC.fillData(userinfo)
+        navigationController?.pushViewController(desVC, animated: true)
     }
     
     func getPost(_ uID: String, callback: @escaping (([Post]) -> Void)) {
@@ -95,7 +100,7 @@ extension MyProfileViewController: UITableViewDataSource {
 //            let avatarimage: UIImage = #imageLiteral(resourceName: "avatar")
             cell.fillData(userinfo)
             cell.descriptionHandler = { [weak self] in
-             self?.gotoDescriptionvc()
+                self?.gotoDescriptionvc()
             }
             return cell
         } else {

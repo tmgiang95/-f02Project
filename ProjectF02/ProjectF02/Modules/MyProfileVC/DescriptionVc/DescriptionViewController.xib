@@ -30,18 +30,12 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhA-fd-kj9">
-                            <rect key="frame" x="16" y="5" width="34" height="30"/>
-                            <state key="normal" title="back"/>
-                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="qhA-fd-kj9" firstAttribute="centerY" secondItem="Wv5-kC-7Pk" secondAttribute="centerY" id="1H9-GP-X0G"/>
                         <constraint firstAttribute="height" constant="40" id="HRe-Xg-ZSf"/>
                         <constraint firstItem="jZI-PO-LQI" firstAttribute="centerY" secondItem="Wv5-kC-7Pk" secondAttribute="centerY" id="TrV-bB-rDX"/>
                         <constraint firstItem="jZI-PO-LQI" firstAttribute="centerX" secondItem="Wv5-kC-7Pk" secondAttribute="centerX" id="lYJ-gW-fJU"/>
-                        <constraint firstItem="qhA-fd-kj9" firstAttribute="leading" secondItem="Wv5-kC-7Pk" secondAttribute="leading" constant="16" id="wtR-17-eNW"/>
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lvL-aJ-nky">
@@ -60,7 +54,7 @@
                 <constraint firstItem="lvL-aJ-nky" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="ZZY-uQ-pod"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="39.200000000000003" y="46.326836581709152"/>
+            <point key="canvasLocation" x="25" y="30"/>
         </view>
     </objects>
 </document>

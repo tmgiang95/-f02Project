@@ -10,15 +10,21 @@ import UIKit
 
 class DescriptionTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var labelValue: UILabel!
+    @IBOutlet weak var labelKey: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
+    }
+    
+    func fillData (_ user: User)
+    {
+        
     }
     
 }
