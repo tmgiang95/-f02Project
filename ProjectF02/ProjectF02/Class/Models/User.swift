@@ -10,16 +10,18 @@ import Foundation
 
 class User {
     var uid: String? = ""
+    var adress: String? = ""
+    var email: String? = ""
     var firstName: String? = ""
     var lastName: String? = ""
-    var birthday: Double? = 0.0
+    var birthday: String? = ""
     var gender: Bool = true
     var avatar: String? = ""
     var cover: String? = ""
     var description: String? = ""
     var friendList = [String:Any]()
     var isAvailable: Bool = false
-    var phone: String = ""
+    var phone: String? = ""
     
     init() {
     }
@@ -55,6 +57,12 @@ class User {
         if let phoneNumber = dict["phone"] as? String {
             self.phone = phoneNumber
         }
+        if let eMail = dict["email"] as? String {
+            self.email = eMail
+        }
+        if let aDress = dict["adress"] as? String {
+            self.adress = aDress
+        }
     }
     
     func toDict() -> [String: Any]{
@@ -68,6 +76,8 @@ class User {
         userDict["description"] = self.description
         userDict["friendlist"] = self.friendList
         userDict["phone"] = self.phone
+        userDict["email"] =  self.email
+        userDict["adress"] = self.adress
         userDict["isAvailable"] = self.isAvailable ? 0 : 1
         return userDict
     }
