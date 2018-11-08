@@ -32,16 +32,10 @@ class ViewController: BaseViewController, GIDSignInUIDelegate {
     }
     
     func configureButtonLogin(button : UIButton) {
-        let gradient = CAGradientLayer()
-        gradient.frame =  CGRect(origin: CGPoint.zero, size: button.frame.size)
-        gradient.colors = [UIColor.blue.cgColor, UIColor.green.cgColor]
-        let shape = CAShapeLayer()
-        shape.lineWidth = 2
-        shape.path = UIBezierPath(rect: button.bounds).cgPath
-        shape.strokeColor = UIColor.black.cgColor
-        shape.fillColor = UIColor.clear.cgColor
-        gradient.mask = shape
-        button.layer.addSublayer(gradient)
+        button.layer.borderColor = UIColor.black.cgColor
+        button.layer.borderWidth = 0.5
+        button.layer.cornerRadius = button.frame.height / 2
+        button.clipsToBounds = true
     }
     
     @IBAction func signInWithGoogleAction(_ sender: Any) {
@@ -64,8 +58,6 @@ class ViewController: BaseViewController, GIDSignInUIDelegate {
 
 
             self?.getUserFromFirebase(dt.user.uid, callback: { (user: User) in
-//                    let vc = MyProfileViewController()
-//                    vc.fillData(user)
                 let homevc = HomeTabBarViewController()
                 homevc.passHomeData(user)
                 self?.navigationController?.pushViewController(homevc, animated: true)
@@ -77,14 +69,10 @@ class ViewController: BaseViewController, GIDSignInUIDelegate {
         }
     }
     
-    
     @IBAction func signupBtnAction(_ sender: Any) {
         let registerVC = RegisterViewController()
         navigationController?.pushViewController(registerVC, animated: true)
     }
-    
-
-    
     func getUserFromFirebase(_ uID: String,callback: @escaping ((User) -> Void)){
         var user =  User()
         let ref = Database.database().reference().child("User").queryOrdered(byChild: "uid").queryEqual(toValue : uID)

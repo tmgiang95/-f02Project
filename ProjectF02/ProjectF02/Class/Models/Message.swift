@@ -41,4 +41,15 @@ final class Message {
             self.uID = uID
         }
     }
+    
+    func toDict() -> [String: Any]{
+        var messDict = [String: Any]()
+        messDict["content"] = self.content
+        messDict["isNew"] = self.isNew
+        messDict["status"] = self.status
+        messDict["time"] = self.time
+        messDict["uID"] = self.uID
+        
+        return messDict
+    }
 }
