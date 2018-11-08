@@ -9,10 +9,11 @@
 import UIKit
 
 final class HomeTabBarViewController: UITabBarController {
+    
     var user: User?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     func passHomeData(_ user: User){
@@ -30,6 +31,7 @@ final class HomeTabBarViewController: UITabBarController {
         let newFeedsVC = NewFeedsViewController()
         newFeedsVC.tabBarItem = UITabBarItem(title: "NewsFeed", image: UIImage(named: "newsfeed"), selectedImage: nil)
         let myProfileVC = MyProfileViewController()
+        myProfileVC.fillData(u)
         myProfileVC.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "profile"), selectedImage: nil)
         viewControllers = [newFeedsVC, chatHomeVC, myProfileVC]
         navigationItem.setHidesBackButton(true, animated: false)

@@ -69,12 +69,10 @@ class ViewController: BaseViewController, GIDSignInUIDelegate {
         }
     }
     
-    
     @IBAction func signupBtnAction(_ sender: Any) {
         let registerVC = RegisterViewController()
         navigationController?.pushViewController(registerVC, animated: true)
     }
-    
     func getUserFromFirebase(_ uID: String,callback: @escaping ((User) -> Void)){
         var user =  User()
         let ref = Database.database().reference().child("User").queryOrdered(byChild: "uid").queryEqual(toValue : uID)
