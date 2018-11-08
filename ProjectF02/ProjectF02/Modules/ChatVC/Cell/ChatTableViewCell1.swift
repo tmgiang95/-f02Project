@@ -9,6 +9,7 @@
 import UIKit
 
 class ChatTableViewCell1: UITableViewCell {
+    @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var messView: UIView!
     @IBOutlet weak var messLabel: UILabel!
     @IBOutlet weak var messTime: UILabel!
@@ -43,6 +44,7 @@ class ChatTableViewCell1: UITableViewCell {
         messViewTop.constant = time == "" ? 0 : 48
         avatarTop.constant = time == "" ? 0 : 48
         layoutIfNeeded()
+        
     }
     
     

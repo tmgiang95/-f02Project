@@ -47,16 +47,16 @@ class ChatViewController: BaseViewController {
             else {
                 return
         }
+        let mess = Message(content: content, isNew: 1, status: 0, time: Int64(date), uID: uID).toDict()
         
+//        let message = [
+//            "content" : content ,
+//            "isNew" : 1,
+//            "time" : Int64(date),
+//            "uID" : uID
+//            ] as [String : Any]
         
-        let message = [
-            "content" : content ,
-            "isNew" : 1,
-            "time" : Int64(date),
-            "uID" : uID
-            ] as [String : Any]
-        
-        sendMessagesData(message: message, date: Int64(date))
+        sendMessagesData(message: mess, date: Int64(date))
     }
     func getMessagesData (){
         guard let chatContent = self.chat, let chatID = chatContent.id else {
