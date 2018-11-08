@@ -55,6 +55,8 @@
 		DB693784218878BF00902C14 /* DescriptionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB693782218878BF00902C14 /* DescriptionViewController.xib */; };
 		DBDAB9732191B57500E523C0 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDAB9712191B57500E523C0 /* PostViewController.swift */; };
 		DBDAB9742191B57500E523C0 /* PostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBDAB9722191B57500E523C0 /* PostViewController.xib */; };
+		DBF85CC22193F1610096CB49 /* UpStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF85CC02193F1610096CB49 /* UpStatusViewController.swift */; };
+		DBF85CC32193F1610096CB49 /* UpStatusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBF85CC12193F1610096CB49 /* UpStatusViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,6 +112,8 @@
 		DB693782218878BF00902C14 /* DescriptionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DescriptionViewController.xib; sourceTree = "<group>"; };
 		DBDAB9712191B57500E523C0 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		DBDAB9722191B57500E523C0 /* PostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostViewController.xib; sourceTree = "<group>"; };
+		DBF85CC02193F1610096CB49 /* UpStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpStatusViewController.swift; sourceTree = "<group>"; };
+		DBF85CC12193F1610096CB49 /* UpStatusViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpStatusViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -312,6 +316,7 @@
 		A43A273C216CD85600308BCA /* ProfileCell */ = {
 			isa = PBXGroup;
 			children = (
+				DBF85CBF2193F1370096CB49 /* UpStatusVc */,
 				A43A2740216CD85600308BCA /* AvatarTableViewCell.swift */,
 				A43A273D216CD85600308BCA /* AvatarTableViewCell.xib */,
 				A43A273E216CD85600308BCA /* PostTableViewCell.swift */,
@@ -365,6 +370,15 @@
 				DBDAB9722191B57500E523C0 /* PostViewController.xib */,
 			);
 			path = PostViewcontroller;
+			sourceTree = "<group>";
+		};
+		DBF85CBF2193F1370096CB49 /* UpStatusVc */ = {
+			isa = PBXGroup;
+			children = (
+				DBF85CC02193F1610096CB49 /* UpStatusViewController.swift */,
+				DBF85CC12193F1610096CB49 /* UpStatusViewController.xib */,
+			);
+			path = UpStatusVc;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -443,6 +457,7 @@
 				9DFDA09F2181F5CE00C3B5AA /* DatePickerViewController.xib in Resources */,
 				DB693784218878BF00902C14 /* DescriptionViewController.xib in Resources */,
 				A43A2743216CD85600308BCA /* AvatarTableViewCell.xib in Resources */,
+				DBF85CC32193F1610096CB49 /* UpStatusViewController.xib in Resources */,
 				9D17FC7421512E7A00070198 /* CountryListViewController.xib in Resources */,
 				9DFDA09B2181F48700C3B5AA /* Contents.json in Resources */,
 				DBDAB9742191B57500E523C0 /* PostViewController.xib in Resources */,
@@ -591,6 +606,7 @@
 				DBDAB9732191B57500E523C0 /* PostViewController.swift in Sources */,
 				84EE45002157AA5E00AA2716 /* ChatTableViewCell2.swift in Sources */,
 				9D17FC8021512E7A00070198 /* AppDelegate.swift in Sources */,
+				DBF85CC22193F1610096CB49 /* UpStatusViewController.swift in Sources */,
 				84E5A7722153C34B0096E819 /* ChatViewController.swift in Sources */,
 				9DFDA0A02181F5CE00C3B5AA /* DatePickerViewController.swift in Sources */,
 				A43A274B2174D4FA00308BCA /* Comment.swift in Sources */,

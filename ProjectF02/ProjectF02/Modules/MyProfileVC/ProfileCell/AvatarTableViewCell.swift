@@ -10,6 +10,7 @@ import UIKit
 
 final class AvatarTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var viewUpstatus: UIView!
     @IBOutlet weak var coverImage: UIImageView!
     @IBOutlet weak var usernameProfile: UILabel!
     @IBOutlet weak var avatarImage: UIImageView!
@@ -19,16 +20,20 @@ final class AvatarTableViewCell: UITableViewCell {
     @IBOutlet weak var friendButton: UIButton!
     @IBOutlet weak var viewAvatar: UIView!
     @IBOutlet weak var viewWhatyouthink: UIView!
-   
-
+    
+    
     var descriptionHandler: (() -> Void)?
+    var editcoverAction: (() -> Void)?
+    var editavatarAction: (() -> Void)?
+    var upstatusAction: (() -> Void)?
+    var getalbumAction: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        friendButton.isHidden = true
         configureView()
-        
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
@@ -41,16 +46,13 @@ final class AvatarTableViewCell: UITableViewCell {
         viewWhatyouthink.layer.borderWidth = 0.5
         postAvatar.layer.borderColor = UIColor.black.cgColor
         postAvatar.layer.borderWidth = 0.5
-        
-       
     }
+    
     
     
     func fillData(_ user: User ) {
         coverImage.kf.setImage(with: URL(string: user.cover ?? ""))
         avatarImage.kf.setImage(with: URL(string: user.avatar ?? ""))
-//        let firstname = user.firstName ?? ""
-//        let lastname = user.lastName ?? ""
         usernameProfile.text = (user.firstName ?? "") + " " + (user.lastName ?? "")
         postAvatar.kf.setImage(with: URL(string: user.avatar ?? ""))
     }
@@ -58,5 +60,20 @@ final class AvatarTableViewCell: UITableViewCell {
     @IBAction func descriptionButtonAction(_ sender: Any) {
         descriptionHandler?()
     }
+  
+    @IBAction func editAvataraction(_ sender: Any) {
+    editavatarAction?()
+    }
     
+    @IBAction func editCoveraction(_ sender: Any) {
+        editcoverAction?()
+    }
+    
+    @IBAction func buttonUpstatus(_ sender: Any) {
+    upstatusAction?()
+    }
+    
+    @IBAction func getAlbumimageaction(_ sender: Any) {
+     getalbumAction?()
+    }
 }
