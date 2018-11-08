@@ -26,15 +26,16 @@ final class HomeTabBarViewController: UITabBarController {
         }
         let chatHomeVC = ChatHomeViewController()
         chatHomeVC.passData(u)
-        chatHomeVC.tabBarItem = UITabBarItem(title: "Message", image: nil, selectedImage: nil)
+        chatHomeVC.tabBarItem = UITabBarItem(title: "Message", image: UIImage(named: "messages"), selectedImage: nil)
         let newFeedsVC = NewFeedsViewController()
-        newFeedsVC.tabBarItem = UITabBarItem(title: "NewsFeed", image: nil, selectedImage: nil)
+        newFeedsVC.tabBarItem = UITabBarItem(title: "NewsFeed", image: UIImage(named: "newsfeed"), selectedImage: nil)
         let myProfileVC = MyProfileViewController()
-        myProfileVC.tabBarItem = UITabBarItem(title: "Profile", image: nil, selectedImage: nil)
+        myProfileVC.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "profile"), selectedImage: nil)
         viewControllers = [newFeedsVC, chatHomeVC, myProfileVC]
         navigationItem.setHidesBackButton(true, animated: false)
         navigationController?.interactivePopGestureRecognizer?.delegate = nil
         navigationItem.title = "NewsFeed"
+        tabBar.tintColor = .black
     }
 
 }

@@ -30,7 +30,7 @@ class ChatTableViewCell1: UITableViewCell {
         // Configure the view for the selected state
     }
     private func configureUI() {
-        messView.layer.cornerRadius = 20
+        messView.layer.cornerRadius = messView.frame.height / 2
         messView.layer.borderWidth = 1
         messView.layer.borderColor = UIColor.lightGray.cgColor
         messView.clipsToBounds = true
