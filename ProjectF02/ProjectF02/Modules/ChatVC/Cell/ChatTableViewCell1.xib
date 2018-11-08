@@ -78,6 +78,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="avatarImage" destination="cAB-e7-ofb" id="is7-Ui-05o"/>
                 <outlet property="avatarTop" destination="1Zf-mU-6LK" id="Y2Z-mN-8dt"/>
                 <outlet property="messLabel" destination="adb-Fe-vt0" id="Ehz-jy-8pJ"/>
                 <outlet property="messTime" destination="ek3-Mb-wg7" id="qtF-Sa-4qW"/>
