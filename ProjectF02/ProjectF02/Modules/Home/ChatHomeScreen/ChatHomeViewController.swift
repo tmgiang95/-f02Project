@@ -18,19 +18,24 @@ final class ChatHomeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let uibarbutton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(createNewMessage))
         configureTableView()
     }
    
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.navigationItem.title = "Message"
+        
         getChats()
+    }
+    
+    @objc func createNewMessage() {
+        
     }
     
     fileprivate func configureTableView() {
         homeChattableView.registerCell(HomeChatCell.className)
         homeChattableView.delegate = self
         homeChattableView.dataSource = self
-        
     }
     
     func passData (_ user: User){
