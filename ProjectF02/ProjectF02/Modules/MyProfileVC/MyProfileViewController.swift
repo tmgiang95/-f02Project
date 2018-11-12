@@ -14,36 +14,43 @@ final class MyProfileViewController: UIViewController {
     
     @IBOutlet weak var profileTableview: UITableView!
     
-    var userinfo: User!
+    private var strUrl = ""
+    var userinfo: User?
     private var posts = [Post]()
     private var ref : DatabaseReference?
     private var databaseHandle: DatabaseHandle?
     private let imagePickerController = UIImagePickerController()
     private var selectImageType: ImageType = .avatar
+    private let refreshControl = UIRefreshControl()
     
-     enum ImageType {
-        
+    enum ImageType {
         case avatar, cover
     }
-    
     private enum ImageMethod {
-        
         case camera, photoLibrary
     }
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableview()
         configureImagePicker()
-        getPost(self.userinfo.uid!) { [weak self] (posts) in
+        getPost(self.userinfo?.uid ?? "") { [weak self] (posts) in
             self?.posts = posts
             self?.profileTableview.reloadData()
         }
+        if #available(iOS 10.0, *) {
+            self.profileTableview.refreshControl = refreshControl
+        } else {
+            self.profileTableview.addSubview(refreshControl)
+        }
+        self.refreshControl.addTarget(self, action: #selector(updateData), for: .valueChanged)
+        self.refreshControl.tintColor = UIColor.lightGray
+        let attributes = [NSAttributedStringKey.foregroundColor: UIColor.lightGray]
+        self.refreshControl.attributedTitle = NSAttributedString(string: "", attributes: attributes)
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
-//       tabBarController?.hidesBottomBarWhenPushed = true
         tabBarController?.navigationItem.title = "My Profile"
     }
     
@@ -60,6 +67,11 @@ final class MyProfileViewController: UIViewController {
         profileTableview.dataSource = self
         profileTableview.delegate = self
         profileTableview.registerCell(AvatarTableViewCell.className,PostTableViewCell.className)
+    }
+    
+    @objc private func updateData() {
+        self.profileTableview.reloadData()
+        self.refreshControl.endRefreshing()
     }
     
     private func selectImageMethod(_ method: ImageMethod) {
@@ -80,9 +92,23 @@ final class MyProfileViewController: UIViewController {
         present(imagePickerController, animated: true, completion: nil)
     }
     
+    func showActionsheetCameraAndLibrary(_ title: String, _ message: String, _ imagetype: ImageType) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "camera", style: .default , handler:{ (UIAlertAction)in
+            self.selectImageMethod(.camera)
+        }))
+        alert.addAction(UIAlertAction(title: "Thư viện", style: .default , handler:{ (UIAlertAction)in
+            self.selectImageMethod(.photoLibrary)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.selectImageType = imagetype
+        self.present(alert, animated: true, completion: nil)
+    }
+
     func gotoDescriptionvc() {
         let desVC = DescriptionViewController()
-        desVC.fillData(userinfo)
+        desVC.fillData(userinfo!)
         navigationController?.pushViewController(desVC, animated: true)
     }
     
@@ -99,29 +125,28 @@ final class MyProfileViewController: UIViewController {
         else {
             childnode = "avatar"
         }
-        let storageref = Storage.storage().reference().child(childnode).child("test.png")
+        let storageref = Storage.storage().reference().child(childnode).child(userinfo?.uid ?? "")
         let uploadmetaData = StorageMetadata()
-        uploadmetaData.contentType = "image/png"
+        uploadmetaData.contentType = "image/jpg"
         let uploadtask = storageref.putData(data, metadata: uploadmetaData) { (metadata, error) in
             if ( error != nil ) {
                 print("error")
             } else {
-                print("metadata: \(metadata)")
+                storageref.downloadURL(completion: { (url, error) in
+                    print(url)
+                })
             }
         }
     }
     
     func getPost(_ uID: String, callback: @escaping (([Post]) -> Void)) {
         let ref = Database.database().reference().child("Post").queryOrdered(byChild: "uid").queryEqual(toValue: uID)
-        
         ref.observe(.value) { (snapshot) in
             for snap in snapshot.children {
                 let data  = (snap as! DataSnapshot).value as! [String: Any]
                 let newPos = Post(data)
                 self.posts.append(newPos)
                 callback(self.posts)
-                
-                //                    print(post.postid! + post.contentText! + post.uid!)
             }
         }
     }
@@ -156,10 +181,7 @@ extension MyProfileViewController: UITableViewDataSource {
             guard let cell = profileTableview.dequeueReusableCell(withIdentifier: AvatarTableViewCell.className, for: indexPath) as? AvatarTableViewCell else {
                 return UITableViewCell()
             }
-//            let username = self.userinfo.lastName! + " " + self.userinfo.firstName!
-//            let coverimage: UIImage = #imageLiteral(resourceName: "cover")
-//            let avatarimage: UIImage = #imageLiteral(resourceName: "avatar")
-            cell.fillData(userinfo)
+            cell.fillData(userinfo!)
             
             cell.descriptionHandler = { [weak self] in
                 self?.gotoDescriptionvc()
@@ -168,32 +190,11 @@ extension MyProfileViewController: UITableViewDataSource {
                 self?.gotoUpstatusvc()
             }
             cell.editavatarAction = { [weak self ] in
-                let alert = UIAlertController(title: "Sửa ảnh đại diện", message: "Chọn ảnh đại diện từ ... ", preferredStyle: .actionSheet)
-                
-                alert.addAction(UIAlertAction(title: "camera", style: .default , handler:{ (UIAlertAction)in
-                    self?.selectImageMethod(.camera)
-                }))
-                alert.addAction(UIAlertAction(title: "Thư viện", style: .default , handler:{ (UIAlertAction)in
-                    self?.selectImageMethod(.photoLibrary)
-                }))
-                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-                self?.selectImageType = .avatar
-                self?.present(alert, animated: true, completion: nil)
+                self?.showActionsheetCameraAndLibrary("Sửa ảnh đại diện", "Chọn ảnh đại diện từ ... ", .avatar)
             }
             cell.editcoverAction = { [weak self ] in
-                let alert = UIAlertController(title: "Sửa ảnh bìa", message: "Chọn ảnh bìa từ ... ", preferredStyle: .actionSheet)
-                
-                alert.addAction(UIAlertAction(title: "camera", style: .default , handler:{ (UIAlertAction)in
-                    self?.selectImageMethod(.camera)
-                }))
-                alert.addAction(UIAlertAction(title: "Thư viện", style: .default , handler:{ (UIAlertAction)in
-                   self?.selectImageMethod(.photoLibrary)
-                }))
-                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-                self?.selectImageType = .cover
-                self?.present(alert, animated: true, completion: nil)
+               self?.showActionsheetCameraAndLibrary("Sửa ảnh bìa", "Chọn ảnh bìa từ ... ", .cover)
             }
-            
             return cell
         } else {
             guard let cell = profileTableview.dequeueReusableCell(withIdentifier: PostTableViewCell.className, for: indexPath ) as? PostTableViewCell else {
@@ -213,21 +214,24 @@ extension MyProfileViewController: UIImagePickerControllerDelegate, UINavigation
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+//        guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else {
+//            dismiss(animated: true, completion: nil)
+//            return
+//        }
+        var newsize = CGSize(width: 414, height: 250)
         
-        guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else {
-            dismiss(animated: true, completion: nil)
-            return
-        }
         switch selectImageType {
         case .avatar:
-            if let avatarpicked = info[UIImagePickerControllerOriginalImage] as? UIImage,
-                let imagedata = UIImagePNGRepresentation(image) {
+            if let avatarpicked = info[UIImagePickerControllerOriginalImage] as? UIImage, avatarpicked.resizeImage(targetSize: newsize) != nil,
+                let imagedata = UIImageJPEGRepresentation(avatarpicked, 0.5) {
                 uploadProfileimage(data: imagedata, .avatar)
             }
         case .cover:
-            if let avatarpicked = info[UIImagePickerControllerOriginalImage] as? UIImage,
-                let dataimage = UIImagePNGRepresentation(image) {
+            if let coverpicked = info[UIImagePickerControllerOriginalImage] as? UIImage,
+                coverpicked.resizeImage(targetSize: newsize) != nil,
+                let dataimage = UIImageJPEGRepresentation(coverpicked, 0.5) {
                 uploadProfileimage(data: dataimage, .cover)
+                
             }
         }
         dismiss(animated: true, completion: nil)

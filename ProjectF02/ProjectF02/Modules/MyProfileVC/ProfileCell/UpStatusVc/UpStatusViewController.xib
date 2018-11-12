@@ -12,8 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UpStatusViewController" customModule="ProjectF02" customModuleProvider="target">
             <connections>
+                <outlet property="buttonAddimage" destination="rVh-WF-qfC" id="zxK-OZ-dt5"/>
                 <outlet property="imageViewuser" destination="8x5-2C-o29" id="QvH-67-hrQ"/>
-                <outlet property="labelContent" destination="Ios-aj-U96" id="n8T-bx-b7x"/>
                 <outlet property="labelUsername" destination="Sp3-Zh-lTX" id="FkH-HB-xbf"/>
                 <outlet property="textfieldContent" destination="bv7-mF-uJ2" id="sL6-Dv-FKg"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -24,7 +24,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8x5-2C-o29">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8x5-2C-o29">
                     <rect key="frame" x="16" y="50" width="50" height="50"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="hw4-3P-5Zg"/>
@@ -40,39 +40,41 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DF1-6u-Aft">
                     <rect key="frame" x="0.0" y="116" width="375" height="46"/>
                     <subviews>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bv7-mF-uJ2">
-                            <rect key="frame" x="8" y="8" width="351" height="30"/>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bạn đang nghĩ gì ?" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bv7-mF-uJ2">
+                            <rect key="frame" x="16" y="8" width="343" height="30"/>
+                            <color key="backgroundColor" red="0.98544770077720212" green="0.98544770077720212" blue="0.98544770077720212" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ios-aj-U96">
-                            <rect key="frame" x="16" y="8" width="343" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="Ios-aj-U96" secondAttribute="trailing" constant="16" id="0YR-HC-nzf"/>
-                        <constraint firstItem="Ios-aj-U96" firstAttribute="top" secondItem="DF1-6u-Aft" secondAttribute="top" constant="8" id="1BS-fy-o5G"/>
                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="400" id="8N4-e2-HKR"/>
-                        <constraint firstItem="Ios-aj-U96" firstAttribute="leading" secondItem="DF1-6u-Aft" secondAttribute="leading" constant="16" id="C3m-4B-iop"/>
-                        <constraint firstItem="bv7-mF-uJ2" firstAttribute="leading" secondItem="DF1-6u-Aft" secondAttribute="leading" constant="8" id="D6i-1j-g03"/>
+                        <constraint firstItem="bv7-mF-uJ2" firstAttribute="leading" secondItem="DF1-6u-Aft" secondAttribute="leading" constant="16" id="D6i-1j-g03"/>
                         <constraint firstAttribute="bottom" secondItem="bv7-mF-uJ2" secondAttribute="bottom" constant="8" id="EmI-Yw-ktm"/>
                         <constraint firstItem="bv7-mF-uJ2" firstAttribute="top" secondItem="DF1-6u-Aft" secondAttribute="top" constant="8" id="hai-f9-Lec"/>
                         <constraint firstAttribute="trailing" secondItem="bv7-mF-uJ2" secondAttribute="trailing" constant="16" id="peh-9C-IId"/>
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rVh-WF-qfC">
-                    <rect key="frame" x="16" y="594" width="343" height="33"/>
+                    <rect key="frame" x="16" y="544" width="343" height="33"/>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                     <state key="normal" title="Thêm ảnh vào bài viết của bạn">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
                         <action selector="buttonAddimageAction:" destination="-1" eventType="touchUpInside" id="SlR-sg-Iqh"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5PS-xO-G8U">
+                    <rect key="frame" x="302" y="50" width="57" height="33"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="Chia sẻ">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="buttonUppostAction:" destination="-1" eventType="touchUpInside" id="2LL-z7-IS4"/>
                     </connections>
                 </button>
             </subviews>
@@ -82,8 +84,10 @@
                 <constraint firstItem="DF1-6u-Aft" firstAttribute="top" secondItem="8x5-2C-o29" secondAttribute="bottom" constant="16" id="B4J-by-qUS"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="DF1-6u-Aft" secondAttribute="trailing" id="In0-4f-7w8"/>
                 <constraint firstItem="8x5-2C-o29" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="Mgn-xr-0UJ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5PS-xO-G8U" secondAttribute="trailing" constant="16" id="Pn6-qs-DLr"/>
+                <constraint firstItem="5PS-xO-G8U" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="QNA-2n-tJR"/>
                 <constraint firstItem="Sp3-Zh-lTX" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="S8O-7r-pJR"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="rVh-WF-qfC" secondAttribute="bottom" constant="40" id="UOZ-iC-WWI"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="rVh-WF-qfC" secondAttribute="bottom" constant="90" id="UOZ-iC-WWI"/>
                 <constraint firstItem="Sp3-Zh-lTX" firstAttribute="leading" secondItem="8x5-2C-o29" secondAttribute="trailing" constant="24" id="ZK0-zF-l7e"/>
                 <constraint firstItem="8x5-2C-o29" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="daC-Ls-r8F"/>
                 <constraint firstItem="rVh-WF-qfC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="oHS-ry-2hV"/>

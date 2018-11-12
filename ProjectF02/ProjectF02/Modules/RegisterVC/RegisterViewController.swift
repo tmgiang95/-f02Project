@@ -136,10 +136,8 @@ final class RegisterViewController: BaseViewController {
             if let phone = self.phoneTextfield.text {
                 userInfo.phone = "\(self.dialCode)\(phone)"
             }
-            userInfo.birthday = String(self.birthday.timeIntervalSince1970)
+            userInfo.birthday = self.birthday.timeIntervalSince1970
             userInfo.gender = self.isFemale
-            userInfo.avatar = ""
-            userInfo.cover = ""
             userInfo.description = ""
             userInfo.friendList = [String: Any]()
                 self.dataRef.child("User").child(user.uid).setValue(userInfo.toDict()) as! [[String : Any]]

@@ -197,14 +197,17 @@
                                 <rect key="frame" x="0.0" y="0.0" width="408" height="100"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="female_user" translatesAutoresizingMaskIntoConstraints="NO" id="xqX-Ii-THq">
-                                        <rect key="frame" x="16" y="30" width="40" height="40"/>
+                                        <rect key="frame" x="16" y="22" width="55" height="55"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="3mh-74-baW"/>
-                                            <constraint firstAttribute="height" constant="40" id="Ixn-DA-yXZ"/>
+                                            <constraint firstAttribute="width" constant="55" id="3mh-74-baW"/>
+                                            <constraint firstAttribute="height" constant="55" id="Ixn-DA-yXZ"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gn5-gI-Pi7">
-                                        <rect key="frame" x="72" y="36" width="320" height="33"/>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gn5-gI-Pi7">
+                                        <rect key="frame" x="87" y="12" width="305" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="vYQ-p8-RW7"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <state key="normal" title="Bạn đang nghĩ gì ?">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -214,12 +217,12 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.93610346502590669" green="0.93610346502590669" blue="0.93610346502590669" alpha="0.452574823943662" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="Gn5-gI-Pi7" firstAttribute="leading" secondItem="xqX-Ii-THq" secondAttribute="trailing" constant="16" id="Gtw-8l-1Ym"/>
                                     <constraint firstAttribute="trailing" secondItem="Gn5-gI-Pi7" secondAttribute="trailing" constant="16" id="JHR-sX-dUx"/>
-                                    <constraint firstItem="Gn5-gI-Pi7" firstAttribute="top" secondItem="Zw2-gT-FF0" secondAttribute="top" constant="36" id="cw1-66-Qe8"/>
-                                    <constraint firstItem="xqX-Ii-THq" firstAttribute="top" secondItem="Zw2-gT-FF0" secondAttribute="top" constant="30" id="jGW-Ck-dSA"/>
+                                    <constraint firstItem="Gn5-gI-Pi7" firstAttribute="top" secondItem="Zw2-gT-FF0" secondAttribute="top" constant="12" id="cw1-66-Qe8"/>
+                                    <constraint firstItem="xqX-Ii-THq" firstAttribute="top" secondItem="Zw2-gT-FF0" secondAttribute="top" constant="22" id="jGW-Ck-dSA"/>
                                     <constraint firstAttribute="height" constant="100" id="kfR-dq-A19"/>
                                     <constraint firstItem="xqX-Ii-THq" firstAttribute="leading" secondItem="Zw2-gT-FF0" secondAttribute="leading" constant="16" id="r9g-gi-UuL"/>
                                 </constraints>

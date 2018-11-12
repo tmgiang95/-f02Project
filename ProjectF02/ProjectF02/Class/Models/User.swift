@@ -14,10 +14,8 @@ class User {
     var email: String? = ""
     var firstName: String? = ""
     var lastName: String? = ""
-    var birthday: String? = ""
+    var birthday: Double? = 0.0
     var gender: Bool = true
-    var avatar: String? = ""
-    var cover: String? = ""
     var description: String? = ""
     var friendList = [String:Any]()
     var isAvailable: Bool = false
@@ -38,12 +36,6 @@ class User {
         }
         if let gender = dict["gender"] as? Int {
             self.gender = gender == 1 ? false : true
-        }
-        if let avatar = dict["avatar"] as? String {
-            self.avatar = avatar
-        }
-        if let cover = dict["cover"] as? String {
-            self.cover = cover
         }
         if let description = dict["description"] as? String {
             self.description = description
@@ -71,8 +63,6 @@ class User {
         userDict["firstName"] = self.firstName
         userDict["lastName"] = self.lastName
         userDict["gender"] = self.gender ? 0 : 1
-        userDict["avartar"] = self.avatar
-        userDict["cover"] = self.cover
         userDict["description"] = self.description
         userDict["friendlist"] = self.friendList
         userDict["phone"] = self.phone

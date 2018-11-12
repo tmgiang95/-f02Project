@@ -8,12 +8,12 @@
 
 import UIKit
 
-class UpStatusViewController: UIViewController {
+class UpStatusViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var labelUsername: UILabel!
     @IBOutlet weak var imageViewuser: UIImageView!
+    @IBOutlet weak var buttonAddimage: UIButton!
     @IBOutlet weak var textfieldContent: UITextField!
-    @IBOutlet weak var labelContent: UILabel!
     private let imagePickerController = UIImagePickerController()
     
     private enum ImageMethod {
@@ -22,7 +22,9 @@ class UpStatusViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureImagePicker()
+        configureImagePickerAndView()
+        imageViewuser.setRounded()  
+        
     }
     
     private func selectImageMethod(_ method: ImageMethod) {
@@ -43,11 +45,16 @@ class UpStatusViewController: UIViewController {
         present(imagePickerController, animated: true, completion: nil)
     }
     
-    private func configureImagePicker() {
+    private func configureImagePickerAndView() {
+        buttonAddimage.layer.cornerRadius = 15
+        buttonAddimage.layer.borderColor = UIColor.lightGray.cgColor
+        buttonAddimage.layer.borderWidth = 0.3
         imagePickerController.allowsEditing = false
         imagePickerController.delegate = self as! UIImagePickerControllerDelegate & UINavigationControllerDelegate
     }
-
+    @IBAction func buttonUppostAction(_ sender: Any) {
+    }
+    
     @IBAction func buttonAddimageAction(_ sender: Any) {
         let alert = UIAlertController(title: "Thêm ảnh", message: "Thêm ảnh cho bài viết từ ... ", preferredStyle: .actionSheet)
         

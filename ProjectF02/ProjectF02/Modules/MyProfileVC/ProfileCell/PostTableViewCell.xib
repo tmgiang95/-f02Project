@@ -157,7 +157,7 @@
                             <constraint firstItem="kQh-W4-4dq" firstAttribute="leading" secondItem="PYU-53-ItO" secondAttribute="leading" constant="16" id="ys2-6F-Lr3"/>
                         </constraints>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a3j-WB-iJB">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a3j-WB-iJB">
                         <rect key="frame" x="0.0" y="151.66666666666663" width="364" height="250"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="250" id="QWq-oq-658"/>
