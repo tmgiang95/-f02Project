@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import FirebaseStorage
 final class AvatarTableViewCell: UITableViewCell {
 
     @IBOutlet weak var viewUpstatus: UIView!
@@ -21,6 +21,9 @@ final class AvatarTableViewCell: UITableViewCell {
     @IBOutlet weak var viewAvatar: UIView!
     @IBOutlet weak var viewWhatyouthink: UIView!
     
+    enum ImageType {
+        case avatar, cover
+    }
     
     var descriptionHandler: (() -> Void)?
     var editcoverAction: (() -> Void)?
@@ -46,15 +49,35 @@ final class AvatarTableViewCell: UITableViewCell {
         viewWhatyouthink.layer.borderWidth = 0.5
         postAvatar.layer.borderColor = UIColor.black.cgColor
         postAvatar.layer.borderWidth = 0.5
+        
+        let statusVc = UpStatusViewController()
     }
     
     
-    
     func fillData(_ user: User ) {
-        coverImage.kf.setImage(with: URL(string: user.cover ?? ""))
-        avatarImage.kf.setImage(with: URL(string: user.avatar ?? ""))
+        let coverref = Storage.storage().reference().child("cover").child(user.uid ?? "")
+        coverref.downloadURL { (coverurl, error) in
+            if error != nil {
+                print(error)
+            }
+            else {
+                let coverstring = coverurl?.absoluteString ?? ""
+                self.coverImage.kf.setImage(with: URL(string: coverstring))
+            }
+        }
+        
+        let avatarref = Storage.storage().reference().child("avatar").child(user.uid ?? "")
+        avatarref.downloadURL { (avatarurl, er) in
+            if er != nil {
+                print(er)
+            }
+            else {
+                let avatarstring = avatarurl?.absoluteString ?? ""
+                self.avatarImage.kf.setImage(with: URL(string: avatarstring))
+                self.postAvatar.kf.setImage(with: URL(string: avatarstring))
+            }
+        }
         usernameProfile.text = (user.firstName ?? "") + " " + (user.lastName ?? "")
-        postAvatar.kf.setImage(with: URL(string: user.avatar ?? ""))
     }
     
     @IBAction func descriptionButtonAction(_ sender: Any) {

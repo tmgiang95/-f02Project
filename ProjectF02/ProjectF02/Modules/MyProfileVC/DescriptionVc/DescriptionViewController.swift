@@ -29,7 +29,7 @@ class DescriptionViewController: UIViewController {
     
     func fillUserinfomation() {
         labelname.text = (userdescription?.firstName ?? "chưa có") + " " + (userdescription?.lastName ?? "" )
-        labelbirthday.text = userdescription?.birthday ?? "chưa có"
+        labelbirthday.text = "chưa có"
         labeladress.text = userdescription?.adress ?? "chưa có"
         labelemail.text = userdescription?.email ?? "chưa có"
         labelphonenumber.text = userdescription?.phone ?? "chưa có"

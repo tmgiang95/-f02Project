@@ -11,7 +11,7 @@ import Foundation
 class Post {
 
     var fullName: String?
-    var avatar: String?
+    var uid: String?
     var postid: String?
     var imageLink: String?
     var contentText: String?
@@ -19,14 +19,17 @@ class Post {
     var comment = [Comment]()
     var time: Double?
     
+    init() {
+    }
+    
     init(_ dict: [String:Any]) {
         if let fullName = dict["fullName"] as? String{
             self.fullName = fullName
         }
-        if let avatar = dict["avatar"] as? String {
-            self.avatar = avatar
+        if let uid = dict["uid"] as? String {
+            self.uid = uid
         }
-        if let postid = dict["postID"] as? String {
+        if let postid = dict["postid"] as? String {
             self.postid = postid
         }
         if let imageLink = dict["imageLink"] as? String {
@@ -53,7 +56,7 @@ class Post {
     func toDict() -> [String: Any]{
         var postDict = [String: Any]()
         postDict["fullName"] = self.fullName
-        postDict["avatar"] = self.avatar
+        postDict["uid"] = self.uid
         postDict["postid"] = self.postid
         postDict["imageLink"] = self.imageLink
         postDict["contentText"] = self.contentText
