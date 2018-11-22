@@ -7,13 +7,14 @@
 //
 
 import Foundation
-import Firebase
+import UIKit
 
 extension NSObject {
     class var className : String {
         return String(describing: self)
     }
 }
+
 extension UITableView {
     
     func registerCell(_ cellIDs: String...) {
@@ -61,3 +62,4 @@ extension UIImage {
         return newImage!
     }
 }
+

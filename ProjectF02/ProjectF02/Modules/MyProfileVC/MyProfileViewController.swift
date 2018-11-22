@@ -49,9 +49,12 @@ final class MyProfileViewController: UIViewController {
         self.refreshControl.attributedTitle = NSAttributedString(string: "", attributes: attributes)
     }
     
-    
+    override func viewDidAppear(_ animated: Bool) {
+    }
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.navigationItem.title = "My Profile"
+        super.viewWillAppear(animated)
+        profileTableview.reloadData()
     }
     
     func fillData(_ user: User) {
@@ -114,7 +117,8 @@ final class MyProfileViewController: UIViewController {
     
     func  gotoUpstatusvc() {
         let statusVC = UpStatusViewController()
-        navigationController?.pushViewController(statusVC, animated: true)
+        statusVC.fillData(userinfo!)
+        navigationController?.present(statusVC, animated: true, completion: nil)
     }
     
     func uploadProfileimage(data: Data, _ imagetype: ImageType ) {
@@ -140,8 +144,9 @@ final class MyProfileViewController: UIViewController {
     }
     
     func getPost(_ uID: String, callback: @escaping (([Post]) -> Void)) {
-        let ref = Database.database().reference().child("Post").queryOrdered(byChild: "uid").queryEqual(toValue: uID)
+        let ref = Database.database().reference().child("Post").queryOrdered(byChild:"uid").queryEqual(toValue: uID)
         ref.observe(.value) { (snapshot) in
+            self.posts.removeAll()
             for snap in snapshot.children {
                 let data  = (snap as! DataSnapshot).value as! [String: Any]
                 let newPos = Post(data)
@@ -151,6 +156,7 @@ final class MyProfileViewController: UIViewController {
         }
     }
 }
+
 
 extension MyProfileViewController: UITableViewDelegate {
     
@@ -173,6 +179,10 @@ extension MyProfileViewController: UITableViewDataSource {
         default:
             return 1
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -200,7 +210,7 @@ extension MyProfileViewController: UITableViewDataSource {
             guard let cell = profileTableview.dequeueReusableCell(withIdentifier: PostTableViewCell.className, for: indexPath ) as? PostTableViewCell else {
                 return UITableViewCell()
             }
-           cell.fillData(posts[indexPath.row])
+            cell.fillData(posts[indexPath.row],userinfo?.uid ?? "")
             return cell
         }
     }
@@ -219,17 +229,17 @@ extension MyProfileViewController: UIImagePickerControllerDelegate, UINavigation
 //            return
 //        }
         var newsize = CGSize(width: 414, height: 250)
-        
+    
         switch selectImageType {
         case .avatar:
-            if let avatarpicked = info[UIImagePickerControllerOriginalImage] as? UIImage, avatarpicked.resizeImage(targetSize: newsize) != nil,
-                let imagedata = UIImageJPEGRepresentation(avatarpicked, 0.5) {
+            if let avatarpicked = info[UIImagePickerControllerOriginalImage] as? UIImage,let imagedata = UIImageJPEGRepresentation(avatarpicked, 0.5)  {
+                avatarpicked.resizeImage(targetSize: newsize) != nil
                 uploadProfileimage(data: imagedata, .avatar)
             }
         case .cover:
             if let coverpicked = info[UIImagePickerControllerOriginalImage] as? UIImage,
-                coverpicked.resizeImage(targetSize: newsize) != nil,
                 let dataimage = UIImageJPEGRepresentation(coverpicked, 0.5) {
+                coverpicked.resizeImage(targetSize: newsize)
                 uploadProfileimage(data: dataimage, .cover)
                 
             }

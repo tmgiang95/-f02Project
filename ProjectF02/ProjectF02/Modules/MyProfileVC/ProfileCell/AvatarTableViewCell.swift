@@ -49,6 +49,8 @@ final class AvatarTableViewCell: UITableViewCell {
         viewWhatyouthink.layer.borderWidth = 0.5
         postAvatar.layer.borderColor = UIColor.black.cgColor
         postAvatar.layer.borderWidth = 0.5
+        
+        let statusVc = UpStatusViewController()
     }
     
     

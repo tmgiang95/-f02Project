@@ -92,6 +92,7 @@ PODS:
   - FirebaseUI/Twitter (5.0.1):
     - FirebaseUI/Auth
     - TwitterKit (~> 3.0)
+  - FTPopOverMenu_Swift (0.0.9)
   - GoogleSignIn (4.1.2):
     - "GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)"
     - "GoogleToolboxForMac/NSString+URLArguments (~> 2.1)"
@@ -162,6 +163,7 @@ DEPENDENCIES:
   - FirebaseUI/Auth
   - FirebaseUI/Google
   - FirebaseUI/Phone
+  - FTPopOverMenu_Swift (~> 0.0.6)
   - IQKeyboardManagerSwift
   - JSQMessagesViewController
   - Kingfisher (~> 4.0)
@@ -181,6 +183,7 @@ SPEC REPOS:
     - FirebaseInstanceID
     - FirebaseStorage
     - FirebaseUI
+    - FTPopOverMenu_Swift
     - GoogleSignIn
     - GoogleToolboxForMac
     - gRPC
@@ -214,6 +217,7 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: f3f0657372592ecdfdfe2cac604a5a75758376a6
   FirebaseStorage: 7ca4bb7b58a25fa647b04f524033fc7cb7eb272b
   FirebaseUI: 5d97d3d5d6a019fc960eb573ea6ce9fb8c310669
+  FTPopOverMenu_Swift: 3c1c01a5005a06230ea4b7b9f4a96300f5748bd7
   GoogleSignIn: d9ef55b10f0aa401a5de2747f59b725e4b9732ac
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   gRPC: 81b990caa01d7c32605d300c2ffd1b5ba0ef9e49
@@ -233,6 +237,6 @@ SPEC CHECKSUMS:
   TwitterCore: 644d59e75abccb26cf0a9050d2c4dea0e5412241
   TwitterKit: a2e60ddcedbf54091eac6f27685ca7a87681e1d7
 
-PODFILE CHECKSUM: 677c48f2de27954abfdff142819a4c94b1ac3220
+PODFILE CHECKSUM: 95b2d3adf1f17a686fc5942f02038699b734b175
 
 COCOAPODS: 1.5.3

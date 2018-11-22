@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseDatabase
 import Firebase
-
 
 class ChatViewController: BaseViewController {
     
