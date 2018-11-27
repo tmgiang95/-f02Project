@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseDatabase
 
 final class ChatHomeViewController: BaseViewController {
 
@@ -18,7 +19,7 @@ final class ChatHomeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let uibarbutton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(createNewMessage))
+//        let uibarbutton = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(createNewMessage))
         configureTableView()
     }
    

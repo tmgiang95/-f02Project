@@ -35,6 +35,9 @@ final class MyProfileViewController: UIViewController {
         configureImagePicker()
         getPost(self.userinfo?.uid ?? "") { [weak self] (posts) in
             self?.posts = posts
+            self?.posts.sort { (post1, post2) -> Bool in
+                return post1.time! > post2.time!
+            }
             self?.profileTableview.reloadData()
         }
         if #available(iOS 10.0, *) {
@@ -48,8 +51,6 @@ final class MyProfileViewController: UIViewController {
         self.refreshControl.attributedTitle = NSAttributedString(string: "", attributes: attributes)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-    }
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.navigationItem.title = "My Profile"
         super.viewWillAppear(animated)
@@ -131,12 +132,12 @@ final class MyProfileViewController: UIViewController {
         let storageref = Storage.storage().reference().child(childnode).child(userinfo?.uid ?? "")
         let uploadmetaData = StorageMetadata()
         uploadmetaData.contentType = "image/jpg"
-        let uploadtask = storageref.putData(data, metadata: uploadmetaData) { (metadata, error) in
+        storageref.putData(data, metadata: uploadmetaData) { (metadata, error) in
             if ( error != nil ) {
                 print("error")
             } else {
                 storageref.downloadURL(completion: { (url, error) in
-                    print(url)
+                    print(url!)
                 })
             }
         }
@@ -209,6 +210,7 @@ extension MyProfileViewController: UITableViewDataSource {
             guard let cell = profileTableview.dequeueReusableCell(withIdentifier: PostTableViewCell.className, for: indexPath ) as? PostTableViewCell else {
                 return UITableViewCell()
             }
+           
             cell.fillData(posts[indexPath.row],userinfo?.uid ?? "")
             return cell
         }
@@ -227,18 +229,16 @@ extension MyProfileViewController: UIImagePickerControllerDelegate, UINavigation
 //            dismiss(animated: true, completion: nil)
 //            return
 //        }
-        var newsize = CGSize(width: 414, height: 250)
+        let newsize = CGSize(width: 414, height: 250)
     
         switch selectImageType {
         case .avatar:
-            if let avatarpicked = info[UIImagePickerControllerOriginalImage] as? UIImage,let imagedata = UIImageJPEGRepresentation(avatarpicked, 0.5)  {
-                avatarpicked.resizeImage(targetSize: newsize) != nil
+            if let avatarpicked = info[UIImagePickerControllerOriginalImage] as? UIImage,let imagedata = UIImageJPEGRepresentation(avatarpicked.resizeImage(targetSize: newsize), 0.5)  {
                 uploadProfileimage(data: imagedata, .avatar)
             }
         case .cover:
             if let coverpicked = info[UIImagePickerControllerOriginalImage] as? UIImage,
-                let dataimage = UIImageJPEGRepresentation(coverpicked, 0.5) {
-                coverpicked.resizeImage(targetSize: newsize)
+                let dataimage = UIImageJPEGRepresentation(coverpicked.resizeImage(targetSize: newsize), 0.5) {
                 uploadProfileimage(data: dataimage, .cover)
                 
             }

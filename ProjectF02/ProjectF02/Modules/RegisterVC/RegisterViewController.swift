@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import Firebase
+import FirebaseDatabase
 
 final class RegisterViewController: BaseViewController {
     //MARK:- outlet

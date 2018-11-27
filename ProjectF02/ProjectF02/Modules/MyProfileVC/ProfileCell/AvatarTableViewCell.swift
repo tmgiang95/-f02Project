@@ -50,7 +50,6 @@ final class AvatarTableViewCell: UITableViewCell {
         postAvatar.layer.borderColor = UIColor.black.cgColor
         postAvatar.layer.borderWidth = 0.5
         
-        let statusVc = UpStatusViewController()
     }
     
     
@@ -58,7 +57,7 @@ final class AvatarTableViewCell: UITableViewCell {
         let coverref = Storage.storage().reference().child("cover").child(user.uid ?? "")
         coverref.downloadURL { (coverurl, error) in
             if error != nil {
-                print(error)
+                print(error!)
             }
             else {
                 let coverstring = coverurl?.absoluteString ?? ""
@@ -69,7 +68,7 @@ final class AvatarTableViewCell: UITableViewCell {
         let avatarref = Storage.storage().reference().child("avatar").child(user.uid ?? "")
         avatarref.downloadURL { (avatarurl, er) in
             if er != nil {
-                print(er)
+                print(er!)
             }
             else {
                 let avatarstring = avatarurl?.absoluteString ?? ""
