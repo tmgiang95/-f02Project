@@ -45,7 +45,7 @@ final class PostTableViewCell: UITableViewCell {
         let postavatarref = Storage.storage().reference().child("avatar").child(useruid)
         postavatarref.downloadURL { (avatarurl, er) in
             if er != nil {
-                print(er)
+                print(er!)
             }
             else {
                 let avatarstring = avatarurl?.absoluteString ?? ""
@@ -59,7 +59,7 @@ final class PostTableViewCell: UITableViewCell {
             let postimageref = Storage.storage().reference().child("post").child(useruid).child(post.postid ?? "")
             postimageref.downloadURL { (url, err) in
                 if err != nil {
-                    print(err)
+                    print(err!)
                 }
                 else {
                     let postimagestring = url?.absoluteString ?? ""
@@ -74,7 +74,7 @@ final class PostTableViewCell: UITableViewCell {
         }
         labeluserName.text = post.fullName
         labelContentpost.text = post.contentText
-        var defaulttimestamp: Double = Double()
+        let defaulttimestamp: Double = Double()
         let date = Date(timeIntervalSince1970: post.time ?? defaulttimestamp )
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = TimeZone(abbreviation: "GMT")

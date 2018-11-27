@@ -36,7 +36,7 @@ class UpStatusViewController: UIViewController, UITextFieldDelegate {
         let avatarref = Storage.storage().reference().child("avatar").child(userforstatusvc?.uid ?? "")
         avatarref.downloadURL { (avatarurl, er) in
             if er != nil {
-                print(er)
+                print(er as Any)
             }
             else {
                 let avtstring = avatarurl?.absoluteString ?? ""
@@ -99,7 +99,7 @@ class UpStatusViewController: UIViewController, UITextFieldDelegate {
         default:
             print("loi cmnr")
         }
-        var postref = Database.database().reference().child("Post").child(timest)
+        let postref = Database.database().reference().child("Post").child(timest)
         postref.setValue(mypost.toDict())
         
     }
@@ -112,42 +112,42 @@ class UpStatusViewController: UIViewController, UITextFieldDelegate {
         imagePickerController.delegate = self
     }
     
-    func isimageIsNull(imageName : UIImage) -> Bool
-    {
-        
-        let size = CGSize(width: 0, height: 0)
-        if (imageName.size.width == size.width)
-        {
-            return true
-        }
-        else
-        {
-            return false
-        }
-    }
+//    func isimageIsNull(imageName : UIImage) -> Bool
+//    {
+//
+//        let size = CGSize(width: 0, height: 0)
+//        if (imageName.size.width == size.width)
+//        {
+//            return true
+//        }
+//        else
+//        {
+//            return false
+//        }
+//    }
     
     @IBAction func buttonUppostAction(_ sender: Any) {
         let nilimage: UIImage = UIImage()
         let mydate = Date()
         let mytimestamp = mydate.timeIntervalSince1970
-        var strmydate: String = String(format: "%.0f", mytimestamp)
+        let strmydate: String = String(format: "%.0f", mytimestamp)
         
-        if  let text = contentTextView.text, !text.isEmpty, isimageIsNull(imageName: imagePostup.image ?? nilimage ) == false  {
+        if  let text = contentTextView.text, !text.isEmpty, imagePostup.image != nil  {
             let nildata: Data = Data()
             let imagepick = imagePostup.image
-            var newsize = CGSize(width: 414, height: 250)
-            imagepick?.resizeImage(targetSize: newsize)
-            let imagedata = UIImageJPEGRepresentation(imagepick ?? nilimage, 0.5)
+            let newsize = CGSize(width: 414, height: 250)
+            
+            let imagedata = UIImageJPEGRepresentation(imagepick?.resizeImage(targetSize: newsize) ?? nilimage, 0.5)
             let storageref = Storage.storage().reference().child("post").child(userforstatusvc?.uid ?? "").child((userforstatusvc?.uid ?? "")+strmydate)
             let uploadmetaData = StorageMetadata()
             uploadmetaData.contentType = "image/jpg"
-            let uploadtask = storageref.putData(imagedata ?? nildata, metadata: uploadmetaData) { (metadata, error) in
+            storageref.putData(imagedata ?? nildata, metadata: uploadmetaData) { (metadata, error) in
                 if ( error != nil ) {
                     print("error")
                 } else {
                     storageref.downloadURL(completion: { (url, error) in
                         if error != nil {
-                            print(error)
+                            print(error!)
                         }
                         else
                         {
@@ -158,17 +158,17 @@ class UpStatusViewController: UIViewController, UITextFieldDelegate {
             }
             dismiss(animated: true, completion: nil)
         }
-        else if let texts = contentTextView.text, !texts.isEmpty, isimageIsNull(imageName: imagePostup.image ?? nilimage) == true {
+        else if let texts = contentTextView.text, !texts.isEmpty, imagePostup.image == nil {
             upPostFirebase(strmydate, mytimestamp, self.userforstatusvc?.uid ?? "", FALSE)
             dismiss(animated: true, completion: nil)
         }
-        else if let mytext = contentTextView.text, mytext.isEmpty ==  true , isimageIsNull(imageName: imagePostup.image ?? nilimage) == true {
+        else if let mytext = contentTextView.text, mytext.isEmpty ==  true ,  imagePostup.image == nil {
             let alrt = UIAlertController(title: "Thông báo", message: "Bạn chưa nhập gì!", preferredStyle: .alert)
             let okbtn = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
             alrt.addAction(okbtn)
             self.present(alrt,animated: true,completion: nil)
         }
-        else if let mytex = contentTextView.text, mytex.isEmpty == true, isimageIsNull(imageName: imagePostup.image ?? nilimage) == false {
+        else if let mytex = contentTextView.text, mytex.isEmpty == true, imagePostup.image != nil {
             upPostFirebase(strmydate, mytimestamp, self.userforstatusvc?.uid ?? "", TRUE)
             dismiss(animated: true, completion: nil)
         }
@@ -206,10 +206,9 @@ extension UpStatusViewController: UIImagePickerControllerDelegate, UINavigationC
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
-        var newsize = CGSize(width: 414, height: 200)
+        let newsize = CGSize(width: 414, height: 200)
         if let imagepicked = info[UIImagePickerControllerOriginalImage] as? UIImage  {
-            imagepicked.resizeImage(targetSize: newsize)
-            imagePostup.image = imagepicked
+            imagePostup.image =  imagepicked.resizeImage(targetSize: newsize)
         }
         dismiss(animated: true, completion: nil)
         
@@ -217,7 +216,6 @@ extension UpStatusViewController: UIImagePickerControllerDelegate, UINavigationC
 }
 
 extension UpStatusViewController: UITextViewDelegate {
-    
     func textViewDidChange(_ textView: UITextView) {
         placeHoderLabel.isHidden = !textView.text.isEmpty
     }
