@@ -13,7 +13,7 @@ class Post {
     var fullName: String?
     var uid: String?
     var postid: String?
-    var imageLink: String?
+    var imageLink: Int?
     var contentText: String?
     var like = [String]()
     var comment = [Comment]()
@@ -32,7 +32,7 @@ class Post {
         if let postid = dict["postid"] as? String {
             self.postid = postid
         }
-        if let imageLink = dict["imageLink"] as? String {
+        if let imageLink = dict["imageLink"] as? Int {
             self.imageLink = imageLink
         }
         if let contentText = dict["contentText"] as? String {

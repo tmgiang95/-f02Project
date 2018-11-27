@@ -17,7 +17,6 @@ final class MyProfileViewController: UIViewController {
     private var strUrl = ""
     var userinfo: User?
     private var posts = [Post]()
-    private var ref : DatabaseReference?
     private var databaseHandle: DatabaseHandle?
     private let imagePickerController = UIImagePickerController()
     private var selectImageType: ImageType = .avatar

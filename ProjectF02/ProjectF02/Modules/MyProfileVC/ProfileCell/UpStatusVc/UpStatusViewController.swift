@@ -9,6 +9,8 @@
 import UIKit
 import FirebaseStorage
 import FirebaseDatabase
+let FALSE = -1
+let TRUE = 1
 
 class UpStatusViewController: UIViewController, UITextFieldDelegate {
 
@@ -74,7 +76,7 @@ class UpStatusViewController: UIViewController, UITextFieldDelegate {
         present(imagePickerController, animated: true, completion: nil)
     }
     
-    func upPostFirebase(_ timest: String, _ timestamp: Double, _ useruppostid: String,_ linkimage: String) {
+    func upPostFirebase(_ timest: String, _ timestamp: Double, _ useruppostid: String,_ linkimage: Int) {
         let mypost = Post()
         mypost.contentText = contentTextView.text ?? ""
         mypost.fullName = labelUsername.text
@@ -83,11 +85,19 @@ class UpStatusViewController: UIViewController, UITextFieldDelegate {
         mypost.uid = useruppostid
         mypost.comment = []
         mypost.like = []
-        if linkimage == "co"{
-            mypost.imageLink = "co"
-        }
-        else {
-            mypost.imageLink = "khong"
+//        if linkimage == "co"{
+//            mypost.imageLink = "co"
+//        }
+//        else {
+//            mypost.imageLink = "khong"
+//        }
+        switch linkimage {
+        case FALSE:
+            mypost.imageLink = FALSE
+        case TRUE:
+            mypost.imageLink = TRUE
+        default:
+            print("loi cmnr")
         }
         var postref = Database.database().reference().child("Post").child(timest)
         postref.setValue(mypost.toDict())
@@ -141,7 +151,7 @@ class UpStatusViewController: UIViewController, UITextFieldDelegate {
                         }
                         else
                         {
-                            self.upPostFirebase(strmydate, mytimestamp,self.userforstatusvc?.uid ?? "","co")
+                            self.upPostFirebase(strmydate, mytimestamp,self.userforstatusvc?.uid ?? "",TRUE)
                         }
                     })
                 }
@@ -149,7 +159,7 @@ class UpStatusViewController: UIViewController, UITextFieldDelegate {
             dismiss(animated: true, completion: nil)
         }
         else if let texts = contentTextView.text, !texts.isEmpty, isimageIsNull(imageName: imagePostup.image ?? nilimage) == true {
-            upPostFirebase(strmydate, mytimestamp, self.userforstatusvc?.uid ?? "", "khong")
+            upPostFirebase(strmydate, mytimestamp, self.userforstatusvc?.uid ?? "", FALSE)
             dismiss(animated: true, completion: nil)
         }
         else if let mytext = contentTextView.text, mytext.isEmpty ==  true , isimageIsNull(imageName: imagePostup.image ?? nilimage) == true {
@@ -159,7 +169,7 @@ class UpStatusViewController: UIViewController, UITextFieldDelegate {
             self.present(alrt,animated: true,completion: nil)
         }
         else if let mytex = contentTextView.text, mytex.isEmpty == true, isimageIsNull(imageName: imagePostup.image ?? nilimage) == false {
-            upPostFirebase(strmydate, mytimestamp, self.userforstatusvc?.uid ?? "", "co")
+            upPostFirebase(strmydate, mytimestamp, self.userforstatusvc?.uid ?? "", TRUE)
             dismiss(animated: true, completion: nil)
         }
         else {
