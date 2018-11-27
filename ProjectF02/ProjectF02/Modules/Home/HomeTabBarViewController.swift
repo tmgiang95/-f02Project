@@ -27,7 +27,7 @@ final class HomeTabBarViewController: UITabBarController {
         let chatHomeVC = ChatHomeViewController()
         chatHomeVC.passData(u)
         chatHomeVC.tabBarItem = UITabBarItem(title: "Message", image: nil, selectedImage: nil)
-        let newFeedsVC = NewFeedsViewController()
+        let newFeedsVC = NewFeedViewController()
         newFeedsVC.tabBarItem = UITabBarItem(title: "NewsFeed", image: nil, selectedImage: nil)
         let myProfileVC = MyProfileViewController()
         myProfileVC.tabBarItem = UITabBarItem(title: "Profile", image: nil, selectedImage: nil)

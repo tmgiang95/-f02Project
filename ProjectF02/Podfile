@@ -13,6 +13,7 @@ pod 'Firebase/Database'
 pod 'IQKeyboardManagerSwift'
 pod 'Firebase/Storage'
 pod 'JSQMessagesViewController'
+pod 'Kingfisher', '~> 4.0'
   # Pods for ProjectF02
 
 end
