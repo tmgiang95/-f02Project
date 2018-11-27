@@ -52,7 +52,7 @@ final class PostTableViewCell: UITableViewCell {
                 self.imageAvatar.kf.setImage(with: URL(string: avatarstring))
             }
         }
-        if post.imageLink == "co" {
+        if post.imageLink == 1{
             imageviewPost.isUserInteractionEnabled = true
             imageviewPost.isHidden = false
             heighImageview.constant = 250

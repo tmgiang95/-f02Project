@@ -159,7 +159,7 @@
                         <rect key="frame" x="0.0" y="91" width="364" height="52.666666666666657"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kQh-W4-4dq">
-                                <rect key="frame" x="16" y="16" width="332" height="20.666666666666671"/>
+                                <rect key="frame" x="4" y="4" width="356" height="44.666666666666664"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -167,10 +167,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="kQh-W4-4dq" firstAttribute="top" secondItem="PYU-53-ItO" secondAttribute="top" constant="16" id="Ayn-OQ-cKx"/>
-                            <constraint firstAttribute="trailing" secondItem="kQh-W4-4dq" secondAttribute="trailing" constant="16" id="OlB-Vo-lXe"/>
-                            <constraint firstAttribute="bottom" secondItem="kQh-W4-4dq" secondAttribute="bottom" constant="16" id="aRn-o0-tw4"/>
-                            <constraint firstItem="kQh-W4-4dq" firstAttribute="leading" secondItem="PYU-53-ItO" secondAttribute="leading" constant="16" id="ys2-6F-Lr3"/>
+                            <constraint firstItem="kQh-W4-4dq" firstAttribute="top" secondItem="PYU-53-ItO" secondAttribute="top" constant="4" id="Ayn-OQ-cKx"/>
+                            <constraint firstAttribute="trailing" secondItem="kQh-W4-4dq" secondAttribute="trailing" constant="4" id="OlB-Vo-lXe"/>
+                            <constraint firstAttribute="bottom" secondItem="kQh-W4-4dq" secondAttribute="bottom" constant="4" id="aRn-o0-tw4"/>
+                            <constraint firstItem="kQh-W4-4dq" firstAttribute="leading" secondItem="PYU-53-ItO" secondAttribute="leading" constant="4" id="ys2-6F-Lr3"/>
                         </constraints>
                     </view>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a3j-WB-iJB">
