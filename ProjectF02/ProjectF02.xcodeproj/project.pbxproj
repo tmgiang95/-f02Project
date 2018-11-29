@@ -29,6 +29,10 @@
 		9D17FC7E21512E7A00070198 /* CountryList.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D17FC6A21512E7A00070198 /* CountryList.json */; };
 		9D17FC8021512E7A00070198 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D17FC6D21512E7A00070198 /* AppDelegate.swift */; };
 		9D17FC8121512E7A00070198 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D17FC6F21512E7A00070198 /* ViewController.swift */; };
+		9DEF652B21AFDE0200999DAB /* PostStatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEF652921AFDE0200999DAB /* PostStatusTableViewCell.swift */; };
+		9DEF652C21AFDE0200999DAB /* PostStatusTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DEF652A21AFDE0200999DAB /* PostStatusTableViewCell.xib */; };
+		9DEF653021AFE28400999DAB /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEF652F21AFE28400999DAB /* Loader.swift */; };
+		9DEF653521AFEAD000999DAB /* DeviceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEF653421AFEAD000999DAB /* DeviceType.swift */; };
 		9DFDA0992181F48700C3B5AA /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFDA0932181F48600C3B5AA /* RegisterViewController.swift */; };
 		9DFDA09B2181F48700C3B5AA /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = 9DFDA0952181F48600C3B5AA /* Contents.json */; };
 		9DFDA09C2181F48700C3B5AA /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DFDA0962181F48700C3B5AA /* RegisterViewController.xib */; };
@@ -83,6 +87,10 @@
 		9D17FC6D21512E7A00070198 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D17FC6F21512E7A00070198 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9D17FC7021512E7A00070198 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9DEF652921AFDE0200999DAB /* PostStatusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostStatusTableViewCell.swift; sourceTree = "<group>"; };
+		9DEF652A21AFDE0200999DAB /* PostStatusTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostStatusTableViewCell.xib; sourceTree = "<group>"; };
+		9DEF652F21AFE28400999DAB /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
+		9DEF653421AFEAD000999DAB /* DeviceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceType.swift; sourceTree = "<group>"; };
 		9DFDA0932181F48600C3B5AA /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		9DFDA0952181F48600C3B5AA /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
 		9DFDA0962181F48700C3B5AA /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
@@ -195,6 +203,7 @@
 		9D17FC5721512E7A00070198 /* ProjectF02 */ = {
 			isa = PBXGroup;
 			children = (
+				9DEF653121AFEAA000999DAB /* Common */,
 				9D17FC8421512FB000070198 /* Modules */,
 				9D17FC8321512F7300070198 /* SupportFiles */,
 				9D17FC6B21512E7A00070198 /* Class */,
@@ -287,6 +296,54 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		9DEF652821AFBCD600999DAB /* NewsFeedCell */ = {
+			isa = PBXGroup;
+			children = (
+				9DEF652921AFDE0200999DAB /* PostStatusTableViewCell.swift */,
+				9DEF652A21AFDE0200999DAB /* PostStatusTableViewCell.xib */,
+			);
+			path = NewsFeedCell;
+			sourceTree = "<group>";
+		};
+		9DEF652D21AFDFCE00999DAB /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		9DEF652E21AFDFDA00999DAB /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		9DEF653121AFEAA000999DAB /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				9DEF653321AFEAB700999DAB /* DeviceType */,
+				9DEF653221AFEAA800999DAB /* Loader */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		9DEF653221AFEAA800999DAB /* Loader */ = {
+			isa = PBXGroup;
+			children = (
+				9DEF652F21AFE28400999DAB /* Loader.swift */,
+			);
+			path = Loader;
+			sourceTree = "<group>";
+		};
+		9DEF653321AFEAB700999DAB /* DeviceType */ = {
+			isa = PBXGroup;
+			children = (
+				9DEF653421AFEAD000999DAB /* DeviceType.swift */,
+			);
+			path = DeviceType;
+			sourceTree = "<group>";
+		};
 		A4354340217F506E00665276 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -330,20 +387,23 @@
 			path = ChatHomeScreen;
 			sourceTree = "<group>";
 		};
-		A48A64CE21760A00009FCAB5 /* NewFeeds */ = {
+		A48A64CE21760A00009FCAB5 /* NewsFeedScreen */ = {
 			isa = PBXGroup;
 			children = (
+				9DEF652E21AFDFDA00999DAB /* Presenter */,
+				9DEF652D21AFDFCE00999DAB /* Protocols */,
+				9DEF652821AFBCD600999DAB /* NewsFeedCell */,
 				A48A64DA21760B9E009FCAB5 /* NewFeedsViewController.swift */,
 				A48A64DB21760B9E009FCAB5 /* NewFeedsViewController.xib */,
 			);
-			path = NewFeeds;
+			path = NewsFeedScreen;
 			sourceTree = "<group>";
 		};
 		A48A64CF21760AC3009FCAB5 /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				A48A64CD21760991009FCAB5 /* ChatHomeScreen */,
-				A48A64CE21760A00009FCAB5 /* NewFeeds */,
+				A48A64CE21760A00009FCAB5 /* NewsFeedScreen */,
 				A48A64D421760B3B009FCAB5 /* HomeTabBarViewController.swift */,
 			);
 			path = Home;
@@ -439,6 +499,7 @@
 				9D17FC7B21512E7A00070198 /* GoogleService-Info.plist in Resources */,
 				A43A2742216CD85600308BCA /* MyProfileViewController.xib in Resources */,
 				9D17FC7C21512E7A00070198 /* LaunchScreen.storyboard in Resources */,
+				9DEF652C21AFDE0200999DAB /* PostStatusTableViewCell.xib in Resources */,
 				84EE45012157AA5E00AA2716 /* ChatTableViewCell2.xib in Resources */,
 				9DFDA09F2181F5CE00C3B5AA /* DatePickerViewController.xib in Resources */,
 				DB693784218878BF00902C14 /* DescriptionViewController.xib in Resources */,
@@ -582,6 +643,7 @@
 				9DFDA0992181F48700C3B5AA /* RegisterViewController.swift in Sources */,
 				DB693783218878BF00902C14 /* DescriptionViewController.swift in Sources */,
 				9D17FC7721512E7A00070198 /* CountryListViewController.swift in Sources */,
+				9DEF652B21AFDE0200999DAB /* PostStatusTableViewCell.swift in Sources */,
 				A48A64DC21760B9E009FCAB5 /* NewFeedsViewController.swift in Sources */,
 				9D17FC8121512E7A00070198 /* ViewController.swift in Sources */,
 				A48A64D521760B3B009FCAB5 /* HomeTabBarViewController.swift in Sources */,
@@ -591,12 +653,14 @@
 				84EE45042157E43F00AA2716 /* Message.swift in Sources */,
 				9D17FC7221512E7A00070198 /* Extension.swift in Sources */,
 				84EE45002157AA5E00AA2716 /* ChatTableViewCell2.swift in Sources */,
+				9DEF653521AFEAD000999DAB /* DeviceType.swift in Sources */,
 				9D17FC8021512E7A00070198 /* AppDelegate.swift in Sources */,
 				DBF85CC22193F1610096CB49 /* UpStatusViewController.swift in Sources */,
 				84E5A7722153C34B0096E819 /* ChatViewController.swift in Sources */,
 				9DFDA0A02181F5CE00C3B5AA /* DatePickerViewController.swift in Sources */,
 				A43A274B2174D4FA00308BCA /* Comment.swift in Sources */,
 				A43A2747216CD85600308BCA /* MyProfileViewController.swift in Sources */,
+				9DEF653021AFE28400999DAB /* Loader.swift in Sources */,
 				9D17FC7321512E7A00070198 /* CountryDialCode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

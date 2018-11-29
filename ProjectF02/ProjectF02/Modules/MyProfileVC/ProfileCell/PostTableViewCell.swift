@@ -35,8 +35,8 @@ final class PostTableViewCell: UITableViewCell {
     }
     
     func configureView() {
-        viewLikecomment.layer.borderColor = UIColor.black.cgColor
-        viewLikecomment.layer.borderWidth = 0.5
+//        viewLikecomment.layer.borderColor = UIColor.black.cgColor
+//        viewLikecomment.layer.borderWidth = 0.5
          imageAvatar.setRounded()
     }
     

@@ -25,7 +25,7 @@ final class ChatHomeViewController: BaseViewController {
    
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.navigationItem.title = "Message"
-        
+        tabBarController?.navigationItem.rightBarButtonItem = nil
         getChats()
     }
     

@@ -24,6 +24,7 @@ class BaseViewController: UIViewController {
         self.navigationController?.navigationBar.shadowImage = UIImage()
     }
     
+    
 //    func showAlert(title: String, content: String, titleButton: String, action: (() -> Void)? = nil) {
 //        let alertVC = UIAlertController(title: title, message: content, preferredStyle: .alert)
 //        let action = UIAlertAction(title: titleButton, style: .default) { (_) in
@@ -50,4 +51,12 @@ class BaseViewController: UIViewController {
 //        present(actionSheet, animated: true, completion: nil)
 //    }
     
+    
 }
+
+extension BaseViewController : UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print(searchBar.text!)
+    }
+}
+

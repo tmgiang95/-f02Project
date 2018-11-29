@@ -10,9 +10,10 @@ import UIKit
 import FirebaseDatabase
 import FirebaseStorage
 
-final class MyProfileViewController: UIViewController {
+final class MyProfileViewController: BaseViewController {
     
     @IBOutlet weak var profileTableview: UITableView!
+    @IBOutlet weak var bottomContraintView: NSLayoutConstraint!
     
     private var strUrl = ""
     var userinfo: User?
@@ -21,7 +22,7 @@ final class MyProfileViewController: UIViewController {
     private let imagePickerController = UIImagePickerController()
     private var selectImageType: ImageType = .avatar
     private let refreshControl = UIRefreshControl()
-    
+    var searchBar: UISearchBar?
     enum ImageType {
         case avatar, cover
     }
@@ -31,6 +32,7 @@ final class MyProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureKeyboard()
         configureTableview()
         configureImagePicker()
         getPost(self.userinfo?.uid ?? "") { [weak self] (posts) in
@@ -52,9 +54,60 @@ final class MyProfileViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        tabBarController?.navigationItem.title = "My Profile"
+        configureSearchBar()
         super.viewWillAppear(animated)
         profileTableview.reloadData()
+    }
+    
+    private func configureKeyboard() {
+        hideKeyboardWhenTapAround()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
+    }
+    
+    private func configureSearchBar(){
+        let searchBar:UISearchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 30))
+        self.searchBar = searchBar
+        self.searchBar!.placeholder = "Search"
+        let rightNavBarButton = UIBarButtonItem(customView:self.searchBar!)
+        tabBarController?.navigationItem.rightBarButtonItem = rightNavBarButton
+        self.searchBar!.delegate = self
+    }
+    // MARK: - Handle Keyboard Logic
+    private func hideKeyboardWhenTapAround() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        tapGesture.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc private func hideKeyboard() {
+        self.searchBar!.text = ""
+        self.searchBar!.endEditing(true)
+    }
+    
+    @objc private func keyboardWillShow(_ sender: Notification) {
+        guard let userInfo = sender.userInfo,
+            let keyboardFrame = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue else {
+                return
+        }
+        var height = keyboardFrame.cgRectValue.height
+        if #available(iOS 11.0, *),  // Remove safearea bottom in iPhone X
+            let bottomSafeArea = UIApplication.shared.keyWindow?.safeAreaInsets.bottom,
+            (DetectDevice.type == .iPhoneX || DetectDevice.type == .iPhoneXsMax) {
+            height -= bottomSafeArea
+        }
+        bottomContraintView.constant = height
+        UIView.animate(withDuration: 0.1, animations: { [weak self] in
+            self?.view.layoutIfNeeded()
+        })
+        
+    }
+    
+    @objc private func keyboardWillHide(_ sender: Notification) {
+        bottomContraintView.constant = 0
+        UIView.animate(withDuration: 0.1, animations: { [weak self] in
+            self?.view.layoutIfNeeded()
+        })
     }
     
     func fillData(_ user: User) {
