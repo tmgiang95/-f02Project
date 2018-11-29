@@ -17,10 +17,10 @@ final class AvatarTableViewCell: UITableViewCell {
     @IBOutlet weak var postAvatar: UIImageView!
     @IBOutlet weak var descriptionButton: UIButton!
     @IBOutlet weak var imagelibraryButton: UIButton!
-    @IBOutlet weak var friendButton: UIButton!
     @IBOutlet weak var viewAvatar: UIView!
     @IBOutlet weak var viewWhatyouthink: UIView!
-    
+    @IBOutlet weak var addFriendStackView: UIStackView!
+    @IBOutlet weak var editAvatarView: UIView!
     enum ImageType {
         case avatar, cover
     }
@@ -33,7 +33,7 @@ final class AvatarTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        friendButton.isHidden = true
+        addFriendStackView.isHidden = true
         configureView()
     }
     
@@ -43,10 +43,8 @@ final class AvatarTableViewCell: UITableViewCell {
     
     func configureView() {
         avatarImage.setRounded()
-        postAvatar.setRounded()
+        editAvatarView.setViewrounded()
         viewAvatar.setViewrounded()
-        viewWhatyouthink.layer.borderColor = UIColor.black.cgColor
-        viewWhatyouthink.layer.borderWidth = 0.5
         postAvatar.layer.borderColor = UIColor.black.cgColor
         postAvatar.layer.borderWidth = 0.5
         

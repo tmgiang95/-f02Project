@@ -43,29 +43,26 @@ class ViewController: BaseViewController, GIDSignInUIDelegate {
     }
     
     @IBAction func signInAction(_ sender: Any) {
+        Loader.shared.show()
         guard let email = username.text, let pass = password.text else {
             return
         }
         Auth.auth().signIn(withEmail: email, password: pass) { [weak self] (data, error) in
             if let err = error {
                 print("Fail to Sign In with Google Account: ",err)
+                Loader.shared.dismiss()
                 return
             }
             guard let dt = data else {
+                Loader.shared.dismiss()
                 return
             }
-            
-
-
             self?.getUserFromFirebase(dt.user.uid, callback: { (user: User) in
                 let homevc = HomeTabBarViewController()
                 homevc.passHomeData(user)
+                Loader.shared.dismiss()
                 self?.navigationController?.pushViewController(homevc, animated: true)
             })
-//                        let p = Post()
-//                        Database.database().reference().child("Post").child(String(Int(NSDate().timeIntervalSince1970))).setValue(p.toDict())
-           
-            
         }
     }
     

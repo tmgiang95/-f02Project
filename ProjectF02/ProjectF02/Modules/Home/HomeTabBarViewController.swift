@@ -35,8 +35,8 @@ final class HomeTabBarViewController: UITabBarController {
         myProfileVC.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "profile"), selectedImage: nil)
         viewControllers = [newFeedsVC, chatHomeVC, myProfileVC]
         navigationItem.setHidesBackButton(true, animated: false)
+        navigationController?.navigationBar.barTintColor = .colorFromHex("DADADA", alpha: 0.5)
         navigationController?.interactivePopGestureRecognizer?.delegate = nil
-        navigationItem.title = "NewsFeed"
         tabBar.tintColor = .black
     }
 
